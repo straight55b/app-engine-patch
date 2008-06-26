@@ -1,0 +1,9 @@
+#summary How you can help and how to send patches.
+
+First read [GettingTheSource how to get the source].
+
+Subscribe to our [http://groups.google.com/group/app-engine-patch mailing list].
+
+Take a look at the list of [http://code.google.com/p/app-engine-patch/issues/list open issues] or suggest a great new feature yourself.
+
+The easiest way to create a patch is by committing it into your local repository with `hg ci` and exporting it with `hg bundle mypatch.bundle`. Just create a new issue describing your improvement and attach the bundle. You can alternatively use the [http://www.selenic.com/mercurial/wiki/index.cgi/MqExtension patch queues extension] and send a normal diff, but that's more complicated and should be used if you need powerful patch management.
