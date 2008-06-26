@@ -1,4 +1,4 @@
-#summary How to get the source code
+#summary How to get the source code.
 #labels Source
 
 We use [http://www.selenic.com/mercurial/ Mercurial]. Installers are available at http://www.selenic.com/mercurial/wiki/index.cgi/BinaryPackages
