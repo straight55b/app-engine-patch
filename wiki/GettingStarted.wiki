@@ -1,0 +1,52 @@
+#summary Installing and using appenginepatch
+
+= Installing app-engine-patch & ragendja =
+
+By default, we assume the following project structure:
+
+{{{
+project root
+  app.yaml
+  settings.py
+  <project-specific code>
+  common
+    .google_appengine  (only if you use Linux)
+    appenginepatch     (copy the whole main folder)
+    django             (your custom Django checkout)
+    <reusable code>
+}}}
+
+If you're on Linux you can put the App Engine SDK into a folder
+".google_appengine" under "common". Windows and Max OS should work out of the
+box as long as you used the standard installation paths.
+
+If you don't like the project structure you can use your own, but still put
+appenginepatch into a subfolder.
+
+= Using appenginepatch =
+
+Your app.yaml could look like this:
+
+{{{
+application: mycoolapp
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /media
+  static_dir: media
+
+- url: /.*
+  script: common/appenginepatch/main.py
+}}}
+
+This will use the default main.py handler which should work for most projects.
+
+
+= IMPORTANT: Paths =
+
+The default project handler adds "appenginepatch" and "common" to sys.path.
+This means that you don't have to specify "common.xxx" in your imports.
+For example, you can import something from ragendja directly with:
+from ragendja.testutils import ModelTestCase
