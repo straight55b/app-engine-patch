@@ -9,4 +9,4 @@ To download the latest source code execute this command in a terminal:
 
 hg clone http://hg.assembla.com/appenginepatch
 
-Also see [Contributing] on how to send patches.
+If you have an improvement feel free to [Contributing contribute patches].
