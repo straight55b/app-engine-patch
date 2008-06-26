@@ -9,4 +9,4 @@ To download the latest source code execute this command in a terminal:
 
 hg clone http://hg.assembla.com/appenginepatch
 
-The easiest way to create a patch is by committing it with `hg ci` and exporting it with `hg bundle mypatchname`. Just create a new issue describing your improvement and attach the bundle to the issue. You can alternatively use the [http://www.selenic.com/mercurial/wiki/index.cgi/MqExtension patch queues extension] and send a normal diff, but that's much more complicated (also more powerful, though).
+Also see [Contributing] on how to send patches.
