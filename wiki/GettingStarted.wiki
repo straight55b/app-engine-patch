@@ -50,3 +50,15 @@ The default project handler adds "appenginepatch" and "common" to sys.path.
 This means that you don't have to specify "common.xxx" in your imports.
 For example, you can import something from ragendja directly with:
 from ragendja.testutils import ModelTestCase
+
+= Porting existing Django applications =
+
+If you've followed the instructions above most of your Django code should just work.
+
+== settings.py ==
+
+In your settings just don't specify any auth backend, session store, and cache backend. Appenginepatch automatically installs a datastore-based auth backend and session store and a memcache-based cache backend (utilizing Google's memcache implementation). Also, set DATABASE_ENGINE = '' and remove all other database settings.
+
+== Models ==
+
+Use App Engine models (google.appengine.ext.db.Model) instead of Django models. To be continued...
