@@ -55,16 +55,6 @@ For example, you can import something from ragendja directly with:
 
 If you've followed the instructions above most of your Django code should just work. Still, you should know about the following details.
 
-== Authentication and the User model ==
-
-This area has the most significant changes. You can continue to import Django's User model, but the fields have slightly changed. We've removed the username field because many websites only need an email address to identify a user. From the user's point of view this also has the advantage that you don't need to invent a username when registering an account and you also can't forget your username. If you seriously need usernames then you can add such a field to your own profile.
-
-The `get_profile()` function isn't supported, anymore. Instead, you should derive your profile from one of the user classes in `ragendja.auth.models`. `UserTraits` provides all fields except for an email address while User adds an email address and the `email_user()` function known from Django. In other words, apart from the username it's the same as Django's `User` class. Then, you should specify your profile via `AUTH_PROFILE_MODULE` in `settings.py`. This has the effect that whenever you import User from `django.contrib.auth.models` you automatically get your profile class. Note that you can't import `django.contrib.auth` from the module that defines your user profile. If you don't specify a profile class then ragendja's `User` is used by default. Note, it's best practice to call your profile class "User" because then you can guarantee that the entity name in the datastore is the same in all projects (that's especially useful if you use `Key.from_path()`).
-
-We've also added a new `is_banned` boolean field, so you can distinguish between users that were banned and users who are not active because they haven't completed the registration process.
-
-Apart from that, you can continue to use the functions in `django.contrib.auth` and custom authentication backends are supported, too.
-
 == settings.py ==
 
 All you need to do is set `DATABASE_ENGINE = ''` and remove all other database settings (host, username, password, etc.).
