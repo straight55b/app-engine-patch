@@ -55,11 +55,15 @@ For example, you can import something from ragendja directly with:
 
 If you've followed the instructions above most of your Django code should just work. Still, you should know about the following details.
 
+== User model ==
+
+Due to the way the datastore works there is a little problem with properties that must be unique. Our default `User` class does provide a `username` property, but you have to additionally assign a `key_name` and create the user within a transaction that calls `get()` to ensure that the username isn't already taken and only then add the user to the datastore (within the same transaction, of course). This has the problem that username changes become very complicated because an entity's key can't be changed.
+
+Alternatively, you can give up guaranteed uniqueness and mess around with `filter()` to ensure that the username isn't taken. This might be sufficient for most applications.
+
 == settings.py ==
 
 All you need to do is set `DATABASE_ENGINE = ''` and remove all other database settings (host, username, password, etc.).
-
-If you have a custom user profile you can set `AUTH_PROFILE_MODULE` as described above.
 
 The cache backend configuration is ignored and always set to Google's memcache API.
 
