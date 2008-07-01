@@ -1,6 +1,8 @@
 #summary Installing and using appenginepatch
 
-= Installing app-engine-patch & ragendja =
+Important: You have to use at least Django 0.97 (trunk).
+
+= Installing appenginepatch =
 
 By default, we assume the following project structure:
 
