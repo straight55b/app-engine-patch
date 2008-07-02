@@ -1,4 +1,5 @@
 #summary How you can help and how to send patches.
+#labels Featured
 
 First read [GettingTheSource how to get the source].
 
