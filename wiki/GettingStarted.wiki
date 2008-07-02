@@ -1,4 +1,5 @@
 #summary Installing and using appenginepatch
+#labels Featured
 
 Important: You have to use at least Django 0.97 (trunk).
 
