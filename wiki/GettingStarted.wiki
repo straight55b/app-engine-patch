@@ -5,26 +5,24 @@ Important: You have to use at least Django 0.97 (trunk).
 
 = Installing appenginepatch =
 
-By default, we assume the following project structure:
+Use the following project structure:
 
 {{{
 project root
   app.yaml
   settings.py
-  <project-specific code>
+  manage.py    (copy from appenginepatch)
   common
     .google_appengine  (only if you use Linux)
     appenginepatch     (copy the whole main folder)
     django             (your custom Django checkout)
-    <reusable code>
 }}}
+
+Don't forget to copy manage.py from the appenginepatch folder into your project root. You can only execute it from your project's root folder.
 
 If you're on Linux you can put the App Engine SDK into a folder
 ".google_appengine" under "common". Windows and Max OS should work out of the
 box as long as you used the standard installation paths.
-
-If you don't like the project structure you can use your own, but still put
-appenginepatch into a subfolder.
 
 = Using appenginepatch =
 
@@ -47,7 +45,7 @@ handlers:
 This will use the default main.py handler which should work for most projects.
 
 
-= IMPORTANT: Paths =
+== IMPORTANT: Paths ==
 
 The default project handler adds "appenginepatch" and "common" to sys.path.
 This means that you don't have to specify "common.xxx" in your imports.
@@ -58,34 +56,22 @@ For example, you can import something from ragendja directly with:
 
 If you've followed the instructions above most of your Django code should just work. Still, you should know about the following details.
 
+== settings.py ==
+
+All you need to do is set `DATABASE_ENGINE = 'appengine'` and remove all other database settings (host, username, password, etc.).
+
+The cache backend configuration is ignored and always set to Google's memcache API.
+
+The default (database) auth and session backends automatically get replaced with versions that use the App Engine datastore, so you don't need to change any of your settings. Alternatively, you can specify your own backends as long as they don't depend on unsupported APIs (unsupported: Django models, SQL, sockets).
+
+Email server settings are only used in the development environment. On the production server you automatically use Google's mail backend.
+
 == User model ==
 
 Due to the way the datastore works there is a little problem with properties that must be unique. Our default `User` class does provide a `username` property, but you have to additionally assign a `key_name` and create the user within a transaction that calls `get()` to ensure that the username isn't already taken and only then add the user to the datastore (within the same transaction, of course). This has the problem that username changes become very complicated because an entity's key can't be changed.
 
 Alternatively, you can give up guaranteed uniqueness and mess around with `filter()` to ensure that the username isn't taken. This might be sufficient for most applications.
 
-== settings.py ==
-
-All you need to do is set `DATABASE_ENGINE = ''` and remove all other database settings (host, username, password, etc.).
-
-The cache backend configuration is ignored and always set to Google's memcache API.
-
-The default (database) auth and session backends automatically get replaced with versions that use the App Engine datastore, so you don't need to change any of your settings. Alternatively, you can specify your own backends as long as they don't depend on unsupported APIs (unsupported: Django models, SQL, sockets).
-
 == Models ==
 
 We only support [http://code.google.com/appengine/docs/datastore/ App Engine models] (`google.appengine.ext.db.Model`). You have to port all Django Model-based code. There are quite a few conceptual differences, especially with transactions and queries. Model definitions look similar, though. Read the [http://code.google.com/appengine/docs/datastore/ datastore documentation] for more information.
-
-== Sending emails ==
-
-Read the [http://code.google.com/appengine/docs/thedevwebserver.html dev_appserver documentation] to find out how to configure email support in the development environment. On the production server no extra configuration is necessary. Note that Django's email server settings (host, username, password, and port) are ignored. You still have to specify a sender address in the settings (`DEFAULT_FROM_EMAIL` and `SERVER_EMAIL`), though.
-
-== Running the development webserver ==
-
-Currently, we don't support manage.py, so the only way to run the development server is by executing the following command in your project's root folder (the one that contains `app.yaml`):
-
-{{{
-dev_appserver.py .
-}}}
-
-Don't forget the full-stop at the end of the command.
