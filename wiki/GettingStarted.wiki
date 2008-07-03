@@ -24,8 +24,6 @@ If you're on Linux you can put the App Engine SDK into a folder
 ".google_appengine" under "common". Windows and Max OS should work out of the
 box as long as you use the standard installation paths.
 
-= Using appenginepatch =
-
 Your app.yaml could look like this:
 
 {{{
@@ -52,7 +50,7 @@ This means that you don't have to specify "common.xxx" in your imports.
 For example, you can import something from ragendja directly with:
 `from ragendja.testutils import ModelTestCase`
 
-= Porting existing Django applications =
+= Differences compared to plain Django =
 
 If you've followed the instructions above most of your Django code should just work. Still, you should know about the following details.
 
@@ -74,4 +72,4 @@ Alternatively, you can give up guaranteed uniqueness and mess around with `filte
 
 == Models ==
 
-We only support [http://code.google.com/appengine/docs/datastore/ App Engine models] (`google.appengine.ext.db.Model`). You have to port all Django Model-based code. There are quite a few conceptual differences, especially with transactions and queries. Model definitions look similar, though. Read the [http://code.google.com/appengine/docs/datastore/ datastore documentation] for more information.
+We only support [http://code.google.com/appengine/docs/datastore/ App Engine models] (`google.appengine.ext.db.Model`). You have to port all Django Model-based code. There are quite a few conceptual differences, especially with transactions and queries, so we can't really emulate Django's behavior in this area. Model definitions look similar, though. Read the [http://code.google.com/appengine/docs/datastore/ datastore documentation] for more information.
