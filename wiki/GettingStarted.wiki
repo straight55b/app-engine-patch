@@ -22,7 +22,7 @@ Don't forget to copy manage.py from the appenginepatch folder into your project 
 
 If you're on Linux you can put the App Engine SDK into a folder
 ".google_appengine" under "common". Windows and Max OS should work out of the
-box as long as you used the standard installation paths.
+box as long as you use the standard installation paths.
 
 = Using appenginepatch =
 
