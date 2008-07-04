@@ -58,6 +58,10 @@ If you've followed the instructions above most of your Django code should just w
 
 All you need to do is set `DATABASE_ENGINE = 'appengine'` and remove all other database settings (host, username, password, etc.).
 
+The following `MIDDLEWARE_CLASSES` are not supported:
+ * `django.middleware.doc.XViewMiddleware` (App Engine limits the HTTP headers you can set)
+ * `django.middleware.transaction.TransactionMiddleware` (due to conceptual differences this is impossible to implement in App Engine)
+
 The cache backend configuration is ignored and always set to Google's memcache API.
 
 The default (database) auth and session backends automatically get replaced with versions that use the App Engine datastore, so you don't need to change any of your settings. Alternatively, you can specify your own backends as long as they don't depend on unsupported APIs (unsupported: Django models, SQL, sockets).
@@ -72,4 +76,4 @@ Alternatively, you can give up guaranteed uniqueness and mess around with `filte
 
 == Models ==
 
-We only support [http://code.google.com/appengine/docs/datastore/ App Engine models] (`google.appengine.ext.db.Model`). You have to port all Django Model-based code. There are quite a few conceptual differences, especially with transactions and queries, so we can't really emulate Django's behavior in this area. Model definitions look similar, though. Read the [http://code.google.com/appengine/docs/datastore/ datastore documentation] for more information.
+We only support [http://code.google.com/appengine/docs/datastore/ App Engine models] (`from google.appengine.ext.db import Model`). You have to port all Django Model-based code. There are quite a few conceptual differences, especially with transactions, unique properties, and queries, so we can't really emulate Django's behavior in this area. App Engine has the concept of keys which provide the most efficient way to access an entity. The only way to make use of them is to rewrite your model code. Only model definitions look similar. Read the [http://code.google.com/appengine/docs/datastore/ datastore documentation] for more information.
