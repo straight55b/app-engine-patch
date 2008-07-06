@@ -68,6 +68,10 @@ The default (database) auth and session backends automatically get replaced with
 
 Email server settings are only used in the development environment. On the production server you automatically use Google's mail backend. Note that currently Google's SDK doesn't work with gmail accounts and other servers that require TLS. This is not our mistake and we've already filed a bug report.
 
+== manage.py ==
+
+Django's `manage.py` won't work. You have to copy our version from the "appenginepatch" folder.
+
 == User model ==
 
 Due to the way the datastore works there is a little problem with properties that must be unique. Our default `User` class does provide a `username` property, but you have to additionally assign a `key_name` and create the user within a transaction that calls `get()` to ensure that the username isn't already taken and only then add the user to the datastore (within the same transaction, of course). This has the problem that username changes become very complicated because an entity's key can't be changed.
