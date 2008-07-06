@@ -1,0 +1,37 @@
+#summary How to use the integrated profiler.
+
+*NOTE:* This feature is only available in the [GettingTheSource repository].
+
+= Enabling the profiler =
+
+In your `settings.py` just add the following:
+
+{{{
+ENABLE_PROFILER = True
+}}}
+
+= Tuning the results =
+
+You can restrict the profile to certain functions by specifying a regular expression:
+
+{{{
+PROFILE_PATTERN = '.*token.*' # matches all function names containing 'token'
+}}}
+
+The maximum number of functions can be set with:
+
+{{{
+MAX_PROFILE_RESULTS = 160 # default is 80
+}}}
+
+You can change the sorting criteria with:
+
+{{{
+SORT_PROFILE_RESULTS_BY = 'cumulative' # default is 'time'
+}}}
+
+It's possible to additionally get the callers and callees profile:
+
+{{{
+EXTRA_PROFILE_OUTPUT = 'callers' # or 'callees' (you can also provide a tuple with multiple values)
+}}}
