@@ -56,7 +56,7 @@ If you've followed the instructions above most of your Django code should just w
 
 == settings.py ==
 
-All you need to do is set `DATABASE_ENGINE = 'appengine'` and remove all other database settings (host, username, password, etc.).
+All you need to do is add `'appenginepatcher'` to your `INSTALLED_APPS`, set `DATABASE_ENGINE = 'appengine'`, and remove all other database settings (host, username, password, etc.).
 
 The following `MIDDLEWARE_CLASSES` are not supported:
  * `django.middleware.doc.XViewMiddleware` (App Engine limits the HTTP headers you can set)
