@@ -1,0 +1,15 @@
+= Upcoming release (0.4) =
+What's planned:
+ * support for all generic views
+ * [Profiling integrated profiler] (can be enabled in settings.py)
+
+= Release 0.3.1 (2008-07-03) =
+What's new:
+ * fixed bugs that prevented appenginepatch from working on production server
+
+= Release 0.3 (2008-07-03) =
+What's new:
+ * manage.py support
+ * compatibility fixes in User model
+
+*IMPORTANT:* Make sure that you use `DATABASE_ENGINE = 'appengine'` and add `'appenginepatcher'` to your `INSTALLED_APPS`.
