@@ -10,6 +10,8 @@ ENABLE_PROFILER = True
 
 = Tuning the results =
 
+The profiler is configured via `settings.py`.
+
 You can restrict the profile to certain functions by specifying a regular expression:
 
 {{{
