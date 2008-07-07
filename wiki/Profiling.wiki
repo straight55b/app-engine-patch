@@ -1,7 +1,5 @@
 #summary How to use the integrated profiler.
 
-*NOTE:* This feature is only available in the [GettingTheSource repository].
-
 = Enabling the profiler =
 
 In your `settings.py` just add the following:
