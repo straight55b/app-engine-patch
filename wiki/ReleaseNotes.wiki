@@ -7,16 +7,13 @@ What's planned:
  * fixed datastore access `manage.py` commands
 
 = Release 0.3.2 (2008-07-07) =
-What's new:
  * fixed `manage.py test`
  * [Profiling integrated profiler] (can be enabled in settings.py)
 
 = Release 0.3.1 (2008-07-03) =
-What's new:
  * fixed bugs that prevented appenginepatch from working on production server
 
 = Release 0.3 (2008-07-03) =
-What's new:
  * manage.py support
  * compatibility fixes in User model
 
