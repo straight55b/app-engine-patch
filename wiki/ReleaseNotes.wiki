@@ -4,7 +4,7 @@ What's planned:
  * support for all generic views
 
 = Release 0.3.3 (2008-07-15) =
- * fixed datastore access `manage.py` commands
+ * fixed datastore access for `manage.py` commands
 
 = Release 0.3.2 (2008-07-07) =
  * fixed `manage.py test`
