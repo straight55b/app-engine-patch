@@ -1,7 +1,7 @@
 #labels Featured
 = Upcoming release (0.4?) =
 What's planned:
- * support for all generic views
+ * support for all or most generic views (maybe date_based can't be supported because GQL lacks features that are required for an efficient implementation)
 
 = Upcoming release (0.3.4) =
 What's planned:
