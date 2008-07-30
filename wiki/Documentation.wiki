@@ -4,6 +4,185 @@
  * [GettingStarted Getting started]
  * [Profiling Using the profiler]
 
+
 = ragendja =
 
-*TODO*
+
+== ragendja.apputils ==
+
+`import_module(module_name)` loads and returns a module.
+
+`import_package(package_name)` loads all modules that are part of a package and returns them as a list.
+
+`list_modules(package_name)` lists all module names of a package.
+
+`get_app_modules(package_name)` loads a certain module/package in all apps and maps the app
+name to a list of its respective modules.
+
+`get_app_dirs(dir_name)` collects all apps that have a certain directory and maps the
+app name to its respective directory.
+
+
+== ragendja.auth.models ==
+
+This module provides base models for our custom user classes support:
+ * UserTraits has only a few basic user fields, but no username
+ * EmailUser also adds an email field and email_user(), but no username
+ * User is the same as Django's User class; it includes a username
+The password field is not required because with the new authentication methods
+like OpenID and InfoCards you might not need it.
+
+Instead of using `AUTH_PROFILE_MODULE` you can derive your profile from one of the user classes in `ragendja.auth.models`. Then, specify your profile module via `AUTH_USER_MODULE` in `settings.py`. This should only be the module name (e.g., `'myapp.models'` and the class MUST be named `User`. The result is that whenever you import `User` from `django.contrib.auth.models` you automatically get your profile class and thus don't need to use the ugly get_profile() function to switch around between two classes. Note that you can't import `django.contrib.auth` from the module that defines your `User` class. If you don't specify a profile class then ragendja's `User` is used by default.
+
+We've also added a new `is_banned` boolean field, so you can distinguish between users who were banned and users who are not active because they haven't completed the registration process.
+
+
+== ragendja.dbutils ==
+
+=== @transaction ===
+
+`@transaction` is a simple wrapper for db.run_in_transaction. It allows for
+writing more correct code because the caller doesn't have to care about
+calling db.run_in_transaction, manually (he has to know that the function runs
+in a transaction, though).
+
+*Example:*
+Instead of writing `db.run_in_transaction` all the time:
+{{{
+def do_something(...):
+    ...
+
+def view1(request, ...):
+    ...
+    db.run_in_transaction(do_something, ...)
+    ...
+
+def view2(request, ...):
+    ...
+    db.run_in_transaction(do_something, ...)
+    ...
+
+}}}
+You can just write this:
+{{{
+@transaction
+def do_something(...):
+    ...
+
+def view1(request, ...):
+    ...
+    do_something(...)
+    ...
+
+def view2(request, ...):
+    ...
+    do_something(...)
+    ...
+}}}
+
+=== db_add(key_name, **attrs) ===
+
+This function adds an entity to the datastore if it doesn't exist. Otherwise it returns None.
+
+=== get_object_or_404(model, ...) ===
+
+This is similar to Django's shortcut, but allows for using a `key_name` or `id` keyword argument or a key object/string to retrieve a specific object. Alternatively, you can specify a list of filter rules:
+{{{
+item1 = get_object_or_404(MyModel, key)
+item2 = get_object_or_404(MyModel, key_name='somekey')
+item3 = get_object_or_404(MyModel, 'title =', 'ABC', 'counter >', 5)
+}}}
+
+=== get_list_or_404(model, ...) ===
+
+The `get_list_or_404()` shortcut only expects a list of filter rules and works similar to Django's version.
+
+
+== ragendja.middleware ==
+
+=== LoginRequiredMiddleware ===
+
+This saves you from typing `@login_required` all the time.
+
+*Example:*
+{{{
+MIDDLEWARE_CLASSES = (
+    ...,
+    'ragendja.middleware.LoginRequiredMiddleware',
+)
+LOGIN_REQUIRED_PREFIXES = (
+    '/some/path/',
+    '/other/path/',
+)
+NO_LOGIN_REQUIRED_PREFIXES = (
+    '/some/path/without_login/',
+)
+}}}
+With this you require login for all paths that start with `'/other/path'` or `'/some/path/'` except for `'/some/path/without_login'`. IOW, `NO_LOGIN_REQUIRED_PREFIXES` overrides `LOGIN_REQUIRED_PREFIXES`.
+
+
+== ragendja.template ==
+
+=== app_prefixed_loader ===
+
+The template loader `app_prefixed_loader` allows for DRY separation of app
+templates. For example, you can render the template `<app>/templates/bla.html` by loading
+`render_to_response(request, '<app>/bla.html')`. There's no need for prefixing app templates (`'<app>_bla.html'`) or creating subfolders (`'<app>/templates/<app>/bla.html'`). For maximum compatibility you should use the following order in your `settings.py`:
+{{{
+TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.load_template_source',
+    'ragendja.template.app_prefixed_loader',
+    'django.template.loaders.app_directories.load_template_source',
+)
+}}}
+
+=== Global template tags ===
+
+You can add global template tags by specifying the list of modules in
+a `GLOBALTAGS` variable in `settings.py` like in this example:
+{{{
+GLOBALTAGS = (
+    'ragendja.templateutils',
+)
+}}}
+
+=== render_to_response(request, template, data, mimetype) ===
+
+This is an improved `render_to_response()` that uses `RequestContext` in order to support context processors. There's also a `render_to_string()` function that supports context processors. The `data` and `mimetype` arguments are optional.
+
+=== JSONResponse(data) ===
+
+This converts a Python object (`data`) into a JSON string and creates an HttpResponse with the correct MIME type.
+
+
+== ragendja.templateutils ==
+
+=== register ===
+
+This is a context_processor that adds the following filters to your templates:
+
+ * `encodejs` converts Python => JSON
+ * `decodejs` converts JSON => Python
+
+
+== ragendja.testutils ==
+
+=== ModelTestCase ===
+
+This provides an easy way to validate the contents of the DB. You have to specify the model to validate against with the `model` attribute. From then on you can call `validate_state()` to check if a certain function modifies the DB contents correctly:
+
+*Example:* The following validates that the table contains exactly two rows and that their 'a', 'b', and 'c' attributes are 1, 2, 3 for one row and 11, 12, 13 for the other row. The order of the rows doesn't matter.
+{{{
+class MyTestCase(ModelTestCase):
+    model = MyModel
+
+    def test_valid_function():
+        # Do something that changes the DB
+        change_something()
+        # Now check if that function worked correctly
+        self.validate_state(
+            ('a', 'b', 'c'),
+            (1, 2, 3),
+            (11, 12, 13),
+        )
+}}}
