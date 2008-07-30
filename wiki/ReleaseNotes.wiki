@@ -3,7 +3,7 @@
 What's planned:
  * support for all or most generic views (maybe date_based can't be supported because GQL lacks features that are required for an efficient implementation)
 
-= Upcoming release (0.3.4) =
+= Upcoming release (0.3.4?) =
 What's planned:
  * Linux: added shebang to `manage.py`, so you can run it as an executable
  * Windows: the "Program Files" folder and system drive get chosen correctly
