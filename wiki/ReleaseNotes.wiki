@@ -8,8 +8,13 @@ What's planned:
  * Linux: added shebang to `manage.py`, so you can run it as an executable
  * Windows: the "Program Files" folder and system drive get chosen correctly
  * fixed httplib emulation (e.g., needed by boto)
+ * removed custom cache backend
 
-*IMPORTANT:* This release will only be compatible with Django 1.0alpha and above.
+*IMPORTANT:* This release will only be compatible with Django 1.0alpha and above. You have to use Django's memcached backend explicitly by adding this to your settings:
+{{{
+CACHE_BACKEND = 'memcached://'
+}}}
+The GettingStarted article will be updated with more details.
 
 = Release 0.3.3 (2008-07-15) =
  * fixed datastore access for `manage.py` commands
