@@ -9,6 +9,7 @@ What's planned:
  * Windows: the "Program Files" folder and system drive get chosen correctly
  * fixed httplib emulation (e.g., needed by boto)
  * removed custom cache backend
+ * added replacements for `get_object_or_404` and `get_list_or_404` shortcuts
 
 *IMPORTANT:* This release will only be compatible with Django 1.0alpha and above. You have to use Django's memcached backend explicitly by adding this to your settings:
 {{{
