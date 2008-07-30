@@ -58,7 +58,14 @@ If you've followed the instructions above most of your Django code should just w
 
 All you need to do is add `'appenginepatcher'` to your `INSTALLED_APPS`, set `DATABASE_ENGINE = 'appengine'`, and remove all other database settings (host, username, password, etc.).
 
-The cache backend configuration is ignored and always set to Google's memcache API.
+The cache backend must be enabled with
+{{{
+CACHE_BACKEND = 'memcached://'
+}}}
+Unfortunately, this doesn't allow for adding items with infinite timeout. The only way to achieve this is to set a default timeout:
+{{{
+CACHE_BACKEND = 'memcached://?timeout=0'
+}}}
 
 The default (database) auth and session backends automatically get replaced with versions that use the App Engine datastore, so you don't need to change any of your settings. Alternatively, you can specify your own backends as long as they don't depend on unsupported APIs (unsupported: Django models, SQL, sockets).
 
