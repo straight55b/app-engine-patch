@@ -15,7 +15,7 @@ What's planned:
 {{{
 CACHE_BACKEND = 'memcached://'
 }}}
-The GettingStarted article will be updated with more details.
+The GettingStarted article has been updated with more details.
 
 = Release 0.3.3 (2008-07-15) =
  * fixed datastore access for `manage.py` commands
