@@ -97,14 +97,3 @@ We only support [http://code.google.com/appengine/docs/datastore/ App Engine mod
 == Generic views ==
 
 Currently, only `object_list` is supported. We plan to support all generic views in a future release.
-
-== Shortcuts (only in repository) ==
-
-The `get_object_or_404()` shortcut allows for using `key_name` or `id` keyword arguments, a key object/string, or you can specify a list of filter rules:
-{{{
-item1 = get_object_or_404(MyModel, some_key)
-item2 = get_object_or_404(MyModel, key_name='somekey')
-item3 = get_object_or_404(MyModel, 'title =', 'ABC', 'counter >', 5)
-}}}
-
-The `get_list_or_404()` shortcut only expects a list of filter rules.
