@@ -8,7 +8,8 @@ What's planned:
  * Windows: the "Program Files" folder and system drive get chosen correctly
  * fixed httplib emulation (e.g., needed by boto)
  * removed custom cache backend
- * added `get_object_or_404` and `get_list_or_404` replacements to ragendja.dbutils
+ * added `get_object_or_404()` and `get_list_or_404()` replacements to ragendja.dbutils
+ * added `db_add()` function to ragendja.dbutils (only adds an entity if it didn't exist, yet)
 
 *IMPORTANT:* This release is only compatible with Django 1.0alpha and above. You now have to use Django's memcached backend explicitly by adding this to your settings:
 {{{
