@@ -3,19 +3,20 @@
 What's planned:
  * support for all or most generic views (maybe date_based can't be supported because GQL lacks features that are required for an efficient implementation)
 
-= Upcoming release (0.3.4?) =
-What's planned:
+= Release 0.3.4 (2008-07-31) =
  * Linux: added shebang to `manage.py`, so you can run it as an executable
  * Windows: the "Program Files" folder and system drive get chosen correctly
  * fixed httplib emulation (e.g., needed by boto)
  * removed custom cache backend
- * added replacements for `get_object_or_404` and `get_list_or_404` shortcuts
+ * added `get_object_or_404` and `get_list_or_404` replacements to ragendja.dbutils
 
-*IMPORTANT:* This release will only be compatible with Django 1.0alpha and above. You have to use Django's memcached backend explicitly by adding this to your settings:
+*IMPORTANT:* This release is only compatible with Django 1.0alpha and above. You now have to use Django's memcached backend explicitly by adding this to your settings:
 {{{
 CACHE_BACKEND = 'memcached://'
 }}}
 The GettingStarted article has been updated with more details.
+
+Also, we've updated the [Documentation documentation] a little bit, so please take a look!
 
 = Release 0.3.3 (2008-07-15) =
  * fixed datastore access for `manage.py` commands
