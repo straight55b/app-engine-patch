@@ -65,13 +65,24 @@ def view2(request, ...):
     ...
 }}}
 
-=== db_add(key_name, **attrs) ===
+=== db_add(model, key_name, ...attrs...) ===
 
-This function adds an entity to the datastore if it doesn't exist. Otherwise it returns None.
+*Only in development version!*
 
-=== get_object_or_404(model, ...) ===
+This function adds an entity to the datastore if it doesn't exist. Otherwise it returns None. Note that this function automatically runs in a transaction.
 
-*Only development version!*
+*Example:*
+{{{
+item = db_add(MyModel, 'some_key', title='hey', index=4)
+if not item:
+    # entity with that key already exists!
+else:
+    # we've added a new entity
+}}}
+
+=== get_object_or_404(model, ...filters...) ===
+
+*Only in development version!*
 
 This is similar to Django's shortcut, but allows for using a `key_name` or `id` keyword argument or a key object/string to retrieve a specific object. Alternatively, you can specify a list of filter rules:
 {{{
@@ -80,9 +91,9 @@ item2 = get_object_or_404(MyModel, key_name='somekey')
 item3 = get_object_or_404(MyModel, 'title =', 'ABC', 'counter >', 5)
 }}}
 
-=== get_list_or_404(model, ...) ===
+=== get_list_or_404(model, ...filters...) ===
 
-*Only development version!*
+*Only in development version!*
 
 The `get_list_or_404()` shortcut only expects a list of filter rules and works similar to Django's version.
 
