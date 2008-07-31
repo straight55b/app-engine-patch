@@ -8,31 +8,16 @@
 = ragendja =
 
 
-== ragendja.apputils ==
-
-`import_module(module_name)` loads and returns a module.
-
-`import_package(package_name)` loads all modules that are part of a package and returns them as a list.
-
-`list_modules(package_name)` lists all module names of a package.
-
-`get_app_modules(package_name)` loads a certain module/package in all apps and maps the app
-name to a list of its respective modules.
-
-`get_app_dirs(dir_name)` collects all apps that have a certain directory and maps the
-app name to its respective directory.
-
-
 == ragendja.auth.models ==
 
-This module provides base models for our custom user classes support:
- * UserTraits has only a few basic user fields, but no username
- * EmailUser also adds an email field and email_user(), but no username
- * User is the same as Django's User class; it includes a username
+This module provides base models for customizing your User class:
+ * UserTraits has only a few basic user fields (see the source for more details), but no username.
+ * EmailUser also adds an email field and email_user(), but no username.
+ * User is the same as Django's User class; it includes a username.
 The password field is not required because with the new authentication methods
 like OpenID and InfoCards you might not need it.
 
-Instead of using `AUTH_PROFILE_MODULE` you can derive your profile from one of the user classes in `ragendja.auth.models`. Then, specify your profile module via `AUTH_USER_MODULE` in `settings.py`. This should only be the module name (e.g., `'myapp.models'` and the class MUST be named `User`. The result is that whenever you import `User` from `django.contrib.auth.models` you automatically get your profile class and thus don't need to use the ugly get_profile() function to switch around between two classes. Note that you can't import `django.contrib.auth` from the module that defines your `User` class. If you don't specify a profile class then ragendja's `User` is used by default.
+Instead of using `AUTH_PROFILE_MODULE` you can derive your profile from one of the user classes in `ragendja.auth.models`. Then, specify your profile module via `AUTH_USER_MODULE` in `settings.py`. This should only be the module name (e.g., `'myapp.models'` and the class MUST be named `User`. The result is that whenever you import `User` from `django.contrib.auth.models` you automatically get your custom user class and thus don't need to use the ugly get_profile() function to switch around between two models. Note that you can't import `django.contrib.auth` from the module that defines your `User` class. If you don't specify a user class then ragendja's `User` is used by default.
 
 We've also added a new `is_banned` boolean field, so you can distinguish between users who were banned and users who are not active because they haven't completed the registration process.
 
@@ -142,11 +127,11 @@ TEMPLATE_LOADERS = (
 
 === Global template tags ===
 
-You can add global template tags by specifying the list of modules in
-a `GLOBALTAGS` variable in `settings.py` like in this example:
+You can add global template tags by specifying the list of modules in a `GLOBALTAGS` variable in `settings.py` like in this example:
 {{{
 GLOBALTAGS = (
     'ragendja.templateutils',
+    'myapp.templatetags.sometag',
 )
 }}}
 
