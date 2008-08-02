@@ -1,7 +1,7 @@
 #summary Installing and using appenginepatch
 #labels Featured
 
-Important: You have to use at least Django 0.97 (trunk).
+Important: You have to use at least Django 1.0alpha (trunk should work, too).
 
 = Installing appenginepatch =
 
