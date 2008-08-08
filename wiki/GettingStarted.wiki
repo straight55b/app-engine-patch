@@ -96,4 +96,4 @@ We only support [http://code.google.com/appengine/docs/datastore/ App Engine mod
 
 == Generic views ==
 
-Currently, only `object_list` is supported. We plan to support all generic views in a future release.
+Currently, only `object_list` and 'simple' are supported. We plan to support all generic views in a future release. Note that the `object_detail` generic view's `object_id` parameter may be a number to indicate a key id or a string to indicate a `key_name` or `str(key)` (it tries to `get()` in that order).
