@@ -42,6 +42,14 @@ handlers:
 
 This will use the default main.py handler which should work for most projects.
 
+In order to reduce the number of files you can delete the following Django folders:
+ * django/bin
+ * django/contrib/admin
+ * django/contrib/comments
+ * django/contrib/databrowse
+ * django/contrib/flatpages
+This should work around GAE's 1000 files limit.
+
 
 == IMPORTANT: Paths ==
 
