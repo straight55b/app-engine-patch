@@ -9,10 +9,12 @@ Use the following project structure:
 
 {{{
 project root
+  __init__.py
   app.yaml
   settings.py
   manage.py    (copy from appenginepatch)
   common
+    __init__.py
     .google_appengine  (only if you use Linux)
     appenginepatch     (copy the whole main folder)
     django             (your custom Django checkout)
@@ -58,13 +60,15 @@ This means that you don't have to specify "common.xxx" in your imports.
 For example, you can import something from ragendja directly with:
 `from ragendja.testutils import ModelTestCase`
 
+Don't import `projectname.appname`, but import `appname` directly. This also has the advantage that your code becomes more reusable.
+
 = Differences compared to plain Django =
 
 If you've followed the instructions above most of your Django code should just work. Still, you should know about the following details.
 
 == settings.py ==
 
-All you need to do is add `'appenginepatcher'` to your `INSTALLED_APPS`, set `DATABASE_ENGINE = 'appengine'`, and remove all other database settings (host, username, password, etc.).
+All you need to do is add `'appenginepatcher'` to your `INSTALLED_APPS`, set `ROOT_URLCONF = 'urls'`, set `DATABASE_ENGINE = 'appengine'`, and remove all other database settings (host, username, password, etc.).
 
 The cache backend must be enabled with
 {{{
