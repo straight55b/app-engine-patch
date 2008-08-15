@@ -50,6 +50,7 @@ In order to reduce the number of files you can delete the following Django folde
  * django/contrib/comments
  * django/contrib/databrowse
  * django/contrib/flatpages
+ * django/contrib/gis
 This should work around GAE's 1000 files limit.
 
 
@@ -89,6 +90,7 @@ At least the following apps are not supported because they depend on Django's Mo
  * `django.contrib.contenttypes`
  * `django.contrib.databrowse`
  * `django.contrib.flatpages`
+ * `django.contrib.gis`
  * `django.contrib.redirects`
  * `django.contrib.sites`
 
