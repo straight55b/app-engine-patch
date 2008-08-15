@@ -1,7 +1,22 @@
 #labels Featured
-= Upcoming release (0.4?) =
+= Upcoming release (1.0?) =
 What's planned:
- * support for all or most generic views (maybe date_based can't be supported because GQL lacks features that are required for an efficient implementation)
+ * support for all `django.contrib.auth` forms and views
+ * Django 1.0 support
+
+= Upcoming release (0.7?) =
+What's planned:
+ * support for all generic views except for the `date_based` ones which can't be implemented efficiently with the datastore
+
+= Release 0.6 (2008-08-15) =
+ * `logging.debug` should work if `settings.DEBUG` is `True`
+ * `GLOBALTAGS` work without having to import `ragendja.template` (i.e., generic views should be supported, too)
+ * `httplib` also works with `manage.py shell`
+ * updated code to be compatible with Django 1.0beta1 (sessions, db backend, signals)
+ * PATH is searched for a google_appengine SDK installation, too
+ * a few simplifications
+
+*IMPORTANT:* This release requires Django 1.0beta1. The version jump (0.3.4 => 0.6) isn't due to new features. The previous version number simply didn't reflect the actual state of the project correctly.
 
 = Release 0.3.4 (2008-07-31) =
  * Linux: added shebang to `manage.py`, so you can run it as an executable
