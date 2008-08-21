@@ -85,10 +85,10 @@ This is similar to Django's shortcut, but allows for using a `key_name` or `id` 
 item = get_object_or_404(MyModel, key)
 item = get_object_or_404(MyModel, key_name='somekey')
 item = get_object_or_404(MyModel, id=5)
-item = get_object_or_404(MyModel, (('title =', 'ABC'), 'counter >', 5))
+item = get_object_or_404(MyModel, 'title =', 'ABC', 'counter >', 5)
 }}}
 
-=== get_list_or_404(model, filters) ===
+=== get_list_or_404(model, ...filters...) ===
 
 The `get_list_or_404()` shortcut only expects a list of filter rules and works similar to Django's version.
 
