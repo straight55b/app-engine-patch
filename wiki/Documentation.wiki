@@ -78,16 +78,17 @@ else:
     # we've added a new entity
 }}}
 
-=== get_object_or_404(model, ...filters...) ===
+=== get_object_or_404(model, filters or key or key_name or id) ===
 
 This is similar to Django's shortcut, but allows for using a `key_name` or `id` keyword argument or a key object/string to retrieve a specific object. Alternatively, you can specify a list of filter rules:
 {{{
-item1 = get_object_or_404(MyModel, key)
-item2 = get_object_or_404(MyModel, key_name='somekey')
-item3 = get_object_or_404(MyModel, 'title =', 'ABC', 'counter >', 5)
+item = get_object_or_404(MyModel, key)
+item = get_object_or_404(MyModel, key_name='somekey')
+item = get_object_or_404(MyModel, id=5)
+item = get_object_or_404(MyModel, (('title =', 'ABC'), 'counter >', 5))
 }}}
 
-=== get_list_or_404(model, ...filters...) ===
+=== get_list_or_404(model, filters) ===
 
 The `get_list_or_404()` shortcut only expects a list of filter rules and works similar to Django's version.
 
