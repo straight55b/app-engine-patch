@@ -5,6 +5,7 @@ What's planned:
 
 = Upcoming release (0.7?) =
 What's planned:
+ * compatible with Django 1.0
  * support for all generic views except for the `date_based` ones which can't be implemented efficiently with the datastore
  * `@staff_only` view decorator that renders `no_access.html` if `user.is_staff` is `False`
  * added variable that can be used to check whether we run on the dev_appserver or the real GAE production servers (`from appenginepatcher import on_production_server`)
