@@ -12,6 +12,9 @@ What's planned:
  * limit number of results in `object_list` generic view to 300, so you won't have problems with timeouts
  * `httplib` should work with most recent SDK
  * `generate_key_name` utility function that allows for generating a `key_name` from a set of values (building a path-like string to uniquely identify an object by its `key_name`)
+ * fixed unicode email support
+
+*NOTE:* The `is_banned` field has been moved to the EmailUser model, so the default User is more compatible with Django.
 
 = Release 0.6 (2008-08-15) =
  * `logging.debug` should work if `settings.DEBUG` is `True`
