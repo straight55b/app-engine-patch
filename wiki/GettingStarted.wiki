@@ -110,4 +110,4 @@ We only support [http://code.google.com/appengine/docs/datastore/ App Engine mod
 
 == Generic views ==
 
-The `object_list`, `create_update`, and 'simple' are supported. The `date_based` generic views can't be implemented efficiently and thus won't be supported. Note that if a generic view expects an `object_id` parameter you may provide a number to indicate a key id or a string to indicate a `key_name` or `str(key)` (it tries to `get()` in that order).
+The `object_list`, `create_update`, and 'simple' are supported. The `date_based` generic views can't be implemented efficiently and thus won't be supported. Note that if a generic view expects an `object_id` parameter you may provide a number to indicate a key id or a string to indicate a `key_name` or `str(key)`.
