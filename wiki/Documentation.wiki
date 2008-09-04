@@ -11,9 +11,9 @@
 == ragendja.auth.models ==
 
 This module provides base models for customizing your User class:
- * UserTraits has only a few basic user fields (see the source for more details), but no `username`.
- * EmailUser also adds an `email` field, `email_user()`, and an `is_banned field`, but no username.
- * User is the same as Django's User class; it includes a `username`.
+ * `UserTraits` has only a few basic user fields (see the source for more details), but no `username`.
+ * `EmailUser` also adds an `email` field, `email_user()`, and an `is_banned` field, but no `username`.
+ * `User` is the same as Django's `User` class; it includes a `username`.
 The password field is not required because with the new authentication methods
 like OpenID and InfoCards you might not need it.
 
@@ -84,9 +84,9 @@ This function adds an entity to the datastore if it doesn't exist. Otherwise it 
 
 *Example:*
 {{{
-item = db_add(MyModel, 'some_key', title='hey', index=4)
+item = db_add(MyModel, 'some_key_name', title='hey', index=4)
 if not item:
-    # entity with that key already exists!
+    # entity with that key_name already exists!
 else:
     # we've added a new entity
 }}}
@@ -105,6 +105,22 @@ item = get_object_or_404(MyModel, 'title =', 'ABC', 'counter >', 5)
 
 The `get_list_or_404()` shortcut only expects a list of filter rules and works similar to Django's version.
 
+=== generate_key_name(...parts...) ===
+
+This generates a `key_name` from the given strings. It automatically prefixes the key with a 'k', so it's guaranteed to be valid and separates all parts with a '/' (while escaping the separator in each part, so it's a non-ambiguous transformation):
+{{{
+>>> generate_key_name('abc', 'def')
+'kabc/def'
+}}}
+
+=== KeyReferenceProperty ===
+
+Creates a cached accessor for an object referenced by a string property that stores a `str(key)` or `key_name`. This is useful if you need to work with the key of a referenced object, but mustn't `get()` it from the datastore. It takes the name of the property, the model to `get()`, and a boolean that specifies whether the string property contains a key or a key name:
+{{{
+class File(db.Model):
+    creator = db.StringProperty(required=True)
+    created_by = KeyReferenceProperty('creator', User, use_key_name=True)
+}}}
 
 == ragendja.middleware ==
 
