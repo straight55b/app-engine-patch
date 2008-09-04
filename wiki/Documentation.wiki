@@ -8,6 +8,10 @@
 = ragendja =
 
 
+== ragendja.auth.decorators ==
+
+The `@staff_only` view decorator only renders the view if `request.user.is_staff` is `True`. Otherwise it renders a `no_access.html` template (which you have to create yourself).
+
 == ragendja.auth.models ==
 
 This module provides base models for customizing your User class:
@@ -209,4 +213,15 @@ class MyTestCase(ModelTestCase):
             (1, 2, 3),
             (11, 12, 13),
         )
+}}}
+
+= appenginepatcher =
+
+You can find out whether you're running on the production server:
+{{{
+from appenginepatcher import on_production_server
+if on_production_server:
+    # we're on the production server...
+else:
+    # dev_appserver...
 }}}
