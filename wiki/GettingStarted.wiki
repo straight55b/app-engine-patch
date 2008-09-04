@@ -5,6 +5,8 @@
 
 = Installing appenginepatch =
 
+Note: We provide a sample project in the [http://code.google.com/p/app-engine-patch/downloads/list downloads] section.
+
 Use the following project structure:
 
 {{{
