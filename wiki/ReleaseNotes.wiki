@@ -3,10 +3,9 @@
 What's planned:
  * support for all `django.contrib.auth` forms and views
 
-= Upcoming release (0.7?) =
-What's planned:
+= Release 0.7 (2008-09-04) =
  * compatible with Django 1.0
- * support for all generic views except for the `date_based` ones which can't be implemented efficiently with the datastore
+ * support for all generic views except for the `date_based` ones which can't be implemented efficiently with the datastore (i.e.: we support `simple.*`, `object_detail.*`, `create_update.*`)
  * `@staff_only` view decorator that renders `no_access.html` if `user.is_staff` is `False`
  * added variable that can be used to check whether we run on the dev_appserver or the real GAE production servers (`from appenginepatcher import on_production_server`)
  * limit number of results in `object_list` generic view to 300, so you won't have problems with timeouts
