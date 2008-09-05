@@ -5,7 +5,7 @@
 
 = Installing appenginepatch =
 
-Note: We provide a sample project in the [http://code.google.com/p/app-engine-patch/downloads/list downloads] section that comes with Django 1.0 and appenginepatch pre-installed.
+Note: We provide a sample project in the [http://code.google.com/p/app-engine-patch/downloads/list downloads] section that comes with appenginepatch and Django 1.0 pre-installed (excluding translations in django/conf/locale).
 
 Use the following project structure:
 
