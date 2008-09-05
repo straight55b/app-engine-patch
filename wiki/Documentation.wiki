@@ -146,7 +146,7 @@ NO_LOGIN_REQUIRED_PREFIXES = (
     '/some/path/without_login/',
 )
 }}}
-With this you require login for all paths that start with `'/other/path'` or `'/some/path/'` except for `'/some/path/without_login'`. IOW, `NO_LOGIN_REQUIRED_PREFIXES` overrides `LOGIN_REQUIRED_PREFIXES`.
+With this you require login for all paths that start with `'/other/path'` or `'/some/path/'` except for `'/some/path/without_login/'`. IOW, `NO_LOGIN_REQUIRED_PREFIXES` overrides `LOGIN_REQUIRED_PREFIXES`.
 
 
 == ragendja.template ==
