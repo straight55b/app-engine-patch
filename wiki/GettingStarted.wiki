@@ -5,7 +5,7 @@
 
 = Installing appenginepatch =
 
-Note: We provide a sample project in the [http://code.google.com/p/app-engine-patch/downloads/list downloads] section.
+Note: We provide a sample project in the [http://code.google.com/p/app-engine-patch/downloads/list downloads] section that comes with Django 1.0 and appenginepatch pre-installed.
 
 Use the following project structure:
 
@@ -77,6 +77,7 @@ The cache backend must be enabled with
 {{{
 CACHE_BACKEND = 'memcached://'
 }}}
+
 Unfortunately, this doesn't allow for adding items with infinite timeout. The only way to achieve this is to set a default timeout:
 {{{
 CACHE_BACKEND = 'memcached://?timeout=0'
