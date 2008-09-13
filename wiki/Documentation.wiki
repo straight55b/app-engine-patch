@@ -122,8 +122,8 @@ This generates a `key_name` from the given strings. It automatically prefixes th
 Creates a cached accessor for an object referenced by a string property that stores a `str(key)` or `key_name`. This is useful if you need to work with the key of a referenced object, but mustn't `get()` it from the datastore. It takes the name of the property, the model to `get()`, and a boolean that specifies whether the string property contains a key or a key name:
 {{{
 class File(db.Model):
-    creator = db.StringProperty(required=True)
-    created_by = KeyReferenceProperty('creator', User, use_key_name=True)
+    creator_key_name = db.StringProperty(required=True)
+    creator = KeyReferenceProperty('creator_key_name', User, use_key_name=True)
 }}}
 
 == ragendja.middleware ==
