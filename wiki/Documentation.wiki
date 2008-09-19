@@ -3,6 +3,7 @@
 
  * [GettingStarted Getting started]
  * [Profiling Using the profiler]
+ * [ZipPackage Integrating zipped packages]
 
 
 = ragendja =
