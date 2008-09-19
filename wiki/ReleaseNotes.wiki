@@ -3,6 +3,7 @@
 What's planned:
  * support for all `django.contrib.auth` forms and views
  * support for boto's SQS implementation
+ * automatic integration of [ZipPackages zip packages]
 
 = Release 0.7 (2008-09-04) =
  * Django 1.0 support
