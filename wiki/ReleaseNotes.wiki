@@ -5,6 +5,11 @@ What's planned:
  * support for boto's SQS implementation
  * automatic integration of [ZipPackages zip packages]
  * djangoforms patch, so you can use lazy translations for verbose_name in model fields
+ * httplib workaround for headers that aren't strings (e.g., boto sets them)
+ * fixed encodejs escaping in templates
+ * added a set the value of a KeyReferenceProperty
+
+*IMPORTANT*: We've renamed ragendja.templatutils to ragendja.templatetags.ragendjatags, so it can be used like any other tag. Please change your imports.
 
 = Release 0.7 (2008-09-04) =
  * Django 1.0 support
