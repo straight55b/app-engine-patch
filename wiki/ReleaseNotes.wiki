@@ -8,7 +8,7 @@ What's planned:
  * httplib workaround for headers that aren't strings (e.g., boto sets them)
  * fixed encodejs escaping in templates
  * added a set the value of a KeyReferenceProperty
- * added support for User instances with legacy MD5 hashes that don't have a salt
+ * added support for User instances with legacy MD5 hashes that don't have a salt (thank you, Curtis Thompson!)
 
 *IMPORTANT*: We've renamed ragendja.templatutils to ragendja.templatetags.ragendjatags, so it can be used like any other tag. Please change your imports.
 
