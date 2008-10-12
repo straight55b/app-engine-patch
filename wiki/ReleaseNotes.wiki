@@ -4,8 +4,7 @@ What's planned:
  * support for all `django.contrib.auth` forms and views
  * support for groups and permissions
 
-= Upcoming release (0.8?) =
-What's planned:
+= Release 0.8 (2008-10-12) =
  * support for boto's SQS implementation
  * automatic integration of [ZipPackages zip packages]
  * djangoforms patch, so you can use lazy translations for verbose_name in model fields
@@ -15,6 +14,8 @@ What's planned:
  * added support for User instances with legacy MD5 hashes that don't have a salt (thank you, Curtis Thompson!)
 
 *IMPORTANT*: We've renamed ragendja.templatutils to ragendja.templatetags.ragendjatags, so it can be used like any other templatetags library. Please change your imports.
+
+*NOTE*: The sample project now comes with a zipped Django package!
 
 = Release 0.7 (2008-09-04) =
  * Django 1.0 support
