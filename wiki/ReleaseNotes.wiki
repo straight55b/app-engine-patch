@@ -14,7 +14,7 @@ What's planned:
  * you can directly set the value of a KeyReferenceProperty
  * added support for User instances with legacy MD5 hashes that don't have a salt (thank you, Curtis Thompson!)
 
-*IMPORTANT*: We've renamed ragendja.templatutils to ragendja.templatetags.ragendjatags, so it can be used like any other tag. Please change your imports.
+*IMPORTANT*: We've renamed ragendja.templatutils to ragendja.templatetags.ragendjatags, so it can be used like any other templatetags library. Please change your imports.
 
 = Release 0.7 (2008-09-04) =
  * Django 1.0 support
