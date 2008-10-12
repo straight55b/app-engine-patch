@@ -2,6 +2,10 @@
 = Upcoming release (1.0?) =
 What's planned:
  * support for all `django.contrib.auth` forms and views
+ * support for groups and permissions
+
+= Upcoming release (0.8?) =
+What's planned:
  * support for boto's SQS implementation
  * automatic integration of [ZipPackages zip packages]
  * djangoforms patch, so you can use lazy translations for verbose_name in model fields
