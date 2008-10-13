@@ -3,6 +3,7 @@
 What's planned:
  * support for all `django.contrib.auth` forms and views
  * support for groups and permissions
+ * serialization support (json and python already work in the repo)
 
 = Release 0.8 (2008-10-12) =
  * support for boto's SQS implementation
