@@ -184,7 +184,7 @@ This is an improved `render_to_response()` that uses `RequestContext` in order t
 This converts a Python object (`data`) into a JSON string and creates an HttpResponse with the correct MIME type.
 
 
-== ragendja.templateutils ==
+== ragendja.templatetags.ragendjatags ==
 
 === register ===
 
