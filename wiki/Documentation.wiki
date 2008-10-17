@@ -128,6 +128,15 @@ This generates a `key_name` from the given strings. It automatically prefixes th
 'kabc/def'
 }}}
 
+=== to_json_data(model_or_list, property_or_properties) ===
+*Only available in repository*
+
+Converts a models into dicts for use with JSONResponse.
+
+You can either pass a single model instance and get a single dict or a list of models and get a list of dicts.
+
+For security reasons only the properties in the property_list will get added. If the value of the property has a json_data function its result will be added, instead.
+
 === KeyReferenceProperty ===
 
 Creates a cached accessor for an object referenced by a string property that stores a `str(key)` or `key_name`. This is useful if you need to work with the key of a referenced object, but mustn't `get()` it from the datastore. It takes the name of the property, the model to `get()`, and a boolean that specifies whether the string property contains a key or a key name:
@@ -136,6 +145,7 @@ class File(db.Model):
     creator_key_name = db.StringProperty(required=True)
     creator = KeyReferenceProperty('creator_key_name', User, use_key_name=True)
 }}}
+
 
 == ragendja.middleware ==
 
