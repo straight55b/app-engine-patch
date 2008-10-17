@@ -128,8 +128,8 @@ This generates a `key_name` from the given strings. It automatically prefixes th
 'kabc/def'
 }}}
 
-=== to_json_data(model_or_list, property_or_properties) ===
-*Only available in repository*
+=== to_json_data(entity_or_list, property_or_properties) ===
+*List feature only available in repository*
 
 Converts a models into dicts for use with JSONResponse.
 
@@ -145,6 +145,11 @@ class File(db.Model):
     creator_key_name = db.StringProperty(required=True)
     creator = KeyReferenceProperty('creator_key_name', User, use_key_name=True)
 }}}
+
+=== prefetch_references(entity_list, property_or_properties) ===
+*Only available in repository*
+
+Dereferences the given (Key)ReferenceProperty fields of a list of objects in as few get() calls as possible.
 
 
 == ragendja.middleware ==
