@@ -83,6 +83,16 @@ def view2(request, ...):
     ...
 }}}
 
+=== db_create(model, ...attrs...) ===
+
+This function safely creates a new entity with a random key_name.
+
+*Example:*
+{{{
+item = db_create(MyModel, title='hey', index=4)
+# item.key().name() could be "a1K6AMAo55BepDcx"
+}}}
+
 === db_add(model, key_name, ...attrs...) ===
 
 This function adds an entity to the datastore if it doesn't exist. Otherwise it returns None. Note that this function automatically runs in a transaction.
