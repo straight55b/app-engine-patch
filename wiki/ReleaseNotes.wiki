@@ -7,13 +7,14 @@ What's planned:
  * maybe: support for groups and permissions
 
 = Release 0.8 (2008-10-12) =
- * support for boto's SQS implementation
  * automatic integration of [ZipPackages zip packages]
+ * support for boto's SQS implementation
  * djangoforms patch, so you can use lazy translations for verbose_name in model fields
  * httplib workaround for headers that aren't strings (e.g., boto sets them)
  * fixed encodejs escaping in templates
  * you can directly set the value of a KeyReferenceProperty
  * added support for User instances with legacy MD5 hashes that don't have a salt (thank you, Curtis Thompson!)
+ * fixed a bug that could rarely cause import errors
 
 *IMPORTANT*: We've renamed ragendja.templatutils to ragendja.templatetags.ragendjatags, so it can be used like any other templatetags library. Please change your imports.
 
