@@ -143,13 +143,26 @@ Creates a cached accessor for an object referenced by a string property that sto
 {{{
 class File(db.Model):
     creator_key_name = db.StringProperty(required=True)
-    creator = KeyReferenceProperty('creator_key_name', User, use_key_name=True)
+    creator = KeyReferenceProperty('creator_key_name', User)
 }}}
 
 === prefetch_references(entity_list, property_or_properties) ===
 *Only available in repository*
 
-Dereferences the given (Key)ReferenceProperty fields of a list of objects in as few get() calls as possible.
+Dereferences the given (Key)ReferenceProperty fields of a list of objects in as few get() calls as possible:
+{{{
+class File(db.Model):
+    creator = db.ReferenceProperty(User)
+
+files = File.all().filter(...).fetch(20)
+# The following will dereference all creators in a single get().
+# If two files have the same creator the creator will only be retrieved once!
+prefetch_references(files, 'creator')
+for file in files:
+    # The following will not result in a db access because the creator has
+    # been prefetched.
+    name = file.creator.get_full_name()
+}}}
 
 
 == ragendja.middleware ==
