@@ -2,7 +2,7 @@
 = appenginepatch =
 
  * [GettingStarted Getting started]
- * [Profiling Using the profiler]
+ * [Profiling Using the integrated profiler]
  * [ZipPackages Integrating zipped packages]
 
 
