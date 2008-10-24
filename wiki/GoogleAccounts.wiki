@@ -2,7 +2,11 @@
 
 = Using Google Accounts =
 
-It's possible to use Google Accounts instead of Django's auth mechanism, but there is no built-in way to combine both methods. You just need a few changes in your settings.py:
+It's possible to use Google Accounts instead of Django's auth mechanism or alternatively use a hybrid system that allows for both authentication methods.
+
+== Google Accounts only ==
+
+You just need a few changes in your settings.py:
 
 {{{
 # Replace Django's AuthenticationMiddleware with GoogleAuthenticationMiddleware.
@@ -15,14 +19,41 @@ MIDDLEWARE_CLASSES = (
 
 # Change the User model class
 AUTH_USER_MODULE = 'ragendja.auth.google_models'
+}}}
 
+Note that the default Google `User` model does not have `first_name` and `last_name` properties, but it adds a `user` property of type `db.UserProperty`. Also, the `email` and `username` properties can't be changed or queried with a `filter()` call because they are dynamically retrieved from the `user` property. You can [CustomUserModel define your own] `User` model if you want to change anything.
+
+== Hybrid authentication ==
+
+With hybrid authentication you can use both Google and Django accounts. Just add this to your settings.py:
+{{{
+# Replace Django's AuthenticationMiddleware with HybridAuthenticationMiddleware.
+# Note that you don't need the SessionMiddleware, anymore.
+MIDDLEWARE_CLASSES = (
+    ...
+    'ragendja.auth.middleware.HybridAuthenticationMiddleware',
+    ...
+)
+
+# Change the User model class
+AUTH_USER_MODULE = 'ragendja.auth.hybrid_models'
+}}}
+
+Note that in this case Django's original `login_required` decorator will be used, so you'll have to take care of making both authentication methods visible on your login page.
+
+= Template tags =
+
+Add the following to your settings.py:
+{{{
 # Add google_login_url and google_logout_url tags
 GLOBALTAGS = (
     'ragendja.templatetags.googletags',
 )
 }}}
 
-This will also add two template tags for creating login and logout urls (`google_login_url` and `google_logout_url`):
+Alternatively, you can add `'ragendja'` to your `INSTALLED_APPS` and `{% load googletags %}` in your template.
+
+This will add two template tags for creating login and logout urls (`google_login_url` and `google_logout_url`):
 {{{
 <div class="login">
   {% if user.is_authenticated %}
@@ -33,5 +64,3 @@ This will also add two template tags for creating login and logout urls (`google
   {% endif %}
 </div>
 }}}
-
-Note that the default Google `User` model does not have `first_name` and `last_name` properties, but it adds a `user` property of type `db.UserProperty`. Also, the `email` and `username` properties can't be changed or queried with a `filter()` call. They are dynamically retrieved from the `user` property. You can [CustomUserModel define your own] `User` model if you want to change anything.
