@@ -4,6 +4,7 @@
  * [GettingStarted Getting started]
  * [Profiling Using the integrated profiler]
  * [ZipPackages Integrating zipped packages]
+ * [GoogleAccounts Using Google Accounts]
 
 
 = ragendja =
