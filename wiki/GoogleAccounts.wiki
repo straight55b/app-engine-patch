@@ -1,0 +1,37 @@
+*Note: This feature is only available in the repository!*
+
+= Using Google Accounts =
+
+It's possible to use Google Accounts instead of Django's auth mechanism, but there is no built-in way to combine both methods. You just need a few changes in your settings.py:
+
+{{{
+# Replace Django's AuthenticationMiddleware with GoogleAuthenticationMiddleware.
+# Note that you don't need the SessionMiddleware, anymore.
+MIDDLEWARE_CLASSES = (
+    ...
+    'ragendja.auth.middleware.GoogleAuthenticationMiddleware',
+    ...
+)
+
+# Change the User model class
+AUTH_USER_MODULE = 'ragendja.auth.google_models'
+
+# Add google_login_url and google_logout_url tags
+GLOBALTAGS = (
+    'ragendja.templatetags.googletags',
+)
+}}}
+
+This will also add two template tags for creating login and logout urls (`google_login_url` and `google_logout_url`):
+{{{
+<div class="login">
+  {% if user.is_authenticated %}
+    Welcome, {{ user.email }}
+    <a href="{% google_logout_url %}">Logout</a>
+  {% else %}
+    <a href="{% google_login_url request.get_full_path %}">Login</a>
+  {% endif %}
+</div>
+}}}
+
+Note that the default Google `User` model does not have `first_name` and `last_name` properties, but it adds a `user` property of type `db.UserProperty`. Also, the `email` and `username` properties can't be changed or queried with a `filter()` call. They are dynamically retrieved from the `user` property. You can define your own `User` model if you want to change anything.
