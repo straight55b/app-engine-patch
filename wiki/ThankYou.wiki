@@ -1,3 +1,6 @@
+In $: [http://freenet-homepage.de/wkornewald/appenginepatch/donate-usd.html https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif] or in €: [http://freenet-homepage.de/wkornewald/appenginepatch/donate.html https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif]
+
+
 = Thank you for donating! =
 
  * 2008-09-15: Nicolas Fintescu
