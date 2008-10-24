@@ -43,7 +43,7 @@ Put this in your settings.py to profile all important datastore calls.
 {{{
 ENABLE_PROFILER = True
 SORT_PROFILE_RESULTS_BY = 'cumulative' # default is 'time'
-PROFILE_PATTERN = 'ext.db..+\((?:get|get_by_key_name|fetch|count|put)\)'
+PROFILE_PATTERN = 'ext.db..+\((?:get|get_by_key_name|get_by_id|fetch|count|put)\)'
 }}}
 
 Note that the `db.Model.get()`, `db.Model.get_by_key_name()`, `db.Model.get_by_id()`, and `db.Model.put()` calls translate into `db.get()` and `db.put()`, so for every call of these model functions you'll also get a call of the global db functions.
