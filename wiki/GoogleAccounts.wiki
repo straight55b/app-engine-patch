@@ -34,4 +34,4 @@ This will also add two template tags for creating login and logout urls (`google
 </div>
 }}}
 
-Note that the default Google `User` model does not have `first_name` and `last_name` properties, but it adds a `user` property of type `db.UserProperty`. Also, the `email` and `username` properties can't be changed or queried with a `filter()` call. They are dynamically retrieved from the `user` property. You can define your own `User` model if you want to change anything.
+Note that the default Google `User` model does not have `first_name` and `last_name` properties, but it adds a `user` property of type `db.UserProperty`. Also, the `email` and `username` properties can't be changed or queried with a `filter()` call. They are dynamically retrieved from the `user` property. You can [CustomUserModel define your own] `User` model if you want to change anything.
