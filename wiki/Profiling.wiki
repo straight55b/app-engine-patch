@@ -47,3 +47,5 @@ PROFILE_PATTERN = 'ext.db..+\((?:get|get_by_key_name|fetch|count|put)\)'
 }}}
 
 Note that the `db.Model.get()`, `db.Model.get_by_key_name()`, `db.Model.get_by_id()`, and `db.Model.put()` calls translate into `db.get()` and `db.put()`, so for every call of these model functions you'll also get a call of the global db functions.
+
+Please take a look at the `ragendja.dbutils.prefetch_references()` function (see the [Documentation documentation]). It can help optimize your code.
