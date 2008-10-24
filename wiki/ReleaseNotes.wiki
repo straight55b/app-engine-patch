@@ -5,6 +5,7 @@ What's planned:
  * support for [GoogleAccounts Google Accounts]
  * optimized session backend with memcache
  * serialization support (json and python already work in the repo)
+ * `ragendja.dbutils.prefetch_references()` function for optimizing datastore access
  * maybe: support for groups and permissions
 
 = Release 0.8 (2008-10-12) =
