@@ -27,7 +27,6 @@ Note that the default Google `User` model does not have `first_name` and `last_n
 With hybrid authentication you can use both Google and Django accounts. Just add this to your settings.py:
 {{{
 # Replace Django's AuthenticationMiddleware with HybridAuthenticationMiddleware.
-# Note that you don't need the SessionMiddleware, anymore.
 MIDDLEWARE_CLASSES = (
     ...
     'ragendja.auth.middleware.HybridAuthenticationMiddleware',
