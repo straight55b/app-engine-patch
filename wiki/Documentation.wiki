@@ -107,9 +107,9 @@ This generates a `key_name` from the given strings. It automatically prefixes th
 === to_json_data(entity_or_list, property_or_properties) ===
 *List feature only available in repository*
 
-Converts a models into dicts for use with JSONResponse.
+Converts a model into dicts for use with `JSONResponse`/`simplejson.dumps()`.
 
-You can either pass a single model instance and get a single dict or a list of models and get a list of dicts.
+You can either pass a single model instance and get a single dict or a list of models and get a list of dicts. After that you can still modify the data because it's a Python object. When you're finished you can use, for example, `JSONResponse` to return the data in JSON format.
 
 For security reasons only the properties in the property_list will get added. If the value of the property has a json_data function its result will be added, instead.
 
