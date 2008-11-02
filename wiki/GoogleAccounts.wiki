@@ -11,6 +11,7 @@ You just need a few changes in your settings.py:
 {{{
 # Replace Django's AuthenticationMiddleware with GoogleAuthenticationMiddleware.
 MIDDLEWARE_CLASSES = (
+    # Note: You don't need the SessionMiddleware for Google Accounts
     ...
     'ragendja.auth.middleware.GoogleAuthenticationMiddleware',
     ...
