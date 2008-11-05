@@ -20,10 +20,7 @@ The `@staff_only` view decorator only renders the view if `request.user.is_staff
 
 === @transaction ===
 
-`@transaction` is a simple wrapper for db.run_in_transaction. It allows for
-writing more correct code because the caller doesn't have to care about
-calling db.run_in_transaction, manually (he has to know that the function runs
-in a transaction, though).
+`@transaction` is a simple wrapper for db.run_in_transaction.
 
 *Example:*
 Instead of writing `db.run_in_transaction` all the time:
