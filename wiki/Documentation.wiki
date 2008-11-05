@@ -1,5 +1,5 @@
 #labels Featured
-= appenginepatch =
+= app-engine-patch =
 
  * [GettingStarted Getting started]
  * [Profiling Using the integrated profiler]
