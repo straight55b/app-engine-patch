@@ -24,7 +24,7 @@ The default (database) auth and session backends automatically get replaced with
 
 Email server settings are only used in the development environment. On the production server you automatically use Google's mail backend. Note that currently Google's SDK doesn't work with gmail accounts and other servers that require TLS. This is a bug in App Engine and we've already filed a bug report.
 
-At least the following apps are not supported because they depend on Django's Model class (though, we might eventually provide ported versions):
+At least the following apps are not supported because they depend on Django's Model class (though, we might port those apps when we need them for our own websites):
  * `django.contrib.admin`
  * `django.contrib.comments`
  * `django.contrib.contenttypes`
