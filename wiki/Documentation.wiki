@@ -143,7 +143,7 @@ for file in files:
 
 == ragendja.middleware ==
 
-=== LoginRequiredMiddleware ===
+=== !LoginRequiredMiddleware ===
 
 This saves you from typing `@login_required` all the time.
 
@@ -195,7 +195,7 @@ This is an improved `render_to_response()` that uses `RequestContext` in order t
 
 === JSONResponse(data) ===
 
-This converts a Python object (`data`) into a JSON string and creates an HttpResponse with the correct MIME type.
+This converts a Python object (`data`) into a JSON string and creates an `HttpResponse` with the correct MIME type.
 
 
 == ragendja.templatetags.ragendjatags ==
@@ -207,7 +207,7 @@ This is a context_processor that adds an `encodejs` filter that converts Python 
 
 == ragendja.testutils ==
 
-=== ModelTestCase ===
+=== !ModelTestCase ===
 
 This provides an easy way to validate the contents of the DB. You have to specify the model to validate against with the `model` attribute. From then on you can call `validate_state()` to check if a certain function modifies the DB contents correctly:
 
