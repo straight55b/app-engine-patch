@@ -5,67 +5,16 @@
 
 = Quickstart: sample project =
 
-We provide a sample project in the [http://code.google.com/p/app-engine-patch/downloads/list downloads] section that comes with appenginepatch and a zipped Django 1.0 package pre-installed. We highly recommend using the sample project instead of installing appenginepatch manually. That'll get you started much faster.
+We provide a sample project in the [http://code.google.com/p/app-engine-patch/downloads/list downloads] section that comes with appenginepatch and a zipped Django 1.0 package pre-installed. We highly recommend using the sample project instead of [ManualInstallation installing appenginepatch manually]. That'll get you started much faster.
 
-= Installing appenginepatch =
-
-Use the following project structure:
-
-{{{
-project root
-  __init__.py
-  app.yaml
-  settings.py
-  manage.py    (copy from appenginepatch)
-  common
-    __init__.py
-    .google_appengine  (only if you use Linux)
-    appenginepatch     (copy the whole main folder)
-    django             (your custom Django checkout)
-}}}
-
-Don't forget to copy manage.py from the appenginepatch folder into your project root. You can only execute it from your project's root folder.
-
-If you're on Linux you can put the App Engine SDK into a folder
-".google_appengine" under "common". Windows and Max OS should work out of the
-box as long as you use the standard installation paths.
-
-Your app.yaml could look like this:
-
-{{{
-application: mycoolapp
-version: 1
-runtime: python
-api_version: 1
-
-handlers:
-- url: /media
-  static_dir: media
-
-- url: /.*
-  script: common/appenginepatch/main.py
-}}}
-
-This will use the default main.py handler which should work for most projects.
-
-In order to reduce the number of files you can delete the following Django folders:
- * django/bin
- * django/contrib/admin
- * django/contrib/comments
- * django/contrib/databrowse
- * django/contrib/flatpages
- * django/contrib/gis
-This should work around GAE's 1000 files limit.
-
-
-== IMPORTANT: Paths ==
+= Paths =
 
 The default project handler adds "appenginepatch" and "common" to sys.path.
 This means that you don't have to specify "common.xxx" in your imports.
 For example, you can import something from ragendja directly with:
 `from ragendja.testutils import ModelTestCase`
 
-Don't import `projectname.appname`, but import `appname` directly. This also has the advantage that your code becomes more reusable.
+Never import `from projectname.appname`, but import `from appname` directly. This also has the advantage that your code becomes more reusable.
 
 = Differences compared to plain Django =
 
