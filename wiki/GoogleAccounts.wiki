@@ -1,4 +1,4 @@
-#summary How to activate support for Google Account.
+#summary How to activate support for Google Accounts.
 
 *Note: This feature is only available in the repository!*
 
