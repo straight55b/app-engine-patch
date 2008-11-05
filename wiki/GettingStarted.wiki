@@ -16,21 +16,9 @@ Never import `from projectname.appname`, but import `from appname` directly. Thi
 
 = Differences compared to plain Django =
 
-If you've followed the instructions above most of your Django code should just work. Still, you should know about the following details.
+Most of your Django code should just work. Still, you should know about the following details.
 
 == settings.py ==
-
-All you need to do is add `'appenginepatcher'` to your `INSTALLED_APPS`, set `ROOT_URLCONF = 'urls'`, set `DATABASE_ENGINE = 'appengine'`, and remove all other database settings (host, username, password, etc.).
-
-The cache backend must be enabled with
-{{{
-CACHE_BACKEND = 'memcached://'
-}}}
-
-Unfortunately, this doesn't allow for adding items with infinite timeout. The only way to achieve this is to set a default timeout:
-{{{
-CACHE_BACKEND = 'memcached://?timeout=0'
-}}}
 
 The default (database) auth and session backends automatically get replaced with versions that use the App Engine datastore, so you don't need to change any of your settings. Alternatively, you can specify your own backends as long as they don't depend on unsupported APIs (unsupported: Django models, SQL, sockets).
 
@@ -46,20 +34,24 @@ At least the following apps are not supported because they depend on Django's Mo
  * `django.contrib.redirects`
  * `django.contrib.sites`
 
-The following `MIDDLEWARE_CLASSES` are not supported:
- * `django.middleware.doc.XViewMiddleware` (App Engine limits the HTTP headers you can set)
- * `django.middleware.transaction.TransactionMiddleware` (due to conceptual differences this is impossible to implement in App Engine)
-
-== User model ==
-
-Due to the way the datastore works there is a little problem with properties that must be unique. Our default `User` class does provide a `username` property, but you have to additionally assign a `key_name` and create the user within a transaction that calls `get()` to ensure that the username isn't already taken and only then add the user to the datastore (within the same transaction, of course). This has the problem that username changes become very complicated because an entity's key can't be changed.
-
-Alternatively, you can give up guaranteed uniqueness and mess around with `filter()` to ensure that the username isn't taken. This might be sufficient for most applications.
+You can't use the `TransactionMiddleware` due to conceptual differences which make it impossible to implement in App Engine.
 
 == Models ==
 
-We only support [http://code.google.com/appengine/docs/datastore/ App Engine models] (`from google.appengine.ext import db`). You have to port all Django Model-based code. There are quite a few conceptual differences, especially with transactions, unique properties, and queries, so we can't really emulate Django's behavior in this area. App Engine has the concept of keys which provide the most efficient way to access an entity. The only way to make use of them is to rewrite your model code. Only model definitions look similar. Read the [http://code.google.com/appengine/docs/datastore/ datastore documentation] for more information.
+We only support [http://code.google.com/appengine/docs/datastore/ App Engine models] (`from google.appengine.ext import db`). Django models don't work. There are quite a few conceptual differences, especially with transactions, unique properties, and queries, so we can't emulate Django in this area.
+
+== User model ==
+
+Since there are no unique properties in App Engine the User model doesn't guarantee uniqueness of the `username`.
+
+You can work around this by manually setting the key_name and working with transactions when creating a User, but this means you won't be able to change the username afterwards.
+
+Alternatively, you can give up guaranteed uniqueness and check with `filter()` to ensure that the username isn't taken. This might be sufficient.
 
 == Generic views ==
 
-The `object_list`, `create_update`, and 'simple' are supported. The `date_based` generic views can't be implemented efficiently and thus won't be supported. Note that if a generic view expects an `object_id` parameter you may provide a number to indicate a key id or a string to indicate a `key_name` or `str(key)`. The number of search results shown by `object_list` is limited to 301, so you don't have to mess with timeouts or too large requests. If you want to view more results than that you have to use a more [http://sites.google.com/site/io/building-scalable-web-applications-with-google-app-engine scalable search method].
+The `object_list`, `create_update`, and 'simple' are supported. The `date_based` generic views can't be implemented efficiently and thus won't be supported.
+
+Note that if a generic view expects an `object_id` parameter you may provide a number to indicate a key id or a string to indicate a `key_name` or `str(key)`.
+
+The number of search results shown by `object_list` is limited to 301, so you don't have to mess with datastore timeouts or too large requests. Why exactly 301 results? That's because you probably want to say "more than 300 results" on your search results page. ;) If you want to handle more results than that you have to use a more [http://sites.google.com/site/io/building-scalable-web-applications-with-google-app-engine scalable search method].
