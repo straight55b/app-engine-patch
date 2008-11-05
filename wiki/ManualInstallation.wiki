@@ -1,4 +1,7 @@
+
 You can of course install appenginepatch manually, but it's more difficult than starting with the sample project. Even if you want to use the most recent source directly you can just download the sample project and replace the "common/appenginepatch" folder with a clone of the appenginepatch repository. If you're still not convinced then let's get started:
+
+*Important:* You have to use at least Django 1.0 (trunk should work, too).
 
 Use the following project structure:
 
