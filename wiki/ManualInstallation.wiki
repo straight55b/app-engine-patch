@@ -62,3 +62,18 @@ LOCALE_PATHS = (
 )
 }}}
 Again, the sample project already does this for you. ;)
+
+
+= settings.py =
+
+All you need to do is add `'appenginepatcher'` to your `INSTALLED_APPS`, set `ROOT_URLCONF = 'urls'`, set `DATABASE_ENGINE = 'appengine'`, and remove all other database settings (host, username, password, etc.).
+
+The cache backend must be enabled with
+{{{
+CACHE_BACKEND = 'memcached://'
+}}}
+
+Unfortunately, this doesn't allow for adding items with infinite timeout. The only way to achieve this is to set a default timeout:
+{{{
+CACHE_BACKEND = 'memcached://?timeout=0'
+}}}
