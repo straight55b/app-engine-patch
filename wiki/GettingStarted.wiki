@@ -1,4 +1,4 @@
-#summary Getting started with appenginepatch. What's different.
+#summary Getting started with appenginepatch and what's different.
 #labels Featured
 
 = Quickstart: sample project =
