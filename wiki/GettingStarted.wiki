@@ -1,7 +1,5 @@
-#summary Installing and using appenginepatch
+#summary Getting started with appenginepatch. What's different.
 #labels Featured
-
-*Important:* You have to use at least Django 1.0 (trunk should work, too).
 
 = Quickstart: sample project =
 
