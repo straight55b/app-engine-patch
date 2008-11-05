@@ -50,6 +50,7 @@ In order to reduce the number of files you can delete the following Django folde
  * django/contrib/gis
 This should work around GAE's 1000 files limit. Alternatively, you can use a zipped Django package.
 
+
 = Zipping a Django package =
 
 First, read the [ZipPackages zip packages documentation].
