@@ -44,7 +44,7 @@ We only support [http://code.google.com/appengine/docs/datastore/ App Engine mod
 
 Since there are no unique properties in App Engine the User model doesn't guarantee uniqueness of the `username`.
 
-You can work around this by manually setting the key_name and working with transactions when creating a User, but this means you won't be able to change the username afterwards.
+You can work around this by manually setting the key_name and using a transaction when creating a User entity, but this means you won't be able to change the `username` afterwards.
 
 Alternatively, you can give up guaranteed uniqueness and check with `filter()` to ensure that the username isn't taken. This might be sufficient.
 
