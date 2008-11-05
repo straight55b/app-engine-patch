@@ -22,7 +22,7 @@ Most of your Django code should just work. Still, you should know about the foll
 
 The default (database) auth and session backends automatically get replaced with versions that use the App Engine datastore, so you don't need to change any of your settings. Alternatively, you can specify your own backends as long as they don't depend on unsupported APIs (unsupported: Django models, SQL, sockets).
 
-Email server settings are only used in the development environment. On the production server you automatically use Google's mail backend. Note that currently Google's SDK doesn't work with gmail accounts and other servers that require TLS. This is not our mistake and we've already filed a bug report.
+Email server settings are only used in the development environment. On the production server you automatically use Google's mail backend. Note that currently Google's SDK doesn't work with gmail accounts and other servers that require TLS. This is a bug in App Engine and we've already filed a bug report.
 
 At least the following apps are not supported because they depend on Django's Model class (though, we might eventually provide ported versions):
  * `django.contrib.admin`
