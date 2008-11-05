@@ -166,8 +166,7 @@ With this you require login for all paths that start with `'/other/path'` or `'/
 === app_prefixed_loader ===
 
 The template loader `app_prefixed_loader` allows for DRY separation of app
-templates. For example, you can render the template `<app>/templates/bla.html` by loading
-`render_to_response(request, '<app>/bla.html')`. There's no need for prefixing app templates (`'<app>_bla.html'`) or creating subfolders (`'<app>/templates/<app>/bla.html'`). For maximum compatibility you should use the following order in your `settings.py`:
+templates. For example, you can render the template "<app>/templates/bla.html" by writing `render_to_response(request, '<app>/bla.html')`. There's no need for prefixing app templates ("<app>_bla.html") or creating subfolders ("<app>/templates/<app>/bla.html"). For maximum compatibility you should use the following order in your `settings.py`:
 {{{
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.load_template_source',
@@ -181,7 +180,7 @@ TEMPLATE_LOADERS = (
 You can add global template tags by specifying the list of modules in a `GLOBALTAGS` variable in `settings.py` like in this example:
 {{{
 GLOBALTAGS = (
-    'ragendja.templateutils',
+    'ragendja.templatetags.ragendjatags',
     'myapp.templatetags.sometag',
 )
 }}}
