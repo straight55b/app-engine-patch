@@ -9,7 +9,7 @@ We provide a sample project in the [http://code.google.com/p/app-engine-patch/do
 
 The default project handler adds "appenginepatch" and "common" to sys.path.
 This means that you don't have to specify "common.xxx" in your imports.
-For example, you can import something from ragendja directly with:
+For example, you can import something from ragendja like this:
 `from ragendja.testutils import ModelTestCase`
 
 Never import `from projectname.appname`, but import `from appname` directly. This also has the advantage that your code becomes more reusable.
