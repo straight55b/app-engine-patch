@@ -1,0 +1,49 @@
+You can of course install appenginepatch manually, but it's more difficult than starting with the sample project. Even if you want to use the most recent source directly you can just download the sample project and replace the "common/appenginepatch" folder with a clone of the appenginepatch repository. If you're still not convinced then let's get started:
+
+Use the following project structure:
+
+{{{
+project root
+  __init__.py
+  app.yaml
+  settings.py
+  manage.py    (copy from appenginepatch)
+  common
+    __init__.py
+    .google_appengine  (only if you use Linux)
+    appenginepatch     (copy the whole main folder)
+    django             (your custom Django checkout)
+}}}
+
+Don't forget to copy manage.py from the appenginepatch folder into your project root. You can only execute it from your project's root folder.
+
+If you're on Linux you can put the App Engine SDK into a folder
+".google_appengine" under "common". Windows and Max OS should work out of the
+box as long as you use the standard installation paths.
+
+Your app.yaml could look like this:
+
+{{{
+application: mycoolapp
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /media
+  static_dir: media
+
+- url: /.*
+  script: common/appenginepatch/main.py
+}}}
+
+This will use the default main.py handler which should work for most projects.
+
+In order to reduce the number of files you can delete the following Django folders:
+ * django/bin
+ * django/contrib/admin
+ * django/contrib/comments
+ * django/contrib/databrowse
+ * django/contrib/flatpages
+ * django/contrib/gis
+This should work around GAE's 1000 files limit. Alternatively, you can use a [ZipPackages zipped Django package].
