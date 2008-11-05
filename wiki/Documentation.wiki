@@ -113,7 +113,7 @@ You can either pass a single model instance and get a single dict or a list of m
 
 For security reasons only the properties in the property_list will get added. If the value of the property has a json_data function its result will be added, instead.
 
-=== KeyReferenceProperty ===
+=== !KeyReferenceProperty ===
 
 Creates a cached accessor for an object referenced by a string property that stores a `str(key)` or `key_name`. This is useful if you need to work with the key of a referenced object, but mustn't `get()` it from the datastore. It takes the name of the property, the model to `get()`, and a boolean that specifies whether the string property contains a key or a key name:
 {{{
@@ -125,7 +125,7 @@ class File(db.Model):
 === prefetch_references(entity_list, property_or_properties) ===
 *Only available in repository*
 
-Dereferences the given (Key)ReferenceProperty fields of a list of objects in as few get() calls as possible:
+Dereferences the given (Key)!ReferenceProperty fields of a list of objects in as few get() calls as possible:
 {{{
 class File(db.Model):
     creator = db.ReferenceProperty(User)
