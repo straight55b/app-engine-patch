@@ -52,6 +52,6 @@ Alternatively, you can give up guaranteed uniqueness and check with `filter()` t
 
 The `object_list`, `create_update`, and `simple` modules are supported. The `date_based` generic views can't be implemented efficiently on App Engine and thus won't be supported.
 
-Note that if a generic view expects an `object_id` parameter you may provide a number to indicate a key id or a string to indicate a `key_name` or `str(key)`.
+If a generic view expects an `object_id` parameter you may provide a number to indicate a key_id or a string to indicate a `key_name` or `str(key)`.
 
 The number of search results shown by `object_list` is limited to 301, so you don't have to mess with datastore timeouts or too large requests. Why exactly 301 results? That's because you probably want to say "more than 300 results" on your search results page. ;) If you want to handle more results than that you have to use a more [http://sites.google.com/site/io/building-scalable-web-applications-with-google-app-engine scalable search method].
