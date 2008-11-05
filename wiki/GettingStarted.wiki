@@ -1,9 +1,9 @@
-#summary Getting started with appenginepatch and what's different.
+#summary Getting started with app-engine-patch and what's different.
 #labels Featured
 
 = Quickstart: sample project =
 
-We provide a sample project in the [http://code.google.com/p/app-engine-patch/downloads/list downloads] section that comes with appenginepatch and a zipped Django 1.0 package pre-installed. We highly recommend using the sample project instead of [ManualInstallation installing appenginepatch manually]. That'll get you started much faster.
+We provide a sample project in the [http://code.google.com/p/app-engine-patch/downloads/list downloads] section that comes with app-engine-patch and a zipped Django 1.0 package pre-installed. We highly recommend using the sample project instead of [ManualInstallation installing app-engine-patch manually]. That'll get you started much faster.
 
 = Paths =
 
