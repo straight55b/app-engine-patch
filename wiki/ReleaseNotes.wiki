@@ -1,12 +1,20 @@
 #labels Featured
 = Upcoming release (1.0?) =
 What's planned:
+ * maybe: support for groups and permissions
+
+= Upcoming release (0.9?) =
+What's planned:
+ * updated Django to version 1.0.1
  * support for all `django.contrib.auth` forms and views
  * support for [GoogleAccounts Google Accounts]
  * optimized session backend with memcache
  * serialization support
  * `ragendja.dbutils.prefetch_references()` function for optimizing datastore access
- * maybe: support for groups and permissions
+ * fixed exception logging
+ * fixed a few minor issues
+
+Note: Starting with this release we'll only provide a sample project. If you're updating an existing project please also update your Django version to the one shipped with the sample project.
 
 = Release 0.8 (2008-10-12) =
  * automatic integration of [ZipPackages zip packages]
