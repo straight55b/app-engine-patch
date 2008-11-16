@@ -4,7 +4,7 @@ What's planned:
  * optimized session backend with memcache
  * maybe: support for groups and permissions
 
-= Upcoming release (0.9?) =
+= Release 0.9 (2008-11-16) =
 What's planned:
  * updated Django to version 1.0.1
  * support for all `django.contrib.auth` forms and views
