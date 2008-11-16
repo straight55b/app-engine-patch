@@ -1,7 +1,5 @@
 #summary How to activate support for Google Accounts.
 
-*Note: This feature is only available in the repository!*
-
 = Using Google Accounts =
 
 It's possible to use Google Accounts instead of Django's auth mechanism or alternatively use a hybrid system that supports both authentication methods.
