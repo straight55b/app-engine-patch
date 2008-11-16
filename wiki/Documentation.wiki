@@ -102,7 +102,6 @@ This generates a `key_name` from the given strings. It automatically prefixes th
 }}}
 
 === to_json_data(entity_or_list, property_or_properties) ===
-*List feature only available in repository*
 
 Converts a model into dicts for use with `JSONResponse`/`simplejson.dumps()`.
 
@@ -120,7 +119,6 @@ class File(db.Model):
 }}}
 
 === prefetch_references(entity_list, property_or_properties) ===
-*Only available in repository*
 
 Dereferences the given (Key)!ReferenceProperty fields of a list of objects in as few get() calls as possible:
 {{{
