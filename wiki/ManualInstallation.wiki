@@ -57,13 +57,7 @@ This should work around GAE's 1000 files limit. Alternatively, you can use a zip
 
 First, read the [ZipPackages zip packages documentation].
 
-If you want to zip Django you have to remove the "django/conf/locale" folder from the zip file because it takes up too much space. Moreover, you can't load translations from a zip file, so you have to move the "locale" folder somewhere else and integrate it via [http://docs.djangoproject.com/en/dev/ref/settings/#locale-paths LOCALE_PATHS] in your "settings.py". For example, move the contents of "django/conf/locale" to "common/django-locale" and add this to your "settings.py":
-{{{
-LOCALE_PATHS = (
-    os.path.join(os.path.dirname(__file__), 'common', 'django-locale'),
-)
-}}}
-Again, the sample project already does this for you. ;)
+If you want to zip Django you have to remove the "django/conf/locale" folder from the zip file because it takes up too much space. Moreover, you can't load translations from a zip file, so you have to move the contents of "django/conf/locale" to "common/django-locale/locale". This folder automatically gets integrated when using a zipped Django package.
 
 
 = settings.py =
