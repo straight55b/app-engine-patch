@@ -4,8 +4,14 @@ What's planned:
  * optimized session backend with memcache
  * maybe: support for groups and permissions
 
-= Release 0.9 (2008-11-16) =
+= Upcoming release (0.9.1) =
 What's planned:
+ * fixed translation support for zipped Django
+ * fixed SDK detection via PATH for Linux/OSX
+
+*Important:* You have to move "common/django-locale/*" to "common/django-locale/locale/".
+
+= Release 0.9 (2008-11-16) =
  * updated Django to version 1.0.1
  * support for all `django.contrib.auth` forms and views
  * support for [GoogleAccounts Google Accounts]
