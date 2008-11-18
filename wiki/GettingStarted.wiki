@@ -1,17 +1,21 @@
 #summary Getting started with app-engine-patch and what's different.
 #labels Featured
 
-= Quickstart: sample project =
-
 We provide a sample project in the [http://code.google.com/p/app-engine-patch/downloads/list downloads] section that comes with app-engine-patch and a zipped Django 1.0.1 package pre-installed. We highly recommend using the sample project instead of [ManualInstallation installing app-engine-patch manually]. That'll get you started much faster.
 
-If you want to update an existing project please download the most recent sample project, then replace your "appenginepatch" and "django-locale" folders and the "zip-packages/django.zip" file with the versions contained in the sample project.
+= Quickstart: sample project =
 
 Most manage.py commands just work (runserver, test, flush, ...). If you want to upload your website to Google you can run "manage.py update". There's also support for removing unused indexes via "manage.py vacuum_indexes".
 
 Before continuing please make sure that you've read the:
  * [http://docs.djangoproject.com/en/dev/ Django documentation]
  * [http://code.google.com/appengine/docs/ App Engine documentation]
+
+
+= Updating =
+
+If you want to update an existing project please download the most recent sample project, then replace your "appenginepatch" and "django-locale" folders and the "zip-packages/django.zip" file with the versions contained in the sample project. Also please read the [ReleaseNotes release notes], so you don't miss important changes.
+
 
 = Differences compared to plain Django =
 
