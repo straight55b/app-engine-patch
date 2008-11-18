@@ -1,12 +1,92 @@
 #summary How you can help and how to send patches.
 #labels Featured
 
-First read [GettingTheSource how to get the source].
+First please read [GettingTheSource how to get the source].
 
 Subscribe to our [http://groups.google.com/group/app-engine-patch mailing list].
 
 Take a look at the list of [http://code.google.com/p/app-engine-patch/issues/list open issues] or suggest a great new feature yourself! The most useful features would be support for Django's admin interface and the comments app.
 
+= Extending app-engine-patch =
+
+Basically, app-engine-patch is a collection of monkey-patches. We manipulate Django's modules, classes, and functions to be compatible with App Engine. If you want to extend app-engine-patch you should take a look at these files (in "common/appenginepatch"):
+
+ * aecmd.py
+ * main.py
+ * appenginepatcher/patch.py
+
+There are various patching techniques with their own advantages and disadvantages.
+
+== On-demand patching ==
+
+This is the preferred patching method because it only gets activated if the respective features (e.g., generic views or sessions) get used. If you don't use some feature you don't waste unnecessary CPU cycles and RAM on loading and patching modules. For example, we patch generic views on-demand like this:
+
+All generic views are hosted in the `django.views.generic` package. We've created replacements for a few of those modules and put them into the "appenginepatcher/generic_views" folder, together with an empty "`__init__py`". The replacement modules must have the same names as Django's original modules (e.g., "list_detail.py"). In the next step, we tell Python that it should first look into our "generic_views" folder whenever someone loads something from `django.views.generic.*`. This code is from "appenginepatcher/patch.py":
+
+{{{
+# Get the path of the current folder (__file__ returns path to patch.py)
+base_path = os.path.abspath(os.path.dirname(__file__))
+# Import the container package which hosts the generic views modules
+from django.views import generic
+# The module __path__ is a list of paths that tells Python where to
+# search for modules in a package. Insert the path to our "generic_views"
+# folder, so our modules will override Django's modules.
+generic.__path__.insert(0, os.path.join(base_path, 'generic_views'))
+}}}
+
+This method only works if the container package doesn't load any of its submodules because you have to load the container package and modify its `__path__`. Another disadvantage is that you have to copy the whole source of the modules you want to patch and thus you also have to update it whenever Django gets updated.
+
+
+== Static monkey-patching ==
+
+Here you simply import a modules or class and directly manipulate it. The advantage is that you don't need to copy complete modules. Instead, you can just replace individual functions or classes. You choose how fine-grained the patch needs to be. The disadvantage is that you have to load Django's module and your replacement code even if the user will never need it.
+
+For example, this is how we patch Django's mail support:
+
+{{{
+# Import module that contains replacement mail classes and functions
+from appenginepatcher import mail as gmail
+# Import Django's mail module
+from django.core import mail
+# Replace a few classes and functions
+mail.SMTPConnection = gmail.GoogleSMTPConnection
+mail.mail_admins = gmail.mail_admins
+mail.mail_managers = gmail.mail_managers
+}}}
+
+
+== Manipulating sys.modules ==
+
+Sometimes you have to unload or replace a module that has already been loaded. All loaded modules are cached in `sys.modules`. For example, here we replace the default `imp` module with a patched version:
+
+{{{
+import sys
+from appenginepatcher import imp
+sys.modules['imp'] = imp
+}}}
+
+
+== Loading custom patches ==
+
+If you want to add a few custom patches you have to write your own main.py handler. You could copy the original main.py and modify the code, but then you'd have to track changes in app-engine-patch and update your main.py manually. There's an easier alternative. Write your own main.py and import everything from the original main.py:
+
+{{{
+from common.appenginepatch.main import *
+
+# Do your own patching here
+# ...
+
+if __name__ == '__main__':
+    main()
+}}}
+
+
+= Sending patches =
+
 The easiest way to create a patch is by committing it into your local repository with `hg ci` and exporting it with `hg bundle mypatch.bundle`. Just create a new issue describing your improvement and attach the bundle. You can alternatively use the [http://www.selenic.com/mercurial/wiki/index.cgi/MqExtension patch queues extension] and send a normal diff, but that's more complicated and should be used if you need powerful patch management.
+
+Just send the patch to our [http://groups.google.com/group/app-engine-patch mailing list] or create a new issue and attach your patch.
+
+= Donating =
 
 Alternatively, we'd be very grateful for a little [ThankYou donation]. :)
