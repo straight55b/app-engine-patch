@@ -7,18 +7,11 @@ We provide a sample project in the [http://code.google.com/p/app-engine-patch/do
 
 If you want to update an existing project please download the most recent sample project, then replace your "appenginepatch" and "django-locale" folders and the "zip-packages/django.zip" file with the versions contained in the sample project.
 
-See also:
+Most manage.py commands just work (runserver, test, flush, ...). If you want to upload your website to Google you can run "manage.py update". There's also support for removing unused indexes via "manage.py vacuum_indexes".
+
+For App Engine or Django newbies:
  * [http://docs.djangoproject.com/en/dev/ Django documentation]
  * [http://code.google.com/appengine/docs/ App Engine documentation]
-
-= Paths =
-
-The default project handler adds "appenginepatch" and "common" to sys.path.
-This means that you don't have to specify "common.xxx" in your imports.
-For example, you can import something from ragendja like this:
-`from ragendja.testutils import ModelTestCase`
-
-Never import `from projectname.appname`, but import `from appname` directly. This also has the advantage that your code becomes more reusable.
 
 = Differences compared to plain Django =
 
@@ -61,3 +54,12 @@ The `object_list`, `create_update`, and `simple` modules are supported. The `dat
 If a generic view expects an `object_id` parameter you may provide a number to indicate a key_id or a string to indicate a `key_name` or `str(key)`.
 
 The number of search results shown by `object_list` is limited to 301, so you don't have to mess with datastore timeouts or too large requests. Why exactly 301 results? That's because you probably want to say "more than 300 results" on your search results page. ;) If you want to handle more results than that you have to use a more [http://sites.google.com/site/io/building-scalable-web-applications-with-google-app-engine scalable search method].
+
+= Paths =
+
+The default project handler adds "common/appenginepatch" and "common" to sys.path.
+This means that you don't have to specify "common.xxx" in your imports.
+For example, you can import something from ragendja like this:
+`from ragendja.testutils import ModelTestCase`
+
+Never import `from projectname.appname`, but import `from appname` directly. This also has the advantage that your code becomes more reusable.
