@@ -7,6 +7,10 @@ We provide a sample project in the [http://code.google.com/p/app-engine-patch/do
 
 If you want to update an existing project please download the most recent sample project, then replace your "appenginepatch" and "django-locale" folders and the "zip-packages/django.zip" file with the versions contained in the sample project.
 
+See also:
+ * [http://docs.djangoproject.com/en/dev/ Django documentation]
+ * [http://code.google.com/appengine/docs/ App Engine documentation]
+
 = Paths =
 
 The default project handler adds "appenginepatch" and "common" to sys.path.
