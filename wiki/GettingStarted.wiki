@@ -9,7 +9,7 @@ If you want to update an existing project please download the most recent sample
 
 Most manage.py commands just work (runserver, test, flush, ...). If you want to upload your website to Google you can run "manage.py update". There's also support for removing unused indexes via "manage.py vacuum_indexes".
 
-For App Engine or Django newbies:
+Before continuing please make sure that you've read the:
  * [http://docs.djangoproject.com/en/dev/ Django documentation]
  * [http://code.google.com/appengine/docs/ App Engine documentation]
 
