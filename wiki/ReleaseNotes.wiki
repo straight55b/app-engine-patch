@@ -5,7 +5,7 @@ What's planned:
  * maybe: support for groups and permissions
 
 = Release 0.9.1 (2008-11-18) =
- * fixed translation support for zipped Django
+ * fixed translation support when using a zipped Django package
  * fixed SDK detection via PATH for Linux/OSX
 
 *Important:* Please move "common/django-locale/`*`" to "common/django-locale/locale/" and remove the `LOCALE_PATHS` setting for that folder.
