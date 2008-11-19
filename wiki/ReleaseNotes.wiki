@@ -4,6 +4,9 @@ What's planned:
  * optimized session backend with memcache
  * maybe: support for groups and permissions
 
+= Release 0.9.2 (2008-11-19) =
+ * updated to Django 1.0.2 ([http://docs.djangoproject.com/en/dev/releases/1.0.2/ release notes])
+
 = Release 0.9.1 (2008-11-18) =
  * fixed translation support when using a zipped Django package
  * fixed SDK detection via PATH for Linux/OSX
