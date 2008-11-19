@@ -12,6 +12,10 @@ Before continuing please make sure that you've read the:
  * [http://code.google.com/appengine/docs/ App Engine documentation]
 
 
+== Linux users ==
+
+You can put the SDK either in "/usr/local/google_appengine" or any folder that is in the PATH environment variable.
+
 = Updating =
 
 If you want to update an existing project please download the most recent sample project, then replace your "appenginepatch" and "django-locale" folders and the "zip-packages/django.zip" file with the versions contained in the sample project. Also please read the [ReleaseNotes release notes], so you don't miss important changes.
