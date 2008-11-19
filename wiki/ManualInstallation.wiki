@@ -14,16 +14,11 @@ project root
   manage.py    (copy from "appenginepatch")
   common
     __init__.py
-    .google_appengine  (only if you use Linux)
     appenginepatch     (copy the whole main folder)
     django             (your custom Django checkout)
 }}}
 
 Don't forget to copy manage.py from the "appenginepatch" folder into your project root. You can only execute it from your project's root folder.
-
-If you're on Linux you can put the App Engine SDK into a folder
-".google_appengine" under "common". Windows and Max OS should work out of the
-box as long as you use the standard installation paths.
 
 Your app.yaml could look like this:
 
