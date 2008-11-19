@@ -1,11 +1,11 @@
 #summary Getting started with app-engine-patch and what's different.
 #labels Featured
 
-We provide a sample project in the [http://code.google.com/p/app-engine-patch/downloads/list downloads] section that comes with app-engine-patch and a zipped Django 1.0.1 package pre-installed. We highly recommend using the sample project instead of [ManualInstallation installing app-engine-patch manually]. That'll get you started much faster.
+= Introduction =
 
-= Quickstart: sample project =
+We provide a sample project in the [http://code.google.com/p/app-engine-patch/downloads/list downloads] section that comes with app-engine-patch and a zipped Django package pre-installed.
 
-Most manage.py commands just work (runserver, test, flush, ...). If you want to upload your website to Google you can run "manage.py update" (don't forget to set your appid in app.yaml). There's also support for removing unused indexes via "manage.py vacuum_indexes".
+Most manage.py commands just work (runserver, test, flush, ...), so you should be in a familiar environment. If you want to upload your website to Google you can run "manage.py update" (don't forget to set your appid in app.yaml). There's also support for removing unused indexes via "manage.py vacuum_indexes".
 
 Before continuing please make sure that you've read the:
  * [http://docs.djangoproject.com/en/dev/ Django documentation]
