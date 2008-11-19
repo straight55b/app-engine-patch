@@ -1,6 +1,24 @@
 #summary How you can help and how to send patches.
 #labels Featured
 
+= Community building =
+
+Spread the word. Write about app-engine-patch on your blog. Feel free to post a link to your article on our [http://groups.google.com/group/app-engine-patch mailing list].
+
+We could also need an article in the [http://code.google.com/appengine/articles/ App Engine articles section].
+
+Actively participate on our [http://groups.google.com/group/app-engine-patch mailing list]. Answer questions and make suggestions.
+
+Take part in hack-a-thons and tell others about app-engine-patch.
+
+Give presentations at conferences.
+
+= Make suggestions =
+
+We want to steadily improve app-engine-patch. Please join our [http://groups.google.com/group/app-engine-patch mailing list] and make suggestions on how to make app-engine-patch easier to use and more powerful.
+
+= Coding =
+
 First please read [GettingTheSource how to get the source].
 
 Subscribe to our [http://groups.google.com/group/app-engine-patch mailing list].
