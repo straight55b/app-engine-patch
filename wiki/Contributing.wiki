@@ -107,4 +107,4 @@ Just send the patch to our [http://groups.google.com/group/app-engine-patch mail
 
 = Donating =
 
-Alternatively, we'd be very grateful for a little [ThankYou donation]. :)
+Alternatively, we'd be very grateful for a little [Donate donation]. :)
