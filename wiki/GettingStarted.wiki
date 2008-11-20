@@ -72,6 +72,6 @@ For example, you can import something from ragendja like this:
 
 Never import `from projectname.appname`, but import `from appname` directly. This also has the advantage that your code becomes more reusable.
 
-= Next steps =
+= Diving in =
 
-You can find a lot more information in our [Documentation documentation].
+Please read our [Documentation documentation]. There are lots of goodies.
