@@ -71,3 +71,7 @@ For example, you can import something from ragendja like this:
 `from ragendja.testutils import ModelTestCase`
 
 Never import `from projectname.appname`, but import `from appname` directly. This also has the advantage that your code becomes more reusable.
+
+= Next steps =
+
+You can find a lot more information in our [Documentation documentation].
