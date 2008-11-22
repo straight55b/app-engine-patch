@@ -62,7 +62,7 @@ Now, in this case we have a problem because the original json module uses that v
 
 == Static monkey-patching ==
 
-This method works like this: You simply import a module or class and modify it directly by assigning values to variables. Going back to our json serializer example, here's the code:
+This method is very simple: import a module or class and modify it directly by assigning values to variables, etc.. Going back to our json serializer example, here's the code:
 
 {{{
 # Import all functions and classes from original json module
