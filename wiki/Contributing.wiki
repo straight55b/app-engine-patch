@@ -57,7 +57,7 @@ from django.core.serializers.__original__.json import *
 PythonDeserializer = ...
 }}}
 
-Now, in this case we have a problem because the original json module uses that variable in one of its functions. Our replacement only works for code that tries to import the json module, but here we need to tell the functions in the json module to use a different variable. This can be done with static monkey-patching.
+Now, in this case we have a problem because the original json module uses that variable in one of its functions. Our replacement only works for code that tries to import the json module, but here we have to tell the functions in the json module *itself* to use a different variable. This can be done with static monkey-patching.
 
 
 == Static monkey-patching ==
