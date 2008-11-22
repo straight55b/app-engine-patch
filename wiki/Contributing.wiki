@@ -27,49 +27,54 @@ Take a look at the list of [http://code.google.com/p/app-engine-patch/issues/lis
 
 = Extending app-engine-patch =
 
-Basically, app-engine-patch is a collection of monkey-patches. We manipulate Django's modules, classes, and functions to be compatible with App Engine. If you want to extend app-engine-patch you should take a look at these files (in "common/appenginepatch"):
+Basically, app-engine-patch is a collection of monkey-patches. We manipulate Django's modules, classes, and functions to be compatible with App Engine. If you want to extend app-engine-patch you should first take a look at these files (in "common/appenginepatch"):
 
- * aecmd.py
+ * manage.py
  * main.py
+ * aecmd.py
  * appenginepatcher/patch.py
 
 There are various patching techniques with their own advantages and disadvantages.
 
 == On-demand patching ==
 
-This is the preferred patching method because it only gets activated if the respective features (e.g., generic views or sessions) get used. If you don't use some feature you don't waste unnecessary CPU cycles and RAM on loading and patching modules. For example, we patch generic views on-demand like this:
+Where possible you should use this method. The idea is that you replace some modules in a package with a modified version, by manipulating the package's `__path__`. At the same time you can import stuff from the original module via `<package>.__original__.<module>`, so you don't have to copy the whole source, but instead only the parts that should be modified.
 
-All generic views are hosted in the `django.views.generic` package. We've created replacements for a few of those modules and put them into the "appenginepatcher/generic_views" folder, together with an empty "`__init__py`". The replacement modules must have the same names as Django's original modules (e.g., "list_detail.py"). In the next step, we tell Python that it should first look into our "generic_views" folder whenever someone loads something from `django.views.generic.*`. This code is from "appenginepatcher/patch.py":
+This is done with a special `patch_package()` function which takes two arguments: the module to patch and the name of the subfolder under "appenginepatcher/" that contains the replacement modules. For example, here we replace Django's serializers (see "appenginepatcher/patch.py"):
 
 {{{
-# Get the path of the current folder (__file__ returns path to patch.py)
-base_path = os.path.abspath(os.path.dirname(__file__))
-# Import the container package which hosts the generic views modules
-from django.views import generic
-# The module __path__ is a list of paths that tells Python where to
-# search for modules in a package. Insert the path to our "generic_views"
-# folder, so our modules will override Django's modules.
-generic.__path__.insert(0, os.path.join(base_path, 'generic_views'))
+# Patch serializers
+patch_package('django.core.serializers', 'serializers')
 }}}
 
-This method only works if the container package doesn't load any of its submodules because you have to load the container package and modify its `__path__`. Another disadvantage is that you have to copy the whole source of the modules you want to patch and thus you also have to update it whenever Django gets updated.
+From now on, when you import `django.core.serializers.json` the `json` module in the "serializers" folder will get loaded instead of the Django version. You could now replace the `PythonDeserializer` variable in that module with this code:
+
+{{{
+# Import all functions and classes from original json module
+from django.core.serializers.__original__.json import *
+
+# Replace PythonDeserializer
+PythonDeserializer = ...
+}}}
+
+Now, in this case we have a problem because the original json module uses that variable in one of its functions. Our replacement only works for code that tries to import the json module, but here we need to tell the functions in the json module to use a different variable. This can be done with static monkey-patching.
 
 
 == Static monkey-patching ==
 
-Here you simply import a modules or class and directly manipulate it. The advantage is that you don't need to copy complete modules. Instead, you can just replace individual functions or classes. You choose how fine-grained the patch needs to be. The disadvantage is that you have to load Django's module and your replacement code even if the user will never need it.
-
-For example, this is how we patch Django's mail support:
+This method works like this: You simply import a module or class and modify it directly by assigning values to variables. Going back to our json serializer example, here's the code:
 
 {{{
-# Import module that contains replacement mail classes and functions
-from appenginepatcher import mail as gmail
-# Import Django's mail module
-from django.core import mail
-# Replace a few classes and functions
-mail.SMTPConnection = gmail.GoogleSMTPConnection
-mail.mail_admins = gmail.mail_admins
-mail.mail_managers = gmail.mail_managers
+# Import all functions and classes from original json module
+from django.core.serializers.__original__.json import *
+# Import json module itself, so we can statically monkey-patch it
+from django.core.serializers.__original__ import json
+
+# Replace PythonDeserializer
+PythonDeserializer = ...
+
+# Modify the original json module, so it uses the changed variable, too.
+json.PythonDeserializer = PythonDeserializer
 }}}
 
 
