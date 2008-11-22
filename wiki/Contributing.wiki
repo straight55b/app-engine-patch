@@ -40,7 +40,7 @@ There are various patching techniques with their own advantages and disadvantage
 
 Where possible you should use this method. The idea is that you replace some modules in a package with a modified version, by manipulating the package's `__path__`. At the same time you can import stuff from the original module via `<package>.__original__.<module>`, so you don't have to copy the whole source, but instead only the parts that should be modified.
 
-This is done with a special `patch_package()` function which takes two arguments: the module to patch and the name of the subfolder under "appenginepatcher/" that contains the replacement modules. For example, here we replace Django's serializers (see "appenginepatcher/patch.py"):
+This is done with a special `patch_package()` function which takes two arguments: the package you want to patch and the name of the subfolder under "appenginepatcher/" that contains the replacement modules. For example, here we replace Django's serializers (see "appenginepatcher/patch.py"):
 
 {{{
 # Patch serializers
