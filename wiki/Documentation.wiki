@@ -198,7 +198,7 @@ This converts a Python object (`data`) into a JSON string and creates an `HttpRe
 
 === register ===
 
-This is a context_processor that adds an `encodejs` filter that converts Python to a JSON string.
+This is a context_processor that adds an `encodejs` filter that converts Python to a JSON code string.
 
 
 == ragendja.testutils ==
