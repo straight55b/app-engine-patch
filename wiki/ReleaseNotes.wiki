@@ -2,8 +2,9 @@
 = Upcoming release (1.0?) =
 What's planned:
  * optimized session backend with memcache
- * fixed support for most recent boto release
  * print app-engine-patch version number when running manage.py
+ * fixed support for most recent boto release
+ * fixed `get_list_or_404` to be consistent with `get_object_or_404`
  * refactored and cleaned up code
  * maybe: support for groups and permissions
 
