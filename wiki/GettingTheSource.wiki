@@ -3,10 +3,10 @@
 
 We use [http://www.selenic.com/mercurial/ Mercurial]. Installers are available at http://www.selenic.com/mercurial/wiki/index.cgi/BinaryPackages
 
-You can browse the source at http://trac-hg.assembla.com/appenginepatch
+You can browse the source at http://www.bitbucket.org/wkornewald/appenginepatch/src/
 
 To download the latest source code execute this command in a terminal:
 
-hg clone http://hg.assembla.com/appenginepatch
+hg clone http://www.bitbucket.org/wkornewald/appenginepatch
 
-If you have an improvement feel free to [Contributing contribute patches].
+If you have an improvement please [Contributing contribute].
