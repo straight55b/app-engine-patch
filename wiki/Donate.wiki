@@ -1,12 +1,6 @@
-#summary Please donate a small amount to support this project.
-#labels Featured
+We don't accept donations, anymore. This is starting to become a community project and we think we can achieve much more together.
 
-[http://freenet-homepage.de/wkornewald/appenginepatch/donate-usd.html https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif] in $
-
-[http://freenet-homepage.de/wkornewald/appenginepatch/donate.html https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif] in €
-
-
-= Thank you very much for donating! =
+= Thank you very much for your donations! =
 
  * 2008-11-10: Jesaja Everling (€25)
  * 2008-11-04: Ugo Nakawaka / Deiji Tools
