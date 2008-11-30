@@ -1,0 +1,4 @@
+#summary List of open-source projects for Django on App Engine.
+
+ * [http://www.bitbucket.org/jeverling/django-registration_appenginepatch/ django-registration] - user registration for Django with app-engine-patch
+ * [http://github.com/woid/firepython/tree/master FirePython] - log directly to Firebug
