@@ -1,4 +1,4 @@
-#summary List of useful open-source projects for Django on App Engine.
+#summary List of useful open-source projects for easier Django development on App Engine.
 #labels Featured
 
  * [http://www.bitbucket.org/jeverling/django-registration_appenginepatch/ django-registration] - user registration for Django with app-engine-patch
