@@ -10,3 +10,5 @@ To download the latest source code execute this command in a terminal:
 hg clone http://www.bitbucket.org/wkornewald/appenginepatch
 
 If you have an improvement please [Contributing contribute].
+
+We also have a repository for our sample project at http://www.bitbucket.org/wkornewald/appenginepatch-sample/
