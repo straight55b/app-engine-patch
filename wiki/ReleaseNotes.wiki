@@ -8,6 +8,7 @@ What's planned:
  * fixed support for most recent boto release
  * fixed `get_list_or_404` to be consistent with `get_object_or_404`
  * refactored and cleaned up code
+ * probably: port of Django's contenttypes app
  * maybe: support for groups and permissions
 
 = Release 0.9.2 (2008-11-19) =
