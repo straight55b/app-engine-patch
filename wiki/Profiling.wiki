@@ -38,6 +38,8 @@ EXTRA_PROFILE_OUTPUT = 'callers' # or 'callees' (you can also provide a tuple wi
 
 = Profiling under load =
 
+*This feature is only available in the repo*
+
 If you profile a website under load your logs will be flooded. You can limit the profiler to just a certain percentage of all requests:
 
 {{{
