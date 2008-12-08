@@ -14,7 +14,7 @@ Before continuing please make sure that you've read the:
 
 == Linux users ==
 
-You can put the SDK either in "/usr/local/google_appengine" or any folder that is in the PATH environment variable.
+You can put the SDK either in "/usr/local/google_appengine" or any folder that is in the PATH environment variable as long as it's called "google_appengine".
 
 = Updating =
 
