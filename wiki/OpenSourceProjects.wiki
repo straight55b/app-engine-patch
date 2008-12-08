@@ -8,4 +8,4 @@ Most of these projects require app-engine-patch:
  * [http://github.com/woid/firepython/tree/master FirePython]: log directly to Firebug
  * [http://code.google.com/p/gae-django-dbtemplates/ gae-django-dbtemplates]: render templates from the datastore
  * [http://code.google.com/p/google-app-engine-django-openid/ OpenID]: support for OpenID
- * [http://gaeutilsuit.appspot.com/ gaeutilsuit]: pick a few modules and generate a base project
+ * [http://gaeutilsuit.appspot.com/ gaeutilsuit]: pick a few modules and generate a quickstart project
