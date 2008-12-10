@@ -21,7 +21,7 @@ MIDDLEWARE_CLASSES = (
 AUTH_USER_MODULE = 'ragendja.auth.google_models'
 }}}
 
-Note that the default Google `User` model does not have `first_name` and `last_name` properties, but it adds a `user` property of type `db.UserProperty`. Also, the `email` and `username` properties can't be changed or queried with a `filter()` call because they are dynamically retrieved from the `user` property. You can [CustomUserModel define your own] `User` model if you want to change anything.
+This will automatically give you a Google-compatible `@login_required` decorator. Note that the default Google `User` model does not have `first_name` and `last_name` properties, but it adds a `user` property of type `db.UserProperty`. Also, the `email` and `username` properties can't be changed or queried with a `filter()` call because they are dynamically retrieved from the `user` property. You can [CustomUserModel define your own] `User` model if you want to change anything.
 
 == Hybrid authentication ==
 
