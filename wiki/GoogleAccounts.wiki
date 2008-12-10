@@ -38,7 +38,7 @@ MIDDLEWARE_CLASSES = (
 AUTH_USER_MODULE = 'ragendja.auth.hybrid_models'
 }}}
 
-Note that in this case Django's original `login_required` decorator will be used, so you'll have to take care of making both authentication methods visible on your login page. Also, the `User` model has all properties that are defined in Django in addition to a `user` property which can be set to `None`.
+Note that in this case `@login_required` will behave like in Django-only mode (there's still `@ragendja.auth.decorators.google_login_required` if you need it), so you'll have to take care of making both authentication methods visible on your login page. Also, the `User` model has all properties that are defined in Django in addition to a `user` property which can be set to `None`.
 
 = Template tags =
 
