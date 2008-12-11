@@ -6,6 +6,7 @@
  * [ZipPackages Integrating zipped packages]
  * [CustomUserModel Defining a custom User model]
  * [GoogleAccounts Using Google Accounts]
+ * [MediaGenerator Using the media generator]
  * [ManualInstallation Manual installation] (not recommended)
  * [Contributing]
 
