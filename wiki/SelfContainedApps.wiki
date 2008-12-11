@@ -23,7 +23,18 @@ As you can see, this reduces the amount of work users need to do in order to ins
 
 = Automatic app urls integration =
 
-The `ragendja.urlsauto` module allows for automatically integrating the installed apps' urls with a default base URL. Simply define an "urlsauto.py" module with an `urlpatterns` variable. It will automatically be appended to the global "urls.py". For example, we've extended the registration app to support this:
+The `ragendja.urlsauto` module allows for automatically integrating the installed apps' urls with a default base URL (for apps that support this feature):
+
+{{{
+# urls.py:
+# ...
+# Import default app urlpatterns
+from ragendja.urlsauto import urlpatterns
+# Append imported app url patterns to our patterns:
+urlpatterns = patterns(...) + urlpatterns
+}}}
+
+Simply define an "urlsauto.py" module with an `urlpatterns` variable in your app. For example, we've extended the registration app this way:
 
 {{{
 # registration/urlsauto.py:
