@@ -10,7 +10,7 @@ In order to optimize your website you should combine all JS (same goes for CSS) 
 
 Luckily, app-engine-patch helps you automate this process. In your settings.py you can specify how media files should be combined. Make sure that you put your app-specific media files in a folder called "media" within your app's folder. The generated media files are stored in the folder "`_generated_media`" which is automatically created in your project root folder. Note that JS translation files can be automatically integrated into the generated JS files.
 
-The generated media files are only compressed when you run "manage.py update". While developing on your local computer you probably don't want to use compressed media files. If manage.py detects that one of your media files has changed it automatically updates the "`_generated_media`" folder. You can also manually regenerate that folder by running "manage.py generatemedia" (there's also a "--compressed" flag which enforces compression). That might be necessary if manage.py update failed in which case you are left with compressed media files.
+The generated media files are only compressed when you run "manage.py update". While developing on your local computer you probably don't want to use compressed media files. If manage.py detects that one of your media files has changed it automatically updates the "`_generated_media`" folder. You can also manually regenerate that folder by running "manage.py generatemedia" (there's also a "--compressed" flag which enforces compression). That might be necessary if "manage.py update" fails in which case you are left with compressed media files.
 
 Example settings:
 
