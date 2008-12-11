@@ -1,6 +1,12 @@
 #summary Getting started with app-engine-patch and what's different.
 #labels Featured
 
+= Requirements =
+
+Please download and install the [http://code.google.com/p/googleappengine/ App Engine SDK].
+
+Windows and MacOS X users can just follow the standard install procedure. Linux users can put the SDK either in "/usr/local/google_appengine" or any folder that is in the system's PATH environment variable as long as it's called "google_appengine".
+
 = Introduction =
 
 We provide a sample project in the [http://code.google.com/p/app-engine-patch/downloads/list downloads] section that comes with app-engine-patch and a zipped Django package pre-installed.
@@ -11,10 +17,6 @@ Before continuing please make sure that you've read the:
  * [http://docs.djangoproject.com/en/dev/ Django documentation]
  * [http://code.google.com/appengine/docs/ App Engine documentation]
 
-
-== Linux users ==
-
-You can put the SDK either in "/usr/local/google_appengine" or any folder that is in the PATH environment variable as long as it's called "google_appengine".
 
 = Updating =
 
