@@ -4,13 +4,13 @@
 
 *Requirements:* You must have Java installed and it must be accessible via PATH.
 
-Note: This feature is pre-configured in the sample project. You can disable it by simply removing "mediautils" from your INSTALLED_APPS.
+Note: This feature is pre-configured in the sample project. You can disable it by simply removing "mediautils" from your `INSTALLED_APPS`.
 
 In order to optimize your website you should combine all JavaScript (same goes for CSS) files into a single file and compress it (remove all whitespace and comments), so your users can download all media files in as few requests as possible. For some times this can provide a *huge* speed boost on first load.
 
-Luckily, app-engine-patch helps you automate this process. In your settings.py you can specify how media files should be combined. Make sure that you put your app-specific media files in a folder called "media" within your app's folder. The generated media files are stored in the folder "_generated_media" which is automatically created in your project root folder. Note that JavaScript translation files can be automatically integrated into the generated JS files.
+Luckily, app-engine-patch helps you automate this process. In your settings.py you can specify how media files should be combined. Make sure that you put your app-specific media files in a folder called "media" within your app's folder. The generated media files are stored in the folder "`_generated_media`" which is automatically created in your project root folder. Note that JavaScript translation files can be automatically integrated into the generated JS files.
 
-The generated media files are only compressed when you run "manage.py update". While developing on your local computer you probably don't want to use compressed media files. If app-engine-patch detects that one of your media files has changed it automatically updates the "_generated_media" folder. You can also manually regenerate that folder by running "manage.py generatemedia" (there's also a "--compressed" flag which enforces compression).
+The generated media files are only compressed when you run "manage.py update". While developing on your local computer you probably don't want to use compressed media files. If app-engine-patch detects that one of your media files has changed it automatically updates the "`_generated_media`" folder. You can also manually regenerate that folder by running "manage.py generatemedia" (there's also a "--compressed" flag which enforces compression).
 
 Example settings:
 
