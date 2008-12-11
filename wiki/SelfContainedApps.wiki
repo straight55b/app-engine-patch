@@ -74,7 +74,7 @@ As a convention, app-engine-patch expects that you name your main media files "c
 
 = Template conventions =
 
-Finally, we need some conventions for our base templates, so apps know what to extend and which blocks to use:
+Finally, we need some conventions for templates:
 
  * use XHTML
  * always place your app templates directly into the app's "templates" folder (e.g., "myapp/templates/somepage.html")
