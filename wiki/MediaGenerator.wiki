@@ -6,7 +6,7 @@
 
 Note: This feature is pre-configured in the sample project. You can disable it by simply removing "mediautils" from your `INSTALLED_APPS`.
 
-In order to optimize your website you should combine all JS (same goes for CSS) files into a single file and compress it (remove all whitespace and comments), so your users can download all media files in as few requests as possible. For some times this can provide a *huge* speed boost on first load.
+In order to optimize your website you should combine all JS (same goes for CSS) files into a single file and compress it (remove all whitespace and comments), so your users can download all media files in as few requests and as quickly as possible. For some times this can provide a *huge* speed boost on first load.
 
 Luckily, app-engine-patch helps you automate this process. In your settings.py you can specify how media files should be combined. Make sure that you put your app-specific media files in a folder called "media" within your app's folder. The generated media files are stored in the folder "`_generated_media`" which is automatically created in your project root folder. Note that JS translation files can be automatically integrated into the generated JS files.
 
