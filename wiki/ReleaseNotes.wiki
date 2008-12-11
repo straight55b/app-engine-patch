@@ -2,7 +2,8 @@
 = Upcoming release (1.0?) =
 What's planned:
  * ported and integrated django-registration into sample app (thank you, Jesaja Everling!)
- * optimized session backend with memcache
+ * [MediaGenerator media generator]
+ * memcache-optimized session backend
  * added [Profiling profiler] features: analyze only specific requests or a certain percentage of all requests
  * print app-engine-patch version number when running manage.py
  * fixed support for most recent boto release
