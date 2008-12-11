@@ -1,4 +1,4 @@
-#summary Writing self-contained apps with ragendja.
+#summary Conventions and tools for writing self-contained apps.
 
 Many open-source Django apps come without any templates because there is no standard for template blocks. Also, apps that require JS/CSS don't have any conventions, either. The next problem is that while it's Python convention to be explicit it would be nice to have all app-specific code in a single folder, so your code becomes fully reusable.
 
