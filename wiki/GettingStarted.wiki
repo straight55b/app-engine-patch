@@ -20,7 +20,7 @@ Before continuing please make sure that you've read the:
 
 = Updating =
 
-If you want to update an existing project please download the most recent sample project, then replace your "appenginepatch" and "django-locale" folders and the "zip-packages/django.zip" file with the versions contained in the sample project. Also please read the [ReleaseNotes release notes], so you don't miss important changes.
+If you want to update an existing project please download the most recent sample project and replace everything in the "common" folder with new versions from the sample project. Also please read the [ReleaseNotes release notes], so you don't miss important changes.
 
 
 = Differences compared to plain Django =
