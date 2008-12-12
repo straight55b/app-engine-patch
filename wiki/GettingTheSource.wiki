@@ -3,12 +3,11 @@
 
 We use [http://www.selenic.com/mercurial/ Mercurial]. Installers are available at http://www.selenic.com/mercurial/wiki/index.cgi/BinaryPackages
 
-You can browse the source at http://www.bitbucket.org/wkornewald/appenginepatch/src/
+The project consists of multiple repositories for the various components:
 
-To download the latest source code execute this command in a terminal:
+ * app-engine-patch (some patches, ragendja, and goodies): http://www.bitbucket.org/wkornewald/appenginepatch/
+ * sample project: http://www.bitbucket.org/wkornewald/appenginepatch-sample/
+ * modified Django version: http://www.bitbucket.org/wkornewald/django-app-engine/
+ * unmodified Django version (used to upgrade modified version): http://www.bitbucket.org/wkornewald/django-original/
 
-hg clone http://www.bitbucket.org/wkornewald/appenginepatch
-
-If you have an improvement please [Contributing contribute].
-
-We also have a repository for our sample project at http://www.bitbucket.org/wkornewald/appenginepatch-sample/
+If you have an improvement please [Contributing contribute]. Most of the time you should send patches against our modified Django version.
