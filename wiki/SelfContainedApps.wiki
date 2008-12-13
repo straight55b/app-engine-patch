@@ -84,4 +84,3 @@ Finally, we need some conventions for templates:
  * your css files go into the "css" block
  * your js files go into the "js" block (which always comes after the css block)
  * any extra information that must be in the `<head>` goes into the "extra-head" block
- * breadcrumbs and similar items which are above the real content go into the "content-header" block (if you have one)
