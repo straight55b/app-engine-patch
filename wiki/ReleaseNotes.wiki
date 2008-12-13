@@ -8,6 +8,8 @@ What's planned:
  * print app-engine-patch version number when running manage.py
  * fixed support for most recent boto release
  * fixed `get_list_or_404` to be consistent with `get_object_or_404`
+ * fixed slug support in generic views
+ * added support for model `verbose_name` and `verbose_name_plural`
  * refactored and cleaned up code
  * probably: port of Django's contenttypes app
  * maybe: support for groups and permissions
