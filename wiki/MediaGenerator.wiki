@@ -34,8 +34,9 @@ COMBINE_MEDIA = {
         # Integrate morecode.js from "media" under project root folder
         'global/morecode.js',
     ),
-    # Create a combined CSS file
-    'combined.css': (
+    # Create a combined CSS file which is called "combined-ltr.css" for
+    # left-to-right text direction
+    'combined-%(LANGUAGE_DIR)s.css': (
         'myapp/style.css',
         'global/look.css',
     ),
