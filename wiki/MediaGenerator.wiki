@@ -38,7 +38,8 @@ COMBINE_MEDIA = {
     # left-to-right text direction
     'combined-%(LANGUAGE_DIR)s.css': (
         'myapp/style.css',
-        'global/look.css',
+        # Load layout for the correct text direction
+        'global/layout-%(LANGUAGE_DIR)s.css',
     ),
 }
 
