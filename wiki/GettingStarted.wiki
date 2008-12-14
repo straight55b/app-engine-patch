@@ -65,6 +65,8 @@ If a generic view expects an `object_id` parameter you may provide a number to i
 
 The number of search results shown by `object_list` is limited to 301, so you don't have to mess with datastore timeouts or too large requests. Why exactly 301 results? That's because you probably want to say "more than 300 results" on your search results page. ;) If you want to handle more results than that you have to use a more [http://sites.google.com/site/io/building-scalable-web-applications-with-google-app-engine scalable search method].
 
+The `post_xxx_redirect` parameters provide special access to `%(key)s`, `%(key_name)s`, and `%(key_id)d`.
+
 = Paths =
 
 The default project handler adds "common/appenginepatch" and "common" to sys.path.
