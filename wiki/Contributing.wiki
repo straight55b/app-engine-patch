@@ -25,16 +25,16 @@ Subscribe to our [http://groups.google.com/group/app-engine-patch mailing list].
 
 Take a look at the list of [http://code.google.com/p/app-engine-patch/issues/list open issues] or suggest a great new feature yourself! The most useful features would be support for Django's admin interface and the comments app.
 
-= Extending app-engine-patch =
+== Extending app-engine-patch ==
 
 Basically, app-engine-patch is a collection of monkey-patches and a few extra goodies packaged in ragendja. Normally, we manipulate Django's modules, classes, and functions to be compatible with App Engine in our [http://www.bitbucket.org/wkornewald/django-app-engine/ django-app-engine repository].
 
-A few patches can't be integrated directly into Django and are part of the [https://bitbucket.org/wkornewald/appenginepatch/ app-engine-patch repository]. If you want to extend app-engine-patch or ragendja you should first take a look at these files (in "common/appenginepatch"):
+A few patches can't be integrated directly into Django and are part of the [https://bitbucket.org/wkornewald/appenginepatch/ app-engine-patch repository]. As a first step to understand the source code you should first take a look at these files (in "common/appenginepatch"):
 
  * manage.py
- * main.py
  * aecmd.py
  * appenginepatcher/patch.py
+ * main.py
 
 == Adding custom patches to your project ==
 
