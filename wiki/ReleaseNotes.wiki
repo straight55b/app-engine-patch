@@ -2,7 +2,7 @@
 = Upcoming release (1.0?) =
 What's planned:
  * ported and integrated django-registration into sample app (thank you, Jesaja Everling!)
- * ported FormSet (thank you, Norman Rasmussen!)
+ * ported !FormSet (thank you, Norman Rasmussen!)
  * [MediaGenerator media generator]
  * memcache-optimized session backend
  * added [Profiling profiler] features: analyze only specific requests or a certain percentage of all requests
