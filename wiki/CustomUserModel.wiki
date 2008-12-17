@@ -6,10 +6,6 @@
 
 The `@staff_only` view decorator only renders the view if `request.user.is_staff` is `True`. Otherwise it renders a `no_access.html` template (which you have to create yourself).
 
-== @google_login_required ==
-
-This is like Django's `@login_required`, but it works with [GoogleAccounts Google Accounts]. Note that if you activated the pure Google Accounts mode Django's `@login_required` decorator will point to `@google_login_required`.
-
 
 = Module: ragendja.middleware =
 
