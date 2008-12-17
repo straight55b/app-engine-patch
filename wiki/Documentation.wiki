@@ -5,6 +5,7 @@
    * [ManualInstallation Manual installation] (not recommended)
  * Features in ragendja
    * [RagendjaDB Database utilities]
+   * [RagendjaForms Template utilities]
    * [RagendjaAuth Authentication utilities]
      * [CustomUserModel Defining custom User models]
      * [GoogleAccounts Using Google Accounts]
