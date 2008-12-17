@@ -1,0 +1,44 @@
+#summary How to use FormSets as part of a ModelForm
+
+*This feature is only available in the repository.*
+
+= Introduction =
+
+The easiest way to use a !FormSet as part of a !ModelForm is to add each !FormSet as a !FormSetField, and upgrade your !ModelForm to a !FormWithSets.  The !FormWithSets handles rendering your !FormSets correctly and makes sure that everything loads and saves correctly.
+
+= Details =
+
+!FormSets can be used to automatically display data for other models that have a !ReferenceProperty back to your primary model (or !SelfReferenceProperty)
+
+{{{
+class Person(db.Model):
+    parent = db.SelfReferenceProperty(collection_name='children_set')
+}}}
+
+Define your !ModelForm with !FormSetFields and make sure you add the !FormWithSets decorator (note in Python 2.6 this could be done with the @decorator syntax, but GAE is still running Python 2.5)
+
+{{{
+
+class PersonForm(forms.ModelForm):
+    children = FormSetField(Person)
+
+    class Meta:
+        model = Person
+
+PersonForm = FormWithSets(PersonForm)
+
+}}}
+
+Then change your view to use this Form:
+
+e.g, from:
+
+{{{
+    return update_object(request, Person)
+}}}
+
+to
+
+{{{
+    return update_object(request, form_class=PersonForm)
+}}}
