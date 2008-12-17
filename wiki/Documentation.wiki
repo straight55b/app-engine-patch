@@ -3,12 +3,15 @@
 
  * [GettingStarted Getting started]
    * [ManualInstallation Manual installation] (not recommended)
- * [Ragendja Features in ragendja]
-   * [Profiling Using the integrated profiler]
-   * [ZipPackages Integrating zipped packages]
-   * [CustomUserModel Defining a custom User model]
+ * Features in ragendja
+   * [RagendjaDB Database utilities]
+   * [RagendjaAuth Authentication utilities]
+     * [CustomUserModel Defining custom User models]
      * [GoogleAccounts Using Google Accounts]
- * [FormSets Using FormSets to display related data in Forms]
+   * [RagendjaForms Form utilities]
    * [MediaGenerator Using the media generator]
+   * [ZipPackages Integrating zipped packages]
+   * [Profiling Using the integrated profiler]
+   * [RagendjaOther Other ragendja utilities]
  * [SelfContainedApps Writing self-contained apps]
  * [Contributing]
