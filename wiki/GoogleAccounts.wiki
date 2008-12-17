@@ -1,4 +1,5 @@
 #summary How to activate support for Google Accounts.
+#labels OnlyInRepo
 
 = Using Google Accounts =
 
