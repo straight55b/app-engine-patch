@@ -6,6 +6,7 @@
  * [ZipPackages Integrating zipped packages]
  * [CustomUserModel Defining a custom User model]
  * [GoogleAccounts Using Google Accounts]
+ * [FormSets Using FormSets to display related data in Forms]
  * [MediaGenerator Using the media generator]
  * [SelfContainedApps Writing self-contained apps]
  * [ManualInstallation Manual installation] (not recommended)
