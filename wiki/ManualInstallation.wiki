@@ -2,9 +2,7 @@
 
 You can of course install app-engine-patch manually, but it's more difficult than starting with the sample project. Even if you want to use the most recent source directly you can just download the sample project and replace the "common/appenginepatch" folder with a clone of the app-engine-patch repository. If you're still not convinced then let's get started:
 
-*Important:* You have to use at least Django 1.0 (trunk should work, too).
-
-Use the following project structure:
+First, grab our [GettingTheSource source code]. Use the following project structure:
 
 {{{
 project root
@@ -15,7 +13,7 @@ project root
   common
     __init__.py
     appenginepatch     (copy the whole main folder)
-    django             (your custom Django checkout)
+    django             (our patched Django version)
 }}}
 
 Don't forget to copy manage.py from the "appenginepatch" folder into your project root. You can only execute it from your project's root folder.
@@ -23,20 +21,22 @@ Don't forget to copy manage.py from the "appenginepatch" folder into your projec
 Your app.yaml could look like this:
 
 {{{
-application: mycoolapp
+application: sample
 version: 1
 runtime: python
 api_version: 1
 
+default_expiration: '3650d'
+
 handlers:
 - url: /media
-  static_dir: media
+  static_dir: _generated_media
 
 - url: /.*
   script: common/appenginepatch/main.py
 }}}
 
-This will use the default main.py handler which should work for most projects.
+This will use the default main.py handler which should work for most projects and it'll automatically use the _generated_media folder of our [MediaGenerator media generator].
 
 In order to reduce the number of files you can delete the following Django folders:
  * django/bin
@@ -52,7 +52,7 @@ This should work around GAE's 1000 files limit. Alternatively, you can use a zip
 
 First, read the [ZipPackages zip packages documentation].
 
-If you want to zip Django you have to remove the "django/conf/locale" folder from the zip file because it takes up too much space. Moreover, you can't load translations from a zip file, so you have to move the contents of "django/conf/locale" to "common/django-locale/locale". This folder automatically gets integrated when using a zipped Django package.
+Since you can't load translations from a zip file, so you have to move the contents of "django/conf/locale" to "common/django-locale/locale". This folder automatically gets integrated when using a zipped Django package. Then, at least also remove the "django/contrib/gis" folder because that takes up too much space. Finally, create a "django.zip" file and move it into the "zip-packages" folder.
 
 
 = settings.py =
