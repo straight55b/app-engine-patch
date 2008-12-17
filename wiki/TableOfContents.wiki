@@ -1,8 +1,0 @@
-#summary TOC for app-engine-patch documentation
-
-= Introduction =
-
-Here we go.
-
- * [GettingStarted Getting started]
- * [Documentation More features]
