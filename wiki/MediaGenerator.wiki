@@ -1,4 +1,5 @@
 #summary Combines and compresses your JS and CSS media files.
+#labels OnlyInRepo
 
 *This feature is only available in the repository.*
 
