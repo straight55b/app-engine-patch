@@ -1,0 +1,34 @@
+#summary Other ragendja utilities
+
+= Module: ragendja.testutils =
+
+== !ModelTestCase ==
+
+This provides an easy way to validate the contents of the DB. You have to specify the model to validate against with the `model` attribute. From then on you can call `validate_state()` to check if a certain function modifies the DB contents correctly:
+
+*Example:* The following validates that the table contains exactly two rows and that their 'a', 'b', and 'c' attributes are 1, 2, 3 for one row and 11, 12, 13 for the other row. The order of the rows doesn't matter.
+{{{
+class MyTestCase(ModelTestCase):
+    model = MyModel
+
+    def test_valid_function():
+        # Do something that changes the DB
+        change_something()
+        # Now check if that function worked correctly
+        self.validate_state(
+            ('a', 'b', 'c'),
+            (1, 2, 3),
+            (11, 12, 13),
+        )
+}}}
+
+= Module: appenginepatcher =
+
+You can find out whether you're running on the production server:
+{{{
+from appenginepatcher import on_production_server
+if on_production_server:
+    # we're on the production server...
+else:
+    # dev_appserver...
+}}}
