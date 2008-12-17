@@ -16,3 +16,4 @@
    * [RagendjaOther Other ragendja utilities]
  * [SelfContainedApps Writing self-contained apps]
  * [Contributing]
+ * [OpenSourceProjects Related open-source projects]
