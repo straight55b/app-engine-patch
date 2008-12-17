@@ -1,7 +1,7 @@
 #labels Featured
 = app-engine-patch =
 
- * [GettingStarted Getting started]
+ * [GettingStarted Getting started] and what's different
    * [ManualInstallation Manual installation] (not recommended)
  * Features in ragendja
    * [RagendjaDB Database utilities]
