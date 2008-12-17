@@ -1,0 +1,120 @@
+#summary Database utilities in ragendja
+
+= Module: ragendja.dbutils =
+
+== @transaction ==
+
+`@transaction` is a simple wrapper for db.run_in_transaction.
+
+*Example:*
+Instead of writing `db.run_in_transaction` all the time:
+{{{
+def do_something(...):
+    ...
+
+def view1(request, ...):
+    ...
+    db.run_in_transaction(do_something, ...)
+    ...
+
+def view2(request, ...):
+    ...
+    db.run_in_transaction(do_something, ...)
+    ...
+
+}}}
+You can just write this:
+{{{
+@transaction
+def do_something(...):
+    ...
+
+def view1(request, ...):
+    ...
+    do_something(...)
+    ...
+
+def view2(request, ...):
+    ...
+    do_something(...)
+    ...
+}}}
+
+== db_create(model, ...attrs...) ==
+
+This function safely creates a new entity with a random key_name.
+
+*Example:*
+{{{
+item = db_create(MyModel, title='hey', index=4)
+# item.key().name() could be "a1K6AMAo55BepDcx"
+}}}
+
+== db_add(model, key_name, ...attrs...) ==
+
+This function adds an entity to the datastore if it doesn't exist. Otherwise it returns None. Note that this function automatically runs in a transaction.
+
+*Example:*
+{{{
+item = db_add(MyModel, 'some_key_name', title='hey', index=4)
+if not item:
+    # entity with that key_name already exists!
+else:
+    # we've added a new entity
+}}}
+
+== get_object_or_404(model, filters or key or key_name or id) ==
+
+This is similar to Django's shortcut, but allows for using a `key_name` or `id` keyword argument or a key object/string to retrieve a specific object. Alternatively, you can specify a list of filter rules:
+{{{
+item = get_object_or_404(MyModel, key)
+item = get_object_or_404(MyModel, key_name='somekey')
+item = get_object_or_404(MyModel, id=5)
+item = get_object_or_404(MyModel, 'title =', 'ABC', 'counter >', 5)
+}}}
+
+== get_list_or_404(model, ...filters...) ==
+
+The `get_list_or_404()` shortcut only expects a list of filter rules and works similar to Django's version.
+
+== generate_key_name(...parts...) ==
+
+This generates a `key_name` from the given strings. It automatically prefixes the key with a 'k', so it's guaranteed to be valid and separates all parts with a '/' (while escaping the separator in each part, so it's a non-ambiguous transformation):
+{{{
+>>> generate_key_name('abc', 'def')
+'kabc/def'
+}}}
+
+== to_json_data(entity_or_list, property_or_properties) ==
+
+Converts a model into dicts for use with `JSONResponse`/`simplejson.dumps()`.
+
+You can either pass a single model instance and get a single dict or a list of models and get a list of dicts. After that you can still modify the data because it's a Python object. When you're finished you can use, for example, `JSONResponse` to return the data in JSON format.
+
+For security reasons only the properties in the property_list will get added. If the value of the property has a json_data function its result will be added, instead.
+
+=== !KeyReferenceProperty ===
+
+Creates a cached accessor for an object referenced by a string property that stores a `str(key)` or `key_name`. This is useful if you need to work with the key of a referenced object, but mustn't `get()` it from the datastore. It takes the name of the property, the model to `get()`, and a boolean that specifies whether the string property contains a key or a key name:
+{{{
+class File(db.Model):
+    creator_key_name = db.StringProperty(required=True)
+    creator = KeyReferenceProperty('creator_key_name', User)
+}}}
+
+== prefetch_references(entity_list, property_or_properties) ==
+
+Dereferences the given (Key)!ReferenceProperty fields of a list of objects in as few get() calls as possible:
+{{{
+class File(db.Model):
+    creator = db.ReferenceProperty(User)
+
+files = File.all().filter(...).fetch(20)
+# The following will dereference all creators in a single get().
+# If two files have the same creator the creator will only be retrieved once!
+prefetch_references(files, 'creator')
+for file in files:
+    # The following will not result in a db access because the creator has
+    # been prefetched.
+    name = file.creator.get_full_name()
+}}}
