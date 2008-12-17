@@ -1,0 +1,26 @@
+#summary Utilities for handling forms in ragendja
+#labels OnlyInRepo
+
+= Module: ragendja.forms =
+
+== Using !FormSets with !ModelForm ==
+
+*This feature is only available in the repository.*
+
+`FormSet`s can be used to automatically display data for other models that have a `ReferenceProperty` back to your parent model (or `SelfReferenceProperty`).
+
+The easiest way to use a `FormSet` as part of a `ModelForm` is to add each !FormSet as a `FormSetField` and upgrade your `ModelForm` to a `FormWithSets`.  The `FormWithSets` handles rendering your `FormSets` and makes sure that everything loads and saves correctly.
+
+{{{
+class Person(db.Model):
+    parent = db.SelfReferenceProperty(collection_name='children_set')
+
+class PersonForm(forms.ModelForm):
+    children = FormSetField(Person)
+
+    class Meta:
+        model = Person
+PersonForm = FormWithSets(PersonForm)
+}}}
+
+You can use `PersonForm` as if it were a normal `ModelForm`.
