@@ -1,4 +1,4 @@
-#summary Template utilities
+#summary Template utilities in ragendja
 #labels OnlyInRepo
 
 = Module: ragendja.template =
