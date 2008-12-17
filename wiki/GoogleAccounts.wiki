@@ -40,7 +40,7 @@ AUTH_USER_MODULE = 'ragendja.auth.hybrid_models'
 
 Note that in this case `@login_required` will behave like in Django-only mode (there's still `@ragendja.auth.decorators.google_login_required` if you need it), so you'll have to take care of making both authentication methods visible on your login page. Also, the `User` model has all properties that are defined in Django in addition to a `user` property which can be set to `None`.
 
-= Template tags =
+= Template tags and context processors =
 
 Add the following to your settings.py:
 {{{
@@ -61,5 +61,28 @@ This will add two template tags for creating login and logout urls (`google_logi
   {% else %}
     <a href="{% google_login_url request.get_full_path %}">Login</a>
   {% endif %}
+</div>
+}}}
+
+= Distinguishing between auth methods =
+
+*The following is only available in the repository:*
+
+In order to distinguish whether the user logged in via Google or Django and generate the correct logout link you'll need to add the 'google_user' context_processor to your settings:
+{{{
+TEMPLATE_CONTEXT_PROCESSORS = (
+   ...
+   'ragendja.auth.context_processors.google_user',
+   ...
+)
+}}}
+
+Then you can generate the correct logout link with this code:
+{{{
+{% if google_user %}
+  <a href="{% google_logout_url %}">Logout</a>
+{% else %}
+  <a href="{% url django.contrib.auth.views.logout %}">Logout</a>
+{% endif %}
 </div>
 }}}
