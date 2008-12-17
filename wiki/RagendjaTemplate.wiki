@@ -1,4 +1,5 @@
 #summary Template utilities
+#labels OnlyInRepo
 
 = Module: ragendja.template =
 
@@ -36,7 +37,7 @@ This is an improved `render_to_string()` that uses `RequestContext` in order to 
 
 This converts a Python object (`data`) into a JSON string and creates an `HttpResponse` with the correct MIME type.
 
-== TextResponse(data) ==
+== !TextResponse(data) ==
 
 This returns a simple `text/plain` response with the given text.
 
