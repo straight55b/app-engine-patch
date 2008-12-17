@@ -36,7 +36,7 @@ handlers:
   script: common/appenginepatch/main.py
 }}}
 
-This will use the default main.py handler which should work for most projects and it'll automatically use the _generated_media folder of our [MediaGenerator media generator].
+This will use the default main.py handler which should work for most projects and it'll automatically use the `_generated_media` folder of our [MediaGenerator media generator].
 
 In order to reduce the number of files you can delete the following Django folders:
  * django/bin
