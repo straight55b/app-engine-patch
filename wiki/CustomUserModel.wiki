@@ -10,6 +10,30 @@ The `@staff_only` view decorator only renders the view if `request.user.is_staff
 
 This is like Django's `@login_required`, but it works with [GoogleAccounts Google Accounts]. Note that if you activated the pure Google Accounts mode Django's `@login_required` decorator will point to `@google_login_required`.
 
+
+= Module: ragendja.middleware =
+
+== !LoginRequiredMiddleware ==
+
+This saves you from typing `@login_required` all the time.
+
+*Example:*
+{{{
+MIDDLEWARE_CLASSES = (
+    ...,
+    'ragendja.middleware.LoginRequiredMiddleware',
+)
+LOGIN_REQUIRED_PREFIXES = (
+    '/some/path/',
+    '/other/path/',
+)
+NO_LOGIN_REQUIRED_PREFIXES = (
+    '/some/path/without_login/',
+)
+}}}
+With this you require login for all paths that start with `'/other/path'` or `'/some/path/'` except for `'/some/path/without_login/'`. IOW, `NO_LOGIN_REQUIRED_PREFIXES` overrides `LOGIN_REQUIRED_PREFIXES`.
+
+
 = Defining custom user models =
 
 The `ragendja.auth.models` module provides base models for customizing your User class:
