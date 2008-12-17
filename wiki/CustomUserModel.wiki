@@ -1,3 +1,17 @@
+#summary Authentication and custom user models
+
+= Module: ragendja.auth.decorators =
+
+== @staff_only ==
+
+The `@staff_only` view decorator only renders the view if `request.user.is_staff` is `True`. Otherwise it renders a `no_access.html` template (which you have to create yourself).
+
+== @google_login_required ==
+
+This is like Django's `@login_required`, but it works with [GoogleAccounts Google Accounts]. Note that if you activated the pure Google Accounts mode Django's `@login_required` decorator will point to `@google_login_required`.
+
+= Defining custom user models =
+
 The `ragendja.auth.models` module provides base models for customizing your User class:
  * `UserTraits` has only a few basic user fields (see the source for more details), but no `username`.
  * `EmailUser` also adds an `email` field, `email_user()`, and an `is_banned` field, but no `username`.
@@ -22,3 +36,7 @@ AUTH_USER_MODULE = 'myuser.models'
 }}}
 
 With the above code `from django.contrib.auth.models import User` becomes the same as `from myuser.models import User`. In order to maximize code reuse you should always import the Django model in your apps (`from django.contrib.auth.models import User`), so your code is independent of the `User` class of your particular project.
+
+= Google Accounts =
+
+This feature is the foundation of our [GoogleAccounts Google and hybrid accounts] integration.
