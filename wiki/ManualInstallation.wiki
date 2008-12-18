@@ -1,4 +1,5 @@
 #summary Doing it the hard way: installing app-engine-patch manually.
+#sidebar Documentation
 
 You can of course install app-engine-patch manually, but it's more difficult than starting with the sample project. Even if you want to use the most recent source directly you can just download the sample project and replace the "common/appenginepatch" folder with a clone of the app-engine-patch repository. If you're still not convinced then let's get started:
 
