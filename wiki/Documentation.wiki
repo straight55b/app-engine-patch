@@ -17,4 +17,5 @@
    * [Profiling Using the integrated profiler]
    * [SelfContainedApps Writing self-contained apps]
  * [Contributing]
+   * [GettingTheSource How to get the source]
  * [OpenSourceProjects Related open-source projects]
