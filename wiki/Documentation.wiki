@@ -1,7 +1,7 @@
 #labels Featured
 = Documentation =
 
- * [GettingStarted Getting started] and what's different
+ * [GettingStarted Getting started and what's different]
    * [ManualInstallation Manual installation] (not recommended)
  * ragendja
    * [RagendjaDB Database utilities]
