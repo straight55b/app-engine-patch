@@ -1,5 +1,4 @@
 #summary Defining custom user models
-#sidebar Documentation
 
 = Defining custom user models =
 
