@@ -13,6 +13,8 @@ Take part in hack-a-thons and tell others about app-engine-patch.
 
 Give presentations at conferences.
 
+Create banners that can be placed on websites that use app-engine-patch.
+
 = Make suggestions =
 
 We want to steadily improve app-engine-patch. Please join our [http://groups.google.com/group/app-engine-patch mailing list] and make suggestions on how to make app-engine-patch easier to use and more powerful.
