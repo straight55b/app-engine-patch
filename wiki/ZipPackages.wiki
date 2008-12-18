@@ -1,4 +1,4 @@
-#summary Integrating zipped packages
+#summary Easy way to create and integrate zip packages
 
 In App Engine you can't upload more than 1000 files. In order to work around this limitation you can compress packages into zip files. Note that each file can't be larger than 1MB (yet another App Engine limitation).
 
