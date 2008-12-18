@@ -1,6 +1,5 @@
 #summary Template utilities in ragendja
 #labels OnlyInRepo
-#sidebar Documentation
 
 = Module: ragendja.template =
 
