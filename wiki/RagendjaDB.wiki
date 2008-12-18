@@ -1,4 +1,5 @@
 #summary Database utilities in ragendja
+#sidebar Documentation
 
 = Module: ragendja.dbutils =
 
