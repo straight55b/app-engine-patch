@@ -85,5 +85,4 @@ Then you can generate the correct logout link with this code:
 {% else %}
   <a href="{% url django.contrib.auth.views.logout %}">Logout</a>
 {% endif %}
-</div>
 }}}
