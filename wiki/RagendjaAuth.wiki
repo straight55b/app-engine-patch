@@ -1,5 +1,4 @@
 #summary Utilities for auth support in ragendja
-#sidebar Documentation
 
 = Module: ragendja.auth.decorators =
 
