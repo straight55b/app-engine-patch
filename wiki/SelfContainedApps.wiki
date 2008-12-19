@@ -1,8 +1,13 @@
 #summary Conventions and tools for writing self-contained apps.
+#labels OnlyInRepo
 
-Many open-source Django apps come without any templates because there is no standard for template blocks. Also, apps that require JS/CSS don't have any conventions, either. The next problem is that while it's Python convention to be explicit it would be nice to have all app-specific code in a single folder, so your code becomes fully reusable.
+*This is only available in the repository.*
 
-With app-engine-patch we would like to change this and make reusing and installing Django apps as simple as adding them to `INSTALLED_APPS`. That's it. For this we added several features.
+The goal of self-contained apps is that you can basically plug a few apps together, write a little bit code to connect everything, and get your website finished as quickly as possible.
+
+Unfortunately, Django lacks conventions required for achieving this goal. Many open-source Django apps come without any templates because there is no standard for template blocks. Apps that require JS/CSS don't have any conventions, either. App installation often requires multiple changes in your settings (middlewares, context processors, etc.).
+
+With app-engine-patch we would like to change this and make reusing and installing Django apps as simple as adding them to `INSTALLED_APPS`. Here are our conventions:
 
 = Automatic app settings integration =
 
