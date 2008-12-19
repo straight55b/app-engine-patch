@@ -26,6 +26,46 @@ MIDDLEWARE_CLASSES += (
 
 As you can see, this reduces the amount of work users need to do in order to install an app. If, for example, some middleware class needs to *always* be installed you can just add it automatically and take the burden from the user.
 
+= Media generator =
+
+If you combine this feature with app settings integration you can automatically add all required JS/CSS files to your project. For this we provide the utility function `add_app_media` which inserts your media files *before* the media files defined in the global settings:
+
+{{{
+# myapp/settings.py:
+
+from settings_post import *
+add_app_media(globals(), 'combined-%(LANGUAGE_CODE)s.js',
+    'myapp/bla.js',
+    'myapp/blub.js',
+    # ...
+)
+add_app_media(globals(), 'combined-%(LANGUAGE_DIR)s.css',
+    'myapp/style.css',
+    # ...
+)
+
+MIDDLEWARE_CLASSES += (
+    'myapp.middleware.MyAppMiddleware',
+)
+}}}
+
+As a convention, app-engine-patch expects that you name your main media files "combined-%(LANGUAGE_CODE)s.js" and "combined-%(LANGUAGE_DIR)s.css". Use that if you want your app to be reusable.
+
+See the [MediaGenerator media generator documentation] for more information. 
+
+= Template conventions =
+
+Finally, we need some conventions for templates:
+
+ * use XHTML
+ * always place your app templates directly into the app's "templates" folder (e.g., "myapp/templates/somepage.html")
+ * always name the base template "base.html" and extend from that template
+ * the page title goes into the "title" block
+ * the content goes into the "content" block
+ * your css files go into the "css" block
+ * your js files go into the "js" block (which always comes after the css block)
+ * any extra information that must be in the `<head>` goes into the "extra-head" block
+
 = Automatic app urls integration =
 
 The `ragendja.urlsauto` module allows for automatically integrating the installed apps' urls with a default base URL (for apps that support this feature):
@@ -51,41 +91,3 @@ urlpatterns = patterns('',
     (r'^account/', include('registration.urls')),
 )
 }}}
-
-= Media generator =
-
-See the [MediaGenerator media generator documentation] for more information. If you combine this feature with app settings integration you can automatically add all required media files. For this we provide the utility function `add_app_media` which inserts your media files *before* the media files defined in the global settings:
-
-{{{
-# myapp/settings.py:
-
-from settings_post import *
-add_app_media(globals(), 'combined-%(LANGUAGE_CODE)s.js',
-    'myapp/bla.js',
-    'myapp/blub.js',
-    # ...
-)
-add_app_media(globals(), 'combined-%(LANGUAGE_DIR)s.css',
-    'myapp/style.css',
-    # ...
-)
-
-MIDDLEWARE_CLASSES += (
-    'myapp.middleware.MyAppMiddleware',
-)
-}}}
-
-As a convention, app-engine-patch expects that you name your main media files "combined-%(LANGUAGE_CODE)s.js" and "combined-%(LANGUAGE_DIR)s.css". Use that if you want your app to be reusable.
-
-= Template conventions =
-
-Finally, we need some conventions for templates:
-
- * use XHTML
- * always place your app templates directly into the app's "templates" folder (e.g., "myapp/templates/somepage.html")
- * always name the base template "base.html" and extend from that template
- * the page title goes into the "title" block
- * the content goes into the "content" block
- * your css files go into the "css" block
- * your js files go into the "js" block (which always comes after the css block)
- * any extra information that must be in the `<head>` goes into the "extra-head" block
