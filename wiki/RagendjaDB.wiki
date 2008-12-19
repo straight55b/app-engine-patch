@@ -159,5 +159,5 @@ This can be used in a delete view to automatically delete all the sub-objects as
 becomes:
 
 {{{
-   view =  delete_object(request, delete_model_with_sets(User, 'file_set'))
+   view = delete_object(request, delete_model_with_sets(User, 'file_set'))
 }}}
