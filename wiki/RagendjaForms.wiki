@@ -26,3 +26,5 @@ PersonForm = FormWithSets(PersonForm)
 }}}
 
 You can use `PersonForm` as if it were a normal `ModelForm`.
+
+Notice that if you define a property named `parent` it must appear in the Meta class, and not part of the standard property list.  Defining a parent property means that the Model will exist in the same Entity Set as it's parent.  This allows the datastore to save them as part of the same transaction. See [http://code.google.com/appengine/docs/datastore/keysandentitygroups.html#Entity_Groups_Ancestors_and_Paths Entity Groups] for more information.
