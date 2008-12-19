@@ -145,3 +145,19 @@ Filters a query to return only items with no parent.  This is a shortcut of the 
 {{{
 continents = get_roots(Location.all())
 }}}
+
+== delete_model_with_sets(model, ...collection_set_names...) ==
+
+*Only available in repository*
+
+This can be used in a delete view to automatically delete all the sub-objects associated with the primary object:
+
+{{{
+   view = delete_object(request, User)
+}}}
+
+becomes:
+
+{{{
+   view =  delete_object(request, delete_model_with_sets(User, 'file_set'))
+}}}
