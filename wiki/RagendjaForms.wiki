@@ -13,7 +13,9 @@ The easiest way to use a `FormSet` as part of a `ModelForm` is to add each !Form
 
 {{{
 class Person(db.Model):
-    parent = db.SelfReferenceProperty(collection_name='children_set')
+    name = db.StringProperty(Required=True)
+    class Meta:
+        parent = db.SelfReferenceProperty(collection_name='children_set')
 
 class PersonForm(forms.ModelForm):
     children = FormSetField(Person)
