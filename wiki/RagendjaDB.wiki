@@ -120,32 +120,6 @@ for file in files:
     name = file.creator.get_full_name()
 }}}
 
-== !QueryFilter(query, predicate) ==
-
-*Only available in repository*
-
-Creates a new query that acts in the same way as normal database queries do, except the list of results is filtered after retrieved from the database using the predicate.
-
-Example, this returns all locations that have no 'parent' location
-{{{
-class Location(db.Model):
-    name = db.StringProperty(required=True)
-    class Meta:
-        parent = db.SelfReferenceProperty()
-
-continents = QueryFilter(Location.all(), lambda i: i.parent() == None)
-}}}
-
-== get_roots(query) ==
-
-*Only available in repository*
-
-Filters a query to return only items with no parent.  This is a shortcut of the above example:
-
-{{{
-continents = get_roots(Location.all())
-}}}
-
 == delete_model_with_sets(model, ...collection_set_names...) ==
 
 *Only available in repository*
