@@ -120,18 +120,15 @@ for file in files:
     name = file.creator.get_full_name()
 }}}
 
-== delete_model_with_sets(model, ...collection_set_names...) ==
+== delete_relations(entity, ...collection_set_names...) ==
 
 *Only available in repository*
 
-This can be used in a delete view to automatically delete all the sub-objects associated with the primary object:
+This can be used in a model's delete method to delete all the sub-objects associated with the primary object:
 
 {{{
-   view = delete_object(request, User)
-}}}
-
-becomes:
-
-{{{
-   view = delete_object(request, delete_model_with_sets(User, 'file_set'))
+class User(db.Model):
+    def delete(self):
+        delete_relations(self, 'file_set')
+        super(User, self).delete()    
 }}}
