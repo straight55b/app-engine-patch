@@ -13,18 +13,17 @@ The easiest way to use a `FormSet` as part of a `ModelForm` is to add each !Form
 
 {{{
 class Person(db.Model):
+    father = db.SelfReferenceProperty(collection_name='children_fathered_set')
+    mother = db.SelfReferenceProperty(collection_name='children_mothered_set')
     name = db.StringProperty(Required=True)
-    class Meta:
-        parent = db.SelfReferenceProperty(collection_name='children_set')
 
 class PersonForm(forms.ModelForm):
-    children = FormSetField(Person)
+    fathered_children = FormSetField(Person, fk_name='father')
+    mothered_children = FormSetField(Person, fk_name='mother')
 
     class Meta:
         model = Person
 PersonForm = FormWithSets(PersonForm)
 }}}
 
-You can use `PersonForm` as if it were a normal `ModelForm`.
-
-Notice that if you define a property named `parent` it must appear in the Meta class, and not part of the standard property list.  Defining a parent property means that the Model will exist in the same Entity Set as it's parent.  This allows the datastore to save them as part of the same transaction. See [http://code.google.com/appengine/docs/datastore/keysandentitygroups.html#Entity_Groups_Ancestors_and_Paths Entity Groups] for more information.
+You can use `PersonForm` as if it were a normal `ModelForm`.  `collection_name` and `fk_name` are only required if there are multiple references of the same type.
