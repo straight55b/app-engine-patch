@@ -7,15 +7,16 @@
 
 Note: This feature is pre-configured in the sample project. You can disable it by simply removing "mediautils" from your `INSTALLED_APPS`.
 
-In order to optimize your website you should combine all JS (same goes for CSS) files into a single file and compress it (remove all whitespace and comments), so your users can download all media files in as few requests and as quickly as possible. For some sites this can provide a *huge* speed boost on first load.
+In order to optimize your website you should combine all JS (same goes for CSS) files into a single file and compress it (remove all whitespace and comments), so your users can download all media files in as few requests and as quickly as possible. Depending on the complexity of your site this can provide a huge speed boost on first load.
 
-Luckily, app-engine-patch helps you automate this process. In your settings.py you can specify how media files should be combined. Make sure that you put your app-specific media files in a folder called "media" within your app's folder. The generated media files are stored in the folder "`_generated_media`" which is automatically created in your project root folder. Anything that is neither a JS nor CSS file (e.g., an image) is directly copied into that folder. Note that JS translation files can be automatically integrated into the generated JS files (see example below).
-
-The generated media files are only compressed when you run "manage.py update". While developing on your local computer you probably don't want to use compressed media files. If manage.py detects that one of your media files has changed it automatically updates the "`_generated_media`" folder. You can also manually regenerate that folder by running "manage.py generatemedia" (there's also a "--compressed" flag which enforces compression). That might be necessary if "manage.py update" fails in which case you are left with compressed media files.
+Luckily, app-engine-patch helps you automate this process. In your settings.py you can specify how media files should be combined. Just put your app-specific media files in a folder called "media" within your app's folder and global media files within a "media" folder in your project root which is faked as the "global" app. The generated media files are stored in the folder "`_generated_media`" which is automatically created in your project root. Anything that is neither a JS nor CSS file (e.g., an image) is directly copied into that folder. Note that the JS translations catalog can be automatically integrated into the generated JS files.
 
 Example settings:
 
 {{{
+# Set default language without country code (though, that's supported, too)
+LANGUAGE_CODE = 'en'
+
 # Only generate media files for English and German
 LOCALE_SITES = (
     'en',
@@ -56,3 +57,18 @@ INSTALLED_APPS = (
    # ...
 )
 }}}
+
+The generated media files are only compressed when you run "manage.py update". While developing on your local computer you probably don't want to use compressed media files. If manage.py detects that one of your media files has changed it automatically updates the "`_generated_media`" folder. You can also manually regenerate that folder by running "manage.py generatemedia" (there's also a "--compressed" flag which enforces compression). You probably won't need that command, though.
+
+= Integrating the media files =
+
+Since the generated media files are language-specific you have to integrate them with this method:
+
+{{{
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}combined-{% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}.css" />
+<script type="text/javascript" src="{{ MEDIA_URL }}combined-{{ LANGUAGE_CODE }}.js"></script>
+}}}
+
+= i18n =
+
+You might know about Django's [http://docs.djangoproject.com/en/dev/topics/i18n/#translations-and-javascript JavaScript translation support] which works with AJAX. Since the primary goal of the media generator is to reduce the number of HTTP requests it gets rid of those AJAX requests. Instead, the generated media files automatically contain all JS translations of all installed apps, so you don't need to extend your urls.py and you also don't need to add a new `<script>` tag to load the catalog. Instead, you can directly use `gettext()`, `ngettext()`, and `interpolate()`.
