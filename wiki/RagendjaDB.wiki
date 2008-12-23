@@ -124,11 +124,14 @@ for file in files:
 
 *Only available in repository*
 
-This can be used in a model's delete method to delete all the sub-objects associated with the primary object:
+This can be used in a model's `delete()` method to also delete all the entities related via `ReferenceProperty`:
 
 {{{
 class User(db.Model):
     def delete(self):
         delete_relations(self, 'file_set')
         super(User, self).delete()    
+
+class File(db.Model):
+    owner = db.ReferenceProperty(User, collection_name='file_set')
 }}}
