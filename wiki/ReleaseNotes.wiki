@@ -16,7 +16,7 @@ What's planned:
  * probably: port of Django's contenttypes app
  * maybe: support for groups and permissions
 
-*Important:* Please upgrade your app.yaml, settings.py, urls.py, and manage.py according to the versions in the sample project. Also please follow our conventions for [SelfContainedApps self-contained apps] if you want to contribute something.
+*Important:* Please upgrade your app.yaml, settings.py, urls.py, and manage.py according to the versions in the sample project, so they contain the features required for [SelfContainedApps self-contained apps].
 
 = Release 0.9.2 (2008-11-19) =
  * updated to Django 1.0.2 ([http://docs.djangoproject.com/en/dev/releases/1.0.2/ release notes])
