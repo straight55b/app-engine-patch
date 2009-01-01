@@ -9,3 +9,4 @@ Most of these projects require app-engine-patch:
  * [http://code.google.com/p/gae-django-dbtemplates/ gae-django-dbtemplates]: render templates from the datastore
  * [http://code.google.com/p/google-app-engine-django-openid/ OpenID]: support for OpenID
  * [http://gaeutilsuit.appspot.com/ gaeutilsuit]: generate a new Django project by selecting the apps you need
+ * [http://aralbalkan.com/1784 Gaebar]: Backup and restore utility for datastore
