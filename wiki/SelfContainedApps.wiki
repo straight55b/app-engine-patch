@@ -3,7 +3,7 @@
 
 *This is only available in the repository.*
 
-The goal of self-contained apps is that you can basically plug a few apps together, write a little bit code to connect everything, and get your website finished as quickly as possible.
+The goal of self-contained apps is that you can basically plug a few apps together, write a few lines to connect everything, and get your website finished as quickly as possible.
 
 Unfortunately, Django lacks conventions required for achieving this goal. Many open-source Django apps come without any templates because there is no standard for template blocks. Apps that require JS/CSS don't have any conventions, either. App installation often requires multiple changes in your settings (middlewares, context processors, etc.).
 
