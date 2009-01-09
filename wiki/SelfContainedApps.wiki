@@ -11,6 +11,8 @@ With app-engine-patch we would like to change this and make reusing and installi
 
 = Basic principles =
 
+When you need a model's kind (e.g., in order to create a `Key` object) always use `MyModel.kind()` instead of `MyModel.__name__` or a string like `"MyModel"`.
+
 Never use your project package name in imports. Don't write `from project.app.xxx import yyy`. Instead, write `from app.xxx import yyy`.
 
 Don't hard-code URLs. Always use named urls and `{% url %}` and `reverse()`.
