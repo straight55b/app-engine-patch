@@ -51,6 +51,8 @@ We only support [http://code.google.com/appengine/docs/datastore/ App Engine mod
 
 For the same reason, Django's `get_xxx_or_404()` functions don't work, but we provide alternatives in [RagendjaDB ragendja.db] with an API that is similar to that of Google's `Model.all().filter()` call.
 
+Starting with app-engine-patch 1.0 the model kind will always be prefixed with the app label of the app defining that model. For example, if you have `myapp.models.MyModel` the datastore will store entities with the following entity name: `myapp_MyModel`. That way, some other app could define a model named "MyModel" without creating a conflict with `myapp.models.MyModel`.
+
 == User model ==
 
 Since there are no unique properties in App Engine the User model doesn't guarantee uniqueness of the `username`.
