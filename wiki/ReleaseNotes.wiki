@@ -16,6 +16,8 @@ What's planned:
  * probably: port of Django's contenttypes app
  * maybe: support for groups and permissions
 
+*Very important:* If you upgrade an existing project please set `DJANGO_COMPATIBLE_MODEL_KIND = False` in your settings.py. From now on, the model kind will contain the app name, by default, so multiple apps can define models with the same name. This feature breaks existing models which are stored without the app label.
+
 *Important:* Please upgrade your app.yaml, settings.py, urls.py, and manage.py according to the versions in the sample project, so they contain the features required for [SelfContainedApps self-contained apps].
 
 = Release 0.9.2 (2008-11-19) =
