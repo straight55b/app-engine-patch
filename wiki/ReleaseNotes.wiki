@@ -1,17 +1,19 @@
 #labels Featured
 = Upcoming release (1.0?) =
 What's planned:
+ * [MediaGenerator media generator]
+ * [SelfContainedApps self-contained apps]
  * ported and integrated django-registration into sample app (thank you, Jesaja Everling!)
  * ported !FormSet and Django's native !ModelForm (thank you, Norman Rasmussen!)
- * [MediaGenerator media generator]
+ * added support for `urllib2.urlopen()` (thank you Leonid Evdokimov!)
  * memcache-optimized session backend
  * added [Profiling profiler] features: analyze only specific requests or a certain percentage of all requests
- * print app-engine-patch version number when running manage.py
- * fixed support for most recent boto release
+ * fixed support for most recent boto release (httplib extensions)
  * fixed `get_list_or_404` to be consistent with `get_object_or_404`
  * fixed support for file uploads
- * fixed slug support and adjusted redirect keywords in generic views
+ * fixed slug support and added support for key_name and other redirect keywords in generic views
  * added support for model `verbose_name` and `verbose_name_plural`
+ * print app-engine-patch version number when running manage.py
  * refactored and cleaned up code (almost no monkey patches for Django)
  * probably: port of Django's contenttypes app
  * maybe: support for groups and permissions
