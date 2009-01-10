@@ -1,6 +1,8 @@
 #labels Featured
 = Upcoming release (1.0?) =
 What's planned:
+ * basic port of admin interface
+ * support for groups and permissions
  * [MediaGenerator media generator]
  * [SelfContainedApps self-contained apps]
  * ported and integrated django-registration into sample app (thank you, Jesaja Everling!)
@@ -16,7 +18,6 @@ What's planned:
  * print app-engine-patch version number when running manage.py
  * refactored and cleaned up code (almost no monkey patches for Django)
  * probably: port of Django's contenttypes app
- * maybe: support for groups and permissions
 
 *Very important:* If you upgrade an existing project please set `DJANGO_STYLE_MODEL_KIND = False` in your settings.py. From now on, the model `kind()` gets prefixed with the app label, by default, which prevents naming conflicts when multiple apps define models with the same name. Note that Django uses this naming scheme, too, when creating SQL tables. This feature breaks existing models which are stored without the app label, so you need to disable it when upgrading your project (or you can override the kind() method for existing models).
 
