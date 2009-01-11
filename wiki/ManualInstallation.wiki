@@ -38,21 +38,14 @@ handlers:
 
 This will use the default main.py handler which should work for most projects and it'll automatically use the `_generated_media` folder of our [MediaGenerator media generator].
 
-In order to reduce the number of files you can delete the following Django folders:
- * django/bin
- * django/contrib/admin
- * django/contrib/comments
- * django/contrib/databrowse
- * django/contrib/flatpages
- * django/contrib/gis
-This should work around GAE's 1000 files limit. Alternatively, you can use a zipped Django package.
-
 
 = Zipping a Django package =
 
 First, read the [ZipPackages zip packages documentation].
 
-Since you can't load translations from a zip file, so you have to move the contents of "django/conf/locale" to "common/django-locale/locale". This folder automatically gets integrated when using a zipped Django package. Then, at least also remove the "django/contrib/gis" folder because that takes up too much space. Finally, create a "django.zip" file and move it into the "zip-packages" folder.
+Since you can't load translations from a zip file, so you have to move the contents of "django/conf/locale" to "common/django_aep_export/django-locale/locale". This folder automatically gets integrated when using a zipped Django package. Then, at least also remove the "django/contrib/gis/tests" folder because that takes up too much space (our official releases don't have "templates" and "media" folders, either). Finally, create a "django.zip" file and move it into the "zip-packages" folder.
+
+As a last step, move all templates and media files from the zip file (under "django/contrib") into "common/django_aep_export". See the sample project for an example. It's easier to show than to explain. :)
 
 
 = settings.py =
