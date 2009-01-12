@@ -7,6 +7,7 @@ Please download and install the [http://code.google.com/p/googleappengine/ App E
 
 Windows and MacOS X users can just follow the standard installation procedure. Linux users can put the SDK in "/usr/local/google_appengine". If that is impossible you can also put the SDK into any folder that is in the system's PATH environment variable as long as it's called "google_appengine" (this works with any OS).
 
+
 = Introduction =
 
 We provide a sample project in the [http://code.google.com/p/app-engine-patch/downloads/list downloads] section that comes with app-engine-patch and a zipped Django package pre-installed. You should change `SECRET_KEY` in your settings.py to some random value and set your appid in app.yaml.
@@ -27,23 +28,25 @@ If you want to update an existing project please download the most recent sample
 
 Most of your Django code should just work. Still, you should know about the following details.
 
+
 == settings.py ==
 
-The default auth and session backends automatically get replaced with versions that use the App Engine datastore (sessions are optimized with memcache), so you don't need to change any of your settings. Alternatively, you can specify your own backends as long as they don't depend on unsupported APIs (unsupported: Django models, SQL, sockets).
+Please take the sample project's settings structure as a base and modify it to suit your needs. That's easier than writing the settings from scratch.
 
 Email server settings are only used in the development environment. On the production server you automatically use Google's mail backend. Note that currently Google's SDK doesn't work with gmail accounts and other servers that require TLS. This is a bug in App Engine and we've already filed a bug report.
 
-At least the following apps are not supported because they depend on Django's Model class (though, we might port those apps when we need them for our own websites):
- * `django.contrib.admin`
+You can't use the `TransactionMiddleware` due to conceptual differences which make it impossible to implement in App Engine.
+
+The most essential "django.contrib" apps and apps that don't depend on models are supported (auth, sessions, webdesign). The following apps haven't been ported, yet:
+ * `django.contrib.admin` (available in repository)
  * `django.contrib.comments`
- * `django.contrib.contenttypes`
+ * `django.contrib.contenttypes` (partially available in repository; generic relations not supported)
  * `django.contrib.databrowse`
- * `django.contrib.flatpages`
+ * `django.contrib.flatpages` (will probably be part of app-engine-patch 1.0)
  * `django.contrib.gis`
  * `django.contrib.redirects`
- * `django.contrib.sites`
+ * `django.contrib.sites` (will probably be part of app-engine-patch 1.0)
 
-You can't use the `TransactionMiddleware` due to conceptual differences which make it impossible to implement in App Engine.
 
 == Models ==
 
@@ -57,13 +60,26 @@ Starting with app-engine-patch 1.0 the model `kind()` gets prefixed with the app
 DJANGO_STYLE_MODEL_KIND = False
 }}}
 
+
+== Admin interface ==
+
+*Only in repository:*
+
+If you specify an ordering for a model you have to take care of providing all necessary datastore indexes.
+
+Searches only work on one single property and they're exact, by default. You can prefix the search property name with "@" in which case it's assumed that the property is a StringListProperty (like it's used in SearchableModel). The query string is lowercased and split into words and applied via multiple filter() calls (one for each word).
+
+
 == User model ==
 
 Since there are no unique properties in App Engine the User model doesn't guarantee uniqueness of the `username`.
 
-You can work around this by manually setting the key_name and using a transaction when creating a User entity, but this means you won't be able to change the `username` afterwards.
+*Only in repository:*
 
-Alternatively, you can give up guaranteed uniqueness and check with `filter()` to ensure that the username isn't taken. This might be sufficient.
+Groups and emulated with a ListProperty storing db.Key objects, but if you use a ModelForm the user will get a nice selector interface as if it were a ManyToManyField.
+
+Permissions aren't real models, but just objects which can be converted to a string via permission.get_value_for_datastore(). Permission objects get dynamically generated based on the installed models. In the User model they're stored in a ListProperty of strings, but ModelForm will display them with a selector interface as if it were a ManyToManyField.
+
 
 == Generic views ==
 
@@ -75,6 +91,16 @@ The number of search results shown by `object_list` is limited to 301, so you do
 
 The `post_xxx_redirect` parameters provide special access to `%(key)s`, `%(key_name)s`, and `%(key_id)d`.
 
+
+== Content types ==
+
+*Only in repository:*
+
+Similar to Permission, content types aren't real models. They get generated dynamically based on the installed models.
+
+Generic relations aren't supported, yet.
+
+
 = Paths =
 
 The default project handler adds "common/appenginepatch" and "common" to sys.path.
@@ -83,6 +109,7 @@ For example, you can import something from ragendja like this:
 `from ragendja.testutils import ModelTestCase`
 
 Never import `from projectname.appname`, but import `from appname` directly. This also has the advantage that your code becomes more reusable.
+
 
 = Diving in =
 
