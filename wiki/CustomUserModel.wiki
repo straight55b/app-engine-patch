@@ -1,4 +1,5 @@
 #summary Defining custom user models
+#labels OnlyInRepo
 
 = Defining custom user models =
 
