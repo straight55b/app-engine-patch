@@ -3,7 +3,7 @@
 
 = Module: ragendja.sites.dynamicsite =
 
-== !DynamicSiteIDMiddleware ==
+== DynamicSiteIDMiddleware ==
 
 *This is only available in the repository.*
 
