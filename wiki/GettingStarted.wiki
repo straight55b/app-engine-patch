@@ -42,10 +42,10 @@ The most essential "django.contrib" apps and apps that don't depend on models ar
  * `django.contrib.comments`
  * `django.contrib.contenttypes` (partially available in repository; generic relations not supported)
  * `django.contrib.databrowse`
- * `django.contrib.flatpages` (will probably be part of app-engine-patch 1.0)
+ * `django.contrib.flatpages` (available in repository)
  * `django.contrib.gis`
- * `django.contrib.redirects`
- * `django.contrib.sites` (will probably be part of app-engine-patch 1.0)
+ * `django.contrib.redirects` (available in repository)
+ * `django.contrib.sites` (available in repository)
 
 
 == Models ==
