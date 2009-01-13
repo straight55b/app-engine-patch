@@ -1,4 +1,15 @@
 #summary Other ragendja utilities
+#labels OnlyInRepo
+
+= Module: ragendja.sites.dynamicsite =
+
+== !DynamicSiteIDMiddleware ==
+
+*This is only available in the repository.*
+
+This middleware makes it possible to host multiple websites with a single Django instance by automatically setting your `SITE_ID` based on the current request's domain. Just use the admin interface to add your sites and the corresponding `SITE_ID` will be set automatically for you. As a fallback, 'www.' is removed if the request's domain starts with 'www.' or 'www.' is added if the request's domain doesn't start with 'www.'.
+
+If you specify a `SITE_ID` in your settings it has to be the `str(site.key())` of the default site which is used as a fallback if no site could be found.
 
 = Module: ragendja.testutils =
 
