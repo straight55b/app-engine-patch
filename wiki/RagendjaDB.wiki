@@ -109,6 +109,14 @@ class File(db.Model):
 
 Simulates a many-to-many relation by storing a list of Key instances. When displaying this property in a !ModelForm you get a nice selector interface like for Django's !ManyToManyField.
 
+{{{
+class File(db.Model):
+   ...
+
+class Folder(db.Model):
+    files = KeyListProperty(File)
+}}}
+
 == prefetch_references(entity_list, property_or_properties) ==
 
 Dereferences the given (Key)!ReferenceProperty fields of a list of objects in as few get() calls as possible:
