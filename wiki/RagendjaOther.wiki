@@ -5,7 +5,7 @@
 
 == DynamicSiteIDMiddleware ==
 
-*This is only available in the repository.*
+*Only available in repository!*
 
 This middleware makes it possible to host multiple websites with a single Django instance by automatically setting your `SITE_ID` based on the current request's domain. Just use the admin interface to add your sites and the corresponding `SITE_ID` will be set automatically for you. As a fallback, 'www.' is removed if the request's domain starts with 'www.' or 'www.' is added if the request's domain doesn't start with 'www.'.
 
