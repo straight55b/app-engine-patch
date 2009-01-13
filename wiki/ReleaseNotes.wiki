@@ -9,6 +9,8 @@ What's planned:
  * support for groups and permissions
  * ported !FormSet and Django's native !ModelForm (thank you, Norman Rasmussen!)
  * ported django.contrib.redirects
+ * added [RagendjaOther dynamic SITE_ID middleware] for hosting multiple sites on a single Django instance
+ * added [RagendjaDB KeyListProperty] for simulating simple many-to-many relations
  * added support for `urllib2.urlopen()` (thank you, Leonid Evdokimov!)
  * partially ported django.contrib.contenttypes (generic relations don't work)
  * memcache-optimized sessions backend
