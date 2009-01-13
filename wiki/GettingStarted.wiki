@@ -103,6 +103,8 @@ Generic relations aren't supported, yet.
 
 == Sites ==
 
+*Only available in repository!*
+
 The `SITE_ID` must be the `str(key)` of the Site entity. You should also have a look at the [RagendjaOther `DynamicSiteIDMiddleware`].
 
 
