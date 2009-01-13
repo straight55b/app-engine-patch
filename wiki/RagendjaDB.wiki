@@ -103,6 +103,12 @@ class File(db.Model):
     creator = KeyReferenceProperty('creator_key_name', User)
 }}}
 
+=== !KeyListProperty ===
+
+*Only available in repository!*
+
+Simulates a many-to-many relation by storing a list of Key instances. When displaying this property in a !ModelForm you get a nice selector interface like for Django's !ManyToManyField.
+
 == prefetch_references(entity_list, property_or_properties) ==
 
 Dereferences the given (Key)!ReferenceProperty fields of a list of objects in as few get() calls as possible:
