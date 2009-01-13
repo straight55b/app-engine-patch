@@ -5,6 +5,13 @@
 
 It's possible to use Google Accounts instead of Django's auth mechanism or alternatively use a hybrid system that supports both authentication methods.
 
+*Only available in repository:*
+
+By default, Google Accounts marked as admins get superuser and staff status. You can turn this off in your settings:
+{{{
+AUTH_ADMIN_USER_AS_SUPERUSER = False
+}}}
+
 == Google Accounts only ==
 
 You just need a few changes in your settings.py:
