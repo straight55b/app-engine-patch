@@ -27,7 +27,7 @@ What's planned:
 
 *Important:* Please upgrade your app.yaml, settings.py, urls.py, and manage.py according to the versions in the sample project, so they contain the features required for [SelfContainedApps self-contained apps].
 
-*Deprecated:* ragendja.dbutils.KeyReferenceProperty will be removed in the final 1.0 release. Use ReferenceProperty instead. The key can be retrieved with `<YourModelClass>.reference.get_value_for_datastore(<model_instance>)`.
+*Deprecated:* `ragendja.dbutils.KeyReferenceProperty` will be removed in the final 1.0 release. Use `ReferenceProperty` instead. The key can be retrieved with `<YourModelClass>.reference.get_value_for_datastore(<model_instance>)`.
 
 = Release 0.9.2 (2008-11-19) =
  * updated to Django 1.0.2 ([http://docs.djangoproject.com/en/dev/releases/1.0.2/ release notes])
