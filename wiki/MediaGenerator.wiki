@@ -14,7 +14,8 @@ Luckily, app-engine-patch helps you automate this process. In your settings.py y
 Example settings:
 
 {{{
-# Set default language without country code (though, that's supported, too)
+# Set default language without country code
+# (LANGUAGE_CODE must be contained in LANGUAGES)
 LANGUAGE_CODE = 'en'
 
 # Only generate media files for English and German
