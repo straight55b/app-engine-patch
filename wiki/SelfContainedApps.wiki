@@ -17,6 +17,8 @@ Never use your project package name in imports. Don't write `from project.app.xx
 
 Don't hard-code URLs. Always use named urls and `{% url %}` and `reverse()`.
 
+Always pass a `RequestContext` to `render_to_response` (or use [RagendjaTemplate ragendja.template.render_to_response] which does it automatically for you).
+
 There is also a [http://www.youtube.com/watch?v=A-S0tqpPga4&feature=channel_page video introduction] by an experienced Django developer. Note that while he says that providing default app templates didn't work well the real problem is Django's lack of conventions. That's exactly what we want to solve.
 
 = Automatic app settings integration =
