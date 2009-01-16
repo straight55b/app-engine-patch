@@ -53,10 +53,6 @@ add_app_media(globals(), 'combined-%(LANGUAGE_DIR)s.css',
     'myapp/style.css',
     # ...
 )
-
-MIDDLEWARE_CLASSES += (
-    'myapp.middleware.MyAppMiddleware',
-)
 }}}
 
 As a convention, app-engine-patch expects that you name your main media files "combined-%(LANGUAGE_CODE)s.js" and "combined-%(LANGUAGE_DIR)s.css". Use that if you want your app to be reusable.
