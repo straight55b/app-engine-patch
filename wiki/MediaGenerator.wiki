@@ -18,9 +18,9 @@ Example settings:
 LANGUAGE_CODE = 'en'
 
 # Only generate media files for English and German
-LOCALE_SITES = (
-    'en',
-    'de',
+LANGUAGES = (
+    ('de', 'German'),
+    ('en', 'English'),
 )
 
 # Combine media files
