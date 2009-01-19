@@ -7,7 +7,7 @@ It's possible to use Google Accounts instead of Django's auth mechanism or alter
 
 *Only available in repository:*
 
-By default, Google Accounts marked as admins get superuser and staff status. You can turn this off in your settings:
+By default, Google Accounts marked as admins get superuser and staff status when logging in for the first time. You can turn this off in your settings:
 {{{
 AUTH_ADMIN_USER_AS_SUPERUSER = False
 }}}
