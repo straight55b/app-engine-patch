@@ -76,7 +76,7 @@ Since there are no unique properties in App Engine the User model doesn't guaran
 
 *Only available in repository:*
 
-Groups and emulated with a !ListProperty storing db.Key objects, but if you use a !ModelForm the user will get a nice selector interface as if it were a !ManyToManyField.
+Groups are emulated with a !ListProperty storing db.Key objects ([RagendjaDB KeyListProperty]), but if you use a !ModelForm the user will get a nice selector interface as if it were a !ManyToManyField.
 
 Permissions aren't real models, but just objects which can be converted to a string via permission.get_value_for_datastore(). Permission objects get dynamically generated based on the installed models. In the User model they're stored in a !ListProperty of strings, but !ModelForm will display them with a selector interface as if it were a !ManyToManyField.
 
