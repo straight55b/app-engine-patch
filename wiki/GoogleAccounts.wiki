@@ -123,9 +123,13 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 Then you can generate the correct logout link with this code:
 {{{
+<div>
+...
 {% if google_user %}
   <a href="{% google_logout_url %}">Logout</a>
 {% else %}
   <a href="{% url django.contrib.auth.views.logout %}">Logout</a>
 {% endif %}
+...
+</div>
 }}}
