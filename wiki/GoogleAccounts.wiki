@@ -70,7 +70,6 @@ urlpatterns = auth_patterns + patterns('',
 You can integrate those views in your template with:
 
 {{{
-#!html
 <div class="login">
   {% if user.is_authenticated %}
     Welcome, {{ user.email }}
