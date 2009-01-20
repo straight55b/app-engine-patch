@@ -49,7 +49,7 @@ AUTH_USER_MODULE = 'ragendja.auth.hybrid_models'
 
 Here, the `User` model has all properties that are defined in Django in addition to a `user` property (`db.UserProperty`) which can be set to `None`.
 
-= Automatic auth method distinction =
+= Automatic auth method handling =
 
 *Only available in repository!*
 
@@ -82,7 +82,7 @@ You can integrate those views in your template with:
 
 Above, we could override the `LOGIN_REDIRECT_URL` with the `redirect_to` parameter. You can also specify a `LOGOUT_REDIRECT_URL` in your settings if you don't want to show a "You are logged out." template.
 
-= Manual auth method distinction =
+= Manual auth method handling =
 
 == Template tags and context processors ==
 
