@@ -53,7 +53,7 @@ Here, the `User` model has all properties that are defined in Django in addition
 
 *Only available in repository!*
 
-If you don't want to distinguish between authentication methods, manually, you can integrate ragendja's login and logout views which automatically adapt to your authentication method (even if you only use Django's authentication method!). This also works with all auth decorators and `redirect_to_login`.
+If you don't want to distinguish between authentication methods, manually, you can integrate ragendja's login and logout views which automatically adapt to your authentication method. This also works with all auth decorators and `redirect_to_login`.
 
 {{{
 # urls.py:
