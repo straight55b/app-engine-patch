@@ -30,7 +30,7 @@ AUTH_USER_MODULE = 'ragendja.auth.google_models'
 AUTH_ADMIN_MODULE = 'ragendja.auth.google_admin'
 }}}
 
-This will automatically give you a Google-compatible `@login_required` decorator. Note that the default Google `User` model does not have `first_name` and `last_name` properties, but it adds a `user` property of type `db.UserProperty`. Also, the `email` and `username` properties can't be changed or queried with a `filter()` call because they are dynamically retrieved from the `user` property. You can [CustomUserModel define your own] `User` model if you want to change anything.
+Note that the default Google `User` model does not have `first_name` and `last_name` properties, but it adds a `user` property of type `db.UserProperty`. Also, the `email` and `username` properties can't be changed or queried with a `filter()` call because they are dynamically retrieved from the `user` property. You can [CustomUserModel define your own] `User` model if you want to change anything.
 
 == Hybrid authentication ==
 
@@ -47,9 +47,44 @@ MIDDLEWARE_CLASSES = (
 AUTH_USER_MODULE = 'ragendja.auth.hybrid_models'
 }}}
 
-Note that in this case `@login_required` will behave like in Django-only mode (there's still `@ragendja.auth.decorators.google_login_required` if you need it), so you'll have to take care of making both authentication methods visible on your login page. Also, the `User` model has all properties that are defined in Django in addition to a `user` property which can be set to `None`.
+Here, the `User` model has all properties that are defined in Django in addition to a `user` property (`db.UserProperty`) which can be set to `None`.
 
-= Template tags and context processors =
+= Automatic auth method distinction =
+
+*Only available in repository!*
+
+If you don't want to distinguish between authentication methods, manually, you can integrate ragendja's login and logout views which automatically adapt to your authentication method (even if you only use Django's authentication method!). This also works with all auth decorators and `redirect_to_login`.
+
+{{{
+# urls.py:
+
+from django.conf.urls.defaults import *
+from ragendja.urlsauto import urlpatterns
+from ragendja.auth.urls import urlpatterns as auth_patterns
+
+urlpatterns = auth_patterns + patterns('',
+    ...
+) + urlpatterns
+}}}
+
+You can integrate those views in your template with:
+
+{{{
+<div class="login">
+  {% if user.is_authenticated %}
+    Welcome, {{ user.email }}
+    <a href="{% url django.contrib.auth.views.logout %}">Logout</a>
+  {% else %}
+    <a href="{% url django.contrib.auth.views.login %}?redirect_to={{  request.get_full_path }}">Login</a>
+  {% endif %}
+</div>
+}}}
+
+Above, we could override the `LOGIN_REDIRECT_URL` with the `redirect_to` parameter. You can also specify a `LOGOUT_REDIRECT_URL` in your settings if you don't want to show a "You are logged out." template.
+
+= Manual auth method distinction =
+
+== Template tags and context processors ==
 
 Add the following to your settings.py:
 {{{
@@ -73,7 +108,7 @@ This will add two template tags for creating login and logout urls (`google_logi
 </div>
 }}}
 
-= Distinguishing between auth methods =
+== Distinguishing between auth methods ==
 
 *The following is only available in the repository:*
 
