@@ -75,7 +75,7 @@ You can integrate those views in your template with:
     Welcome, {{ user.email }}
     <a href="{% url django.contrib.auth.views.logout %}">Logout</a>
   {% else %}
-    <a href="{% url django.contrib.auth.views.login %}?redirect_to={{  request.get_full_path }}">Login</a>
+    <a href="{% url django.contrib.auth.views.login %}?redirect_to={{ request.get_full_path|urlencode }}">Login</a>
   {% endif %}
 </div>
 }}}
