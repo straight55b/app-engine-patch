@@ -108,7 +108,7 @@ This will add two template tags for creating login and logout urls (`google_logi
 </div>
 }}}
 
-== Distinguishing between auth methods ==
+== Distinguishing auth methods in hybrid mode ==
 
 *The following is only available in the repository:*
 
