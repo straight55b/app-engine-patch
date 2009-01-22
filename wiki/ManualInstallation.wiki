@@ -8,12 +8,16 @@ First, grab our [GettingTheSource source code]. Use the following project struct
 project root
   __init__.py
   app.yaml
-  settings.py
+  settings.py  (based on sample project with imports for settings_pre and settings_post)
   manage.py    (copy from "appenginepatch")
   common
     __init__.py
+    settings_pre.py    (copy from sample project)
+    settings_post.py   (copy from sample project)
     appenginepatch     (copy the whole main folder)
-    django             (our patched Django version)
+    django_aep_export  (based on sample project, just with files extracted from your django.zip)
+    zip-packages
+        django.zip     (our patched Django version)
 }}}
 
 Don't forget to copy manage.py from the "appenginepatch" folder into your project root. You can only execute it from your project's root folder.
@@ -43,21 +47,23 @@ This will use the default main.py handler which should work for most projects an
 
 First, read the [ZipPackages zip packages documentation].
 
-Since you can't load translations from a zip file, so you have to move the contents of "django/conf/locale" to "common/django_aep_export/django-locale/locale". This folder automatically gets integrated when using a zipped Django package. Then, at least also remove the "django/contrib/gis/tests" folder because that takes up too much space (our official releases don't have "templates" and "media" folders, either). Finally, create a "django.zip" file and move it into the "zip-packages" folder.
+Since you can't load translations from a zip file, so you have to move the contents of "django/conf/locale" to "common/django_aep_export/django-locale/locale". This folder automatically gets integrated when using a zipped Django package. Then, at least also remove the "django/contrib/gis/tests" folder because that takes up too much space (our official releases don't have any "templates" and "media" folders, either). Finally, create a "django.zip" file and move it into the "zip-packages" folder.
 
-As a last step, move all templates and media files from the zip file (under "django/contrib") into "common/django_aep_export". See the sample project for an example. It's easier to show than to explain. :)
+As a last step, move all templates and media files from the zip file (under "django/contrib") into the respective folder in "common/django_aep_export". See the sample project for an example. It's easier to show than to explain. :)
 
 
 = settings.py =
 
 All you need to do is add `'appenginepatcher'` to your `INSTALLED_APPS`, set `ROOT_URLCONF = 'urls'`, set `DATABASE_ENGINE = 'appengine'`, and remove all other database settings (host, username, password, etc.).
 
+Also, use the same structure as in the sample project. There, we import settings_pre at the top and setttings_post at the bottom. Those files define better default values for App Engine (e.g., for file upload handling) and they add support for some [MediaGenerator media generator] features.
+
 The cache backend must be enabled with
 {{{
 CACHE_BACKEND = 'memcached://'
 }}}
 
-Unfortunately, this doesn't allow for adding items with infinite timeout. The only way to achieve this is to set a default timeout:
+Unfortunately, this doesn't allow for adding items with infinite timeout. The only way to achieve this is to set a default timeout to infinite:
 {{{
 CACHE_BACKEND = 'memcached://?timeout=0'
 }}}
