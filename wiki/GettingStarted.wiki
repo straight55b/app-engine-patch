@@ -19,6 +19,13 @@ Before continuing please make sure that you've read the:
  * [http://code.google.com/appengine/docs/ App Engine documentation]
 
 
+= Converting =
+
+If you want to convert a plain Django project you have to copy the "common" folder from the sample project into your project and adjust your settings.py (import settings_pre and settings_post) and urls.py (integrate urlsauto). Also, you need to create an app.yaml file. Our [ManualInstallation manual installation] instructions list all the details.
+
+Also read the differences in our Django port below.
+
+
 = Updating =
 
 If you want to update an existing project please download the most recent sample project and replace everything in the "common" folder with new versions from the sample project. Also please read the [ReleaseNotes release notes], so you don't miss important changes.
