@@ -169,6 +169,6 @@ class File(db.Model):
 signals.pre_delete.connect(cleanup_relations, sender=User)
 }}}
 
-From now on, a user instance gets deleted together with all related files. Note that signals only work if you call model instance methods. They don't work with `db.delete()` and `db.put()`.
+From now on, a user instance gets deleted together with all related files. Note that signals only work if you use model instances.
 
 This feature provides a weak form of referential integrity, but it won't work for entities that get used by lots of users simultaneously because, in that case, the list of referencing entities could change while it's being collected.
