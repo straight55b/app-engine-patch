@@ -152,7 +152,9 @@ for file in files:
 
 *Only available in repository*
 
-This is a signal handler which can be used in order to automatically delete an entity and all its related entities:
+This is a signal handler which can be used in order to automatically delete an entity and all its related entities.
+
+Example:
 
 {{{
 from django.db.models import signals
@@ -168,3 +170,5 @@ signals.pre_delete.connect(cleanup_relations, sender=User)
 }}}
 
 From now on, a user instance gets deleted together with all related files. Note that signals only work if you call model instance methods. They don't work with `db.delete()` and `db.put()`.
+
+This feature provides a weak form of referential integrity, but it won't work for entities that get used by lots of users simultaneously because, in that case, the list of referencing entities could change while it's being collected.
