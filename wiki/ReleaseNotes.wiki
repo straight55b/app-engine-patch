@@ -15,6 +15,7 @@ What's planned:
  * partially ported django.contrib.contenttypes (generic relations don't work)
  * memcache-optimized sessions backend
  * added [Profiling profiler] features: analyze only specific requests or a certain percentage of all requests
+ * added support for Django's Model signals
  * fixed support for most recent boto release (httplib extensions)
  * fixed `get_list_or_404` to be consistent with `get_object_or_404`
  * fixed support for file uploads
@@ -22,6 +23,8 @@ What's planned:
  * added support for model Meta `verbose_name` and `verbose_name_plural`
  * print app-engine-patch version number when running manage.py
  * refactored and cleaned up code (almost no monkey patches for Django)
+
+Thanks to everyone who took the time to report bugs!
 
 *Very important:* If you upgrade an existing project please set `DJANGO_STYLE_MODEL_KIND = False` in your settings.py. From now on, the model `kind()` gets prefixed with the app label, by default, which prevents naming conflicts when multiple apps define models with the same name. Note that Django uses this naming scheme, too, when creating SQL tables. This feature breaks existing models which are stored without the app label, so you need to disable it when upgrading your project (or you can override the kind() method for existing models).
 
