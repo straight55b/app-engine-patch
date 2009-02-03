@@ -59,7 +59,7 @@ The most essential "django.contrib" apps and apps that don't depend on models ar
 
 We only support [http://code.google.com/appengine/docs/datastore/ App Engine models] (`from google.appengine.ext import db`). Django models don't work. There are quite a few conceptual differences, especially with transactions, unique properties, and queries, so we can't emulate Django in this area.
 
-For the same reason, Django's `get_xxx_or_404()` functions don't work, but we provide alternatives in [RagendjaDB ragendja.db] with an API that is similar to that of Google's `Model.all().filter()` call.
+Anything that gets filter parameters like Django's `get_object_or_404()` isn't supported, but we provide alternatives in [RagendjaDB ragendja.db] with an API that is similar to that of Google's `Model.all().filter()` call. In contrast, most Django features that just use the datastore are available (e.g., all `ModelForm` features).
 
 Starting with app-engine-patch 1.0 the model `kind()` gets prefixed with the app label of the app which defines that model. For example, if you have `myapp.models.MyModel` the datastore will store entities with the following entity name: `myapp_MyModel`. This is needed to prevent conflicts when multiple apps define models with the same name. Note that Django uses this naming scheme, too, when creating SQL tables. If necessary, you can disable that feature in your settings.py:
 
