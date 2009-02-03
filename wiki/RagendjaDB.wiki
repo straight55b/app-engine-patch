@@ -148,18 +148,23 @@ for file in files:
     name = file.creator.get_full_name()
 }}}
 
-== delete_relations(entity, ...collection_set_names...) ==
+== cleanup_relations ==
 
 *Only available in repository*
 
-This can be used in a model's `delete()` method to also delete all the entities related via `ReferenceProperty`:
+This is a signal handler which can be used in order to automatically delete an entity and all its related entities:
 
 {{{
+from django.db.models import signals
+from ragendja.dbutils import cleanup_relations
+
 class User(db.Model):
-    def delete(self):
-        delete_relations(self, 'file_set')
-        super(User, self).delete()    
+    ...
 
 class File(db.Model):
-    owner = db.ReferenceProperty(User, collection_name='file_set')
+    owner = db.ReferenceProperty(User)
+
+signals.pre_delete.connect(cleanup_relations, sender=User)
 }}}
+
+From now on, a user instance gets deleted together with all related files. Note that signals only work if you call model instance methods. They don't work with `db.delete()` and `db.put()`.
