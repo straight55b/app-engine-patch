@@ -1,0 +1,111 @@
+#summary This is an initial proposal for the Django team if they consider porting Django, so it's better suited for App Engine.
+
+= Django on App Engine: What's needed? What's different? =
+
+In order to make this proposal easier to read I won't use App Engine terminology whenever possible. The following might also apply to other cloud hosts which provide special database and communication interfaces.
+
+== Database and request limitations ==
+
+You can't have requests that take longer than 10 seconds and you can't retrieve more than 1000 model instances at once from the database. It's also impossible to run more than 30 queries without hitting the 10 sec request limit.
+
+A single database entry (actually: entity group; see below) can't handle more than 5 writes per second (writes = save or delete).
+
+Also not supported: JOINs, sub-queries, DISTINCT queries, referential integrity
+
+== Schemas ==
+
+Tables are flexible and don't have schema definitions which means manage.py syncdb isn't needed (and can't be executed on the server, anyway). Every entry in a table can have different columns, so you can change your schema by simply modifying the model definition. Of course, you might have to convert existing database entries to the new schema, manually.
+
+== Indexes ==
+
+This section only provides a quick overview. Read the App Engine documentation for more details.
+
+A single database entry can't have more than 5000 index entries. App Engine automatically creates index entries for each field.
+
+Simple queries with only equality filters don't need special index rules. Inequality filters and order_by always need special index rules which describe the index entries necessary for performing a complex query. The index rule contains all fields that are part of the query (even if only one field has an inequality/ordering filter). For example: "MyModel, field_a, field_b". This makes sorting like in the admin interface practically impossible because of unforeseen and/or exploding indexes:
+
+{{{
+MyModel.filter(a__lt=3)
+MyModel.filter(a__lt=3, b='hi')
+MyModel.filter(a__lt=3, b='hi').order_by('-a')
+}}}
+
+Each of those filter calls above needs a different index rule. The problems begin when one of the fields is a list property (App Engine supports fields that store a list of values) because then index entries are created for all combinations of fields and list entries. Imagine this database entry:
+
+{{{
+MyModel(a=2, b=['hi', 'hello', 'wassup'])
+}}}
+
+App Engine would store these index entries for the index rule "MyModel, a, b" like so:
+
+{{{
+index_entries = [
+    [2, 'hi'],
+    [2, 'hello'],
+    [2, 'wassup']
+]
+}}}
+
+Now imagine you'd have to index two list properties in one rule and there you have exploding combinations (quickly more than 5000). If you define two filter rules on a list property together with an inequality filter or ordering you already have your index rule with two list properties.
+
+This has the implication that Django features like the admin interface should have a fall-back mode in which you can't sort query results, for example. Possibly when App Engine gets full-text search support there could be a fall-back to (or preference for?) running complex queries on the full-text index.
+
+== Keys, key_name, key id ==
+
+In App Engine all model instances have a key which contains the table, the parents (if any; see below), and an identifier which can be a key_name or a key id. You can manually specify a key_name which is a string (mustn't start with a digit, though) or you can let App Engine automatically assign a key id which is an integer. It's impossible to manually specify a key id. The key_name could be emulated with a CharField(primary_key=True) that automatically prefixes the string with a character, internally. The key id could be emulated with an AutoField.
+
+The key can't be changed once it is saved. Since you can only specify the key_name manually Django should probably assign a random key_name to each newly created database entry, by default, so data can be exported from and imported into the database more easily. A transaction can be used to ensure that no existing database entry with the generated key_name gets overwritten.
+
+In order to optimize code it's useful to be able to get the key value of a ForeignKey without dereferencing the field.
+
+The following field names should be reserved: key, key_name, key_id
+
+== Parents and entity groups ==
+
+This feature is needed for transactions (see below).
+
+You can group database entries, so they are stored on the same physical database node. These groupings are called entity groups and they're modeled by assigning a parent to a model instance. The parent model and its children (and their children) are guaranteed to be stored on the same node and they all can be accessed and modified within a single transaction.
+
+If a database entry doesn't have a parent it becomes its own entity group root (i.e., independent entries don't share a common group root).
+
+As a design rule you should never create big entity groups if the group as a whole could get more than 5 write operations per second.
+
+The following field names should be reserved: parent, parent_key
+
+== Transactions ==
+
+Transactions are very limited. They can only be run on entity groups. It's impossible to do queries within a transaction. You can only retrieve model instances by key (or key_name or key id). This locks the respective database entry (like SELECT FOR UPDATE), even if the entry doesn't actually exist, so you can safely modify the instance(s) and store the changes. This can be used to check if a certain entry exists before creating a new one.
+
+Checkpoints aren't supported.
+
+Django could emulate transactions with the commit_on_success decorator.
+
+== Database batch operations ==
+
+Database writes are very expensive. App Engine provides batch operations for saving and deleting lots of model instances at once (no more than 500 entries, though). Django should provide such an API, too, so code can be optimized. The API would be most useful if it worked like a transaction handler where 
+
+There are batch operations for getting lots of model instances by key. This could be emulated with
+
+{{{
+MyModel.all().filter(pk__in=[key1, key2, ...])
+}}}
+
+and similar functions for key, key_name, and key_id.
+
+== Model relations and JOINs ==
+
+Since JOINs don't work, Django should support denormalization (maybe via ForeignKey) and fall back to client-side JOIN emulation if denormalization isn't specified. Of course, with denormalization when an attribute changes Django must update all affected entries referencing that attribute.
+
+Referential integrity and integrity of the denormalization could require modifying more model instances than allowed in a single request. A background process (or cron job) could be used to clean up huge amounts of data inconsistency automatically. This would require creating a cleanup task (maybe as a model) which could at the same time be used to correct inconsistent data on-the-fly. The cache backend could optimize this process.
+
+== Email support ==
+
+In order to support email functionality it must be possible to provide email backends which handle the actual sending process. App Engine has a special [http://code.google.com/appengine/docs/python/mail/ mail API].
+
+== File uploads ==
+
+The file upload handling code should never assume that it has access to the file system. Instead, it should assume that the file gets uploaded directly into the database or indirectly (e.g., via POST to S3 and then Django just gets notified when the upload is finished).
+
+== Permissions and content types ==
+
+Since we can't run manage.py syncdb, these should be replaced with dynamically generated fake model instances (which is also an optimization). Internally, they could be stored as a simple string (e.g., 'user.can_add') and converted into fake models when the field is accessed.
