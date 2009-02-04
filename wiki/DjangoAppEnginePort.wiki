@@ -1,6 +1,6 @@
 #summary This is an initial proposal for the Django team if they consider porting Django, so it's better suited for App Engine.
 
-= Django on App Engine: What's needed? What's different? =
+= Porting Django to App Engine: What's needed/different? =
 
 In order to make this proposal easier to read I won't use App Engine terminology whenever possible. The following might also apply to other cloud hosts which provide special database and communication interfaces.
 
