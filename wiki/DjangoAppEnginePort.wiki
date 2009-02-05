@@ -1,5 +1,7 @@
 #summary This is an initial proposal for the Django team if they consider to port Django, so it's better suited for App Engine.
 
+Also see [http://code.djangoproject.com/ticket/10192 ticket 10192] in Django's ticket tracker.
+
 = Porting Django to App Engine: What's needed/different? =
 
 In order to understand this proposal you must have read the [http://code.google.com/appengine/docs/ App Engine documentation].
