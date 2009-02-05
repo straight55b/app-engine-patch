@@ -18,6 +18,8 @@ An entity may not have more than 5000 index entries.
 
 All query filter rules are connected via the AND operator. The OR operator is not supported.
 
+Transactions can only run on a single entity group and you can't run queries within a transaction.
+
 Also not supported: JOINs, sub-queries, DISTINCT queries, referential integrity
 
 == Schemas ==
