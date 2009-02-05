@@ -42,7 +42,7 @@ The key_name and parent could be emulated with a CharField(primary_key=True) tha
 
 The pk property should return an url-safe string that contains the key_name without the safety prefix (i.e., the value of the CharField(primary_key=True)) and the parent pk. This is more portable than using the str(Key) because it doesn't contain the model and app name. Moreover, in case you specified a pk manually , the URLs will be much nicer. Even if you don't specify a key_name the URL is still shorter than the str(Key) version.
 
-In order to optimize code it's useful to be able to get the key value of a ForeignKey without dereferencing the field.
+In order to optimize code it's useful to be able to get the key value of a !ForeignKey without dereferencing the field.
 
 Queries should support ancestor conditions.
 
@@ -71,7 +71,7 @@ Since JOINs don't work, Django should fall back to client-side JOIN emulation by
 
 == Future: denormalization ==
 
-As an alternative to JOIN emulation, denormalization could be provided via a ForeignKey that gets told which attributes of the referenced entity have to be copied. The query would then be formulated as if it crossed a relation, but internally the copied data would be used. Of course, with denormalization when an attribute changes Django must update all affected entities referencing that attribute.
+As an alternative to JOIN emulation, denormalization could be provided via a !ForeignKey that gets told which attributes of the referenced entity have to be copied. The query would then be formulated as if it crossed a relation, but internally the copied data would be used. Of course, with denormalization when an attribute changes Django must update all affected entities referencing that attribute.
 
 Data integrity could require modifying more model instances than allowed in a single request. A background process (or cron job) could be used to automatically clean up huge amounts of data inconsistency. This would require creating a cleanup task (maybe as a model) which could at the same time be used to correct inconsistent data on-the-fly. The cache backend could optimize this process.
 
