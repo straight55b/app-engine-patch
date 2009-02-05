@@ -61,7 +61,7 @@ The API would be most flexible if it worked like a transaction handler where all
 There are batch operations for getting lots of model instances by key. This could be emulated with
 
 {{{
-MyModel.all().filter(pk__in=[key1, key2, ...])
+MyModel.objects.all().filter(pk__in=[key1, key2, ...])
 }}}
 
 
