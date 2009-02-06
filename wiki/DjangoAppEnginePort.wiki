@@ -100,7 +100,7 @@ The file upload handling code should never assume that it has access to the file
 
 == Permissions and content types ==
 
-Since we shouldn't depend on manage.py syncdb, the Permission and !ContentType models should be replaced with dynamically generated fake model instances (which is also an optimization). Since we can retrieve the list of defined models at runtime we can easily generate those two models at runtime, too. Internally, they could be stored as a simple string (e.g., 'user.can_add') and converted into fake models when the field is accessed. This might require creating a FakeModelField for holding this kind of model.
+Since we shouldn't depend on manage.py syncdb, the Permission and !ContentType models should be replaced with dynamically generated fake model instances (which is also an optimization). Since we can retrieve the list of defined models at runtime we can easily generate those two models at runtime, too. Internally, they could be stored as a simple string (e.g., 'user.can_add') and converted into fake models when the field is accessed. This might require creating a !FakeModelField for holding this kind of model.
 
 == app-engine-patch: custom User models ==
 
