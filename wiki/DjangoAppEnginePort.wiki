@@ -22,7 +22,11 @@ All query filter rules are connected via the AND operator. The OR operator is no
 
 Transactions can only run on a single entity group and you can't run queries within a transaction.
 
-Also not supported: JOINs, sub-queries, DISTINCT queries, referential integrity
+Also not supported:
+ * JOINs (could be done manually for small datasets)
+ * sub-queries (ditto)
+ * DISTINCT queries (i.e., no queryset.dates(), etc.)
+ * referential integrity
 
 == Schemas ==
 
