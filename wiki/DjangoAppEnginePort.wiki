@@ -48,7 +48,7 @@ The key_name and parent could be emulated with a !CharField(primary_key=True) th
 
 The pk property should return an url-safe string that contains the key_name without the safety prefix (i.e., the value of the !CharField(primary_key=True)) and the parent pk. This is more portable than using the str(Key) because it doesn't contain the model and app name. Moreover, in case you specified a pk manually , the URLs will be much nicer. Even if you don't specify a key_name the URL is still shorter than the str(Key) version.
 
-In order to optimize code it's useful to be able to get the key value of a !ForeignKey without dereferencing the field.
+In order to optimize code it's useful to be able to get the pk value of a !ForeignKey without dereferencing its entity.
 
 Queries should support ancestor conditions.
 
@@ -73,6 +73,14 @@ MyModel.objects.all().filter(pk__in=[key1, key2, ...])
 == Model relations and JOINs ==
 
 Since JOINs don't work, Django should fall back to client-side JOIN emulation by issuing multiple queries. Of course, this only works with small datasets and it's inefficient, but that can be documented. It can still be a useful feature.
+
+Many-to-many relations could be emulated with something like a !ListProperty(db.Key), so you can at least issue simple queries, but this can quickly hit the 5000 index entries limit. The alternative of having an intermediate table is useless if you have to issue queries on the data. Anyway, for efficiency it should be possible to retrieve only the pk values without loading the actual entities from the db.
+
+== Special field types ==
+
+The following field types have to be ported to Django:
+ * !ListProperty
+ * !BlobProperty
 
 == Zipimport ==
 
