@@ -30,7 +30,7 @@ Since tables are flexible and don't have schema definitions running "manage.py s
 
 == Indexes ==
 
-Queries with inequality filters or sort orders need special index rules, so Django features like the admin interface should have a fall-back mode in which you can't sort query results because the developer can hardly define all possible index rules, especially if the searchable property contains list properties.
+Queries with inequality filters or sort orders need special index rules, so Django features like the admin interface should have a fall-back mode in which you can't sort query results because the developer can hardly define all possible index rules, especially if the searched property is a list property (in which case you need multiple index rules for all possible numbers of search terms).
 
 Possibly, when App Engine gets full-text search support there could be a fall-back to (or preference for?) running complex queries on the full-text index.
 
