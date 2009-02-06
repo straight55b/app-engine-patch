@@ -90,6 +90,8 @@ Django should work from within a zip package. This means at least extending find
 
 Not all manage.py commands should be available on App Engine (e.g., the SQL-related commands). This could probably be detected at runtime based on the DB backend's capabilities. Some commands like "runserver" have to be replaced. This could possibly be done by adding an app to INSTALLED_APPS which redefines a few commands.
 
+We also need an "official" deployment command to emulate "appcfg.py update" and similar commands for other cloud hosts.
+
 == Email support ==
 
 In order to support email functionality it must be possible to provide email backends which handle the actual sending process. App Engine has a special [http://code.google.com/appengine/docs/python/mail/ Mail API].
