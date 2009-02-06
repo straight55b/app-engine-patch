@@ -75,12 +75,6 @@ MyModel.objects.all().filter(pk__in=[key1, key2, ...])
 
 Since JOINs don't work, Django should fall back to client-side JOIN emulation by issuing multiple queries. Of course, this only works with small datasets and it's inefficient, but that can be documented. It can still be a useful feature.
 
-== Future: denormalization ==
-
-As an alternative to JOIN emulation, denormalization could be provided via a !ForeignKey that gets told which attributes of the referenced entity have to be copied. The query would then be formulated as if it crossed a relation, but internally the copied data would be used. Of course, with denormalization when an attribute changes Django must update all affected entities referencing that attribute.
-
-Data integrity could require modifying more model instances than allowed in a single request. A background process (or cron job) could be used to automatically clean up huge amounts of data inconsistency. This would require creating a cleanup task (maybe as a model) which could at the same time be used to correct inconsistent data on-the-fly. The cache backend could optimize this process.
-
 == Email support ==
 
 In order to support email functionality it must be possible to provide email backends which handle the actual sending process. App Engine has a special [http://code.google.com/appengine/docs/python/mail/ Mail API].
@@ -92,3 +86,13 @@ The file upload handling code should never assume that it has access to the file
 == Permissions and content types ==
 
 Since we shouldn't depend on manage.py syncdb, the Permission and !ContentType models should be replaced with dynamically generated fake model instances (which is also an optimization). Since we can retrieve the list of defined models at runtime we can easily generate those two models at runtime, too. Internally, they could be stored as a simple string (e.g., 'user.can_add') and converted into fake models when the field is accessed. This might require creating a FakeModelField for holding this kind of model.
+
+== app-engine-patch: custom User models ==
+
+In order to support our [http://code.google.com/p/app-engine-patch/wiki/CustomUserModel custom User models] feature Django should officially provide a way to change the User and possibly even other models (e.g., Site could be extended for more complex use-cases).
+
+== Future: denormalization ==
+
+As an alternative to JOIN emulation, denormalization could be provided via a !ForeignKey that gets told which attributes of the referenced entity have to be copied. The query would then be formulated as if it crossed a relation, but internally the copied data would be used. Of course, with denormalization when an attribute changes Django must update all affected entities referencing that attribute.
+
+Data integrity could require modifying more model instances than allowed in a single request. A background process (or cron job) could be used to automatically clean up huge amounts of data inconsistency. This would require creating a cleanup task (maybe as a model) which could at the same time be used to correct inconsistent data on-the-fly. The cache backend could optimize this process.
