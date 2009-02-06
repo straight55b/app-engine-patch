@@ -70,10 +70,17 @@ There are batch operations for getting lots of model instances by key. This coul
 MyModel.objects.all().filter(pk__in=[key1, key2, ...])
 }}}
 
-
 == Model relations and JOINs ==
 
 Since JOINs don't work, Django should fall back to client-side JOIN emulation by issuing multiple queries. Of course, this only works with small datasets and it's inefficient, but that can be documented. It can still be a useful feature.
+
+== Zipimport ==
+
+Django should work from within a zip package. This means at least extending find_commands(), so manage.py commands can work (app-engine-patch [http://bitbucket.org/wkornewald/django-app-engine/src/tip/core/management/__init__.py already does this]). The media files and templates could be exported (like it's currently done in app-engine-patch) if that is more efficient.
+
+== manage.py commands ==
+
+Not all manage.py commands should be available on App Engine (e.g., the SQL-related commands). This could probably be detected at runtime based on the DB backend's capabilities. Some commands like "runserver" have to be replaced. This could possibly be done by adding an app to INSTALLED_APPS which redefines a few commands.
 
 == Email support ==
 
