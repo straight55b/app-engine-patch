@@ -1,10 +1,10 @@
 #summary Please donate to support the development of app-engine-patch.
 #labels Featured
 
-Donate in $:
+== Donate in $ ==
 [http://freenet-homepage.de/wkornewald/appenginepatch/donate-usd.html https://www.paypal.com/en_US/i/btn/btn_donateCC_LG_global.gif]
 
-Donate in €:
+== Donate in € ==
 [http://freenet-homepage.de/wkornewald/appenginepatch/donate.html https://www.paypal.com/en_US/i/btn/btn_donateCC_LG_global.gif]
 
 = Thank you very much for your donations! =
