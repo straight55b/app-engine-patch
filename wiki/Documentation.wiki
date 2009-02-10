@@ -19,4 +19,5 @@
  * [Contributing]
    * [GettingTheSource How to get the source]
  * [OpenSourceProjects Related open-source projects]
+ * [ReleaseNotes Release notes]
  * [Donate Donate and support us]
