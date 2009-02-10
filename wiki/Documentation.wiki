@@ -19,4 +19,4 @@
  * [Contributing]
    * [GettingTheSource How to get the source]
  * [OpenSourceProjects Related open-source projects]
- * [Donate and support us]
+ * [Donate Donate and support us]
