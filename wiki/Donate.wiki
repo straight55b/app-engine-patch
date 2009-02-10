@@ -1,8 +1,8 @@
 Donate in $:
-[https://www.paypal.com/en_US/i/btn/btn_donateCC_LG_global.gif http://freenet-homepage.de/wkornewald/appenginepatch/donate-usd.html]
+[http://freenet-homepage.de/wkornewald/appenginepatch/donate-usd.html https://www.paypal.com/en_US/i/btn/btn_donateCC_LG_global.gif]
 
 Donate in €:
-[https://www.paypal.com/en_US/i/btn/btn_donateCC_LG_global.gif http://freenet-homepage.de/wkornewald/appenginepatch/donate.html]
+[http://freenet-homepage.de/wkornewald/appenginepatch/donate.html https://www.paypal.com/en_US/i/btn/btn_donateCC_LG_global.gif]
 
 = Thank you very much for your donations! =
 
