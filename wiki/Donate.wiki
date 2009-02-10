@@ -1,4 +1,8 @@
-We don't accept donations, anymore. This is starting to become a community project and we think we can achieve much more together.
+Donate in $:
+[https://www.paypal.com/en_US/i/btn/btn_donateCC_LG_global.gif http://freenet-homepage.de/wkornewald/appenginepatch/donate-usd.html]
+
+Donate in €:
+[https://www.paypal.com/en_US/i/btn/btn_donateCC_LG_global.gif http://freenet-homepage.de/wkornewald/appenginepatch/donate.html]
 
 = Thank you very much for your donations! =
 
