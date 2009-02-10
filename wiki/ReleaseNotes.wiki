@@ -11,7 +11,7 @@ What's planned:
  * ported django.contrib.redirects
  * added [RagendjaOther dynamic SITE_ID middleware] for hosting multiple sites on a single Django instance
  * added [RagendjaDB KeyListProperty] for simulating simple many-to-many relations
- * added support for `urllib2.urlopen()` (thank you, Leonid Evdokimov!)
+ * removed our custom httplib and urllib2 emulations (App Engine has its own, now)
  * partially ported django.contrib.contenttypes (generic relations don't work)
  * memcache-optimized sessions backend
  * added [Profiling profiler] features: analyze only specific requests or a certain percentage of all requests
