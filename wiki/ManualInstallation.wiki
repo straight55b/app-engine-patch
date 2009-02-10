@@ -12,8 +12,6 @@ project root
   manage.py    (copy from "appenginepatch")
   common
     __init__.py
-    settings_pre.py    (copy from sample project)
-    settings_post.py   (copy from sample project)
     appenginepatch     (copy the whole main folder)
     django_aep_export  (based on sample project, just with files extracted from your django.zip)
     zip-packages
@@ -56,14 +54,9 @@ As a last step, move all templates and media files from the zip file (under "dja
 
 All you need to do is add `'appenginepatcher'` to your `INSTALLED_APPS`, set `ROOT_URLCONF = 'urls'`, set `DATABASE_ENGINE = 'appengine'`, and remove all other database settings (host, username, password, etc.).
 
-Also, use the same structure as in the sample project. There, we import settings_pre at the top and setttings_post at the bottom. Those files define better default values for App Engine (e.g., for file upload handling) and they add support for some [MediaGenerator media generator] features.
+Also, use the same structure as in the sample project. There, we import ragendja.settings_pre at the top and ragendja.settings_post at the bottom. Those files define better default values for App Engine (e.g., for file upload handling) and they add support for some [MediaGenerator media generator] and our [SelfContainedApps self-contained apps] features.
 
-The cache backend must be enabled with
-{{{
-CACHE_BACKEND = 'memcached://'
-}}}
-
-Unfortunately, this doesn't allow for adding items with infinite timeout. The only way to achieve this is to set a default timeout to infinite:
+The cache backend's default timeout is "infinite" because that's the only way to specify it. So when you don't specify a timeout manually you get infinite timeout. Normally you should use a timeout that fits the task at hand.
 {{{
 CACHE_BACKEND = 'memcached://?timeout=0'
 }}}
