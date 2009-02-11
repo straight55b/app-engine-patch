@@ -5,9 +5,9 @@ We use [http://www.selenic.com/mercurial/ Mercurial]. Installers are available a
 
 The project consists of multiple repositories for the various components:
 
- * app-engine-patch (some patches, ragendja, and goodies): http://www.bitbucket.org/wkornewald/appenginepatch/
- * sample project: http://www.bitbucket.org/wkornewald/appenginepatch-sample/
- * modified Django version: http://www.bitbucket.org/wkornewald/django-app-engine/
- * unmodified Django version (used to upgrade modified version): http://www.bitbucket.org/wkornewald/django-original/
+ * app-engine-patch (some patches, ragendja, and goodies): http://bitbucket.org/wkornewald/appenginepatch/
+ * sample project: http://bitbucket.org/wkornewald/appenginepatch-sample/
+ * modified Django version: http://bitbucket.org/wkornewald/django-app-engine/
+ * unmodified Django version (used to upgrade modified version): http://bitbucket.org/wkornewald/django-original/
 
 If you have an improvement please [Contributing contribute]. Most of the time you should send patches against our modified Django version.
