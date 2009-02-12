@@ -1,4 +1,4 @@
-#summary If you like app-engine-patch or make money with it please [Donate donate to support] its development. Thank you!
+#summary If you like app-engine-patch or make money with it please donate to support its development. Thank you!
 #labels Featured
 
 == [http://freenet-homepage.de/wkornewald/appenginepatch/donate-usd.html Donate in $] ==
