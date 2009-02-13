@@ -24,7 +24,7 @@ Before continuing please make sure that you've read the:
 If you want to update an existing project please follow these steps:
  * download and unzip the most recent sample project
  * open your project's "common" folder
- * replace everything in your "common" folder with the sample project's "common" folder
+ * replace everything in your "common" folder with the contents of the sample project's "common" folder
  * read the [ReleaseNotes release notes], so you don't miss any important changes
 
 
