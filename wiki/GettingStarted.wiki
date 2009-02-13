@@ -19,16 +19,20 @@ Before continuing please make sure that you've read the:
  * [http://code.google.com/appengine/docs/ App Engine documentation]
 
 
+= Updating =
+
+If you want to update an existing project please follow these steps:
+ * download and unzip the most recent sample project
+ * open your project's "common" folder
+ * replace everything in your "common" folder with the sample project's "common" folder
+ * read the [ReleaseNotes release notes], so you don't miss any important changes
+
+
 = Converting =
 
 If you want to convert a plain Django project you have to copy the "common" folder from the sample project into your project and adjust your settings.py (import ragendja.settings_pre and ragendja.settings_post) and urls.py (integrate urlsauto). Also, you need to create an app.yaml file. Our [ManualInstallation manual installation] instructions list all the details.
 
 Also read the differences in our Django port below.
-
-
-= Updating =
-
-If you want to update an existing project please download the most recent sample project and replace everything in the "common" folder with new versions from the sample project. Also please read the [ReleaseNotes release notes], so you don't miss important changes.
 
 
 = Differences compared to plain Django =
