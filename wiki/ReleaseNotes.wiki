@@ -32,6 +32,9 @@ What's planned:
 
 Thanks to everyone who took the time to report bugs!
 
+= Release 0.9.3 (2009-02-21) =
+ * updated to be compatible with SDK 1.1.9
+
 = Release 0.9.3 (2009-01-18) =
  * updated to be compatible with SDK 1.1.8
 
