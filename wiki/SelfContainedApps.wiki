@@ -101,3 +101,11 @@ urlpatterns = patterns('',
     (r'^account/', include('registration.urls')),
 )
 }}}
+
+You can disable this on a per-app basis in your settings:
+{{{
+URLSAUTO_IGNORE_APPS = (
+    'registration',
+    'myapp',
+)
+}}}
