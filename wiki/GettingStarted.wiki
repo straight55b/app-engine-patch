@@ -7,6 +7,8 @@ Please download and install the [http://code.google.com/p/googleappengine/ App E
 
 Windows and MacOS X users can just follow the standard installation procedure. Linux users can put the SDK in "/usr/local/google_appengine". If that is impossible you can also put the SDK into any folder that is in the system's PATH environment variable as long as it's called "google_appengine" (this works with any OS).
 
+If you use internationalization (settings: `USE_I18N = True` you also need gettext ([http://docs.djangoproject.com/en/dev/topics/i18n/#gettext-on-windows see here] if you use Windows). Note that this feature is activated in the sample project, so if you see errors about msgfmt or gettext you should either set `USE_I18N = False` or install gettext.
+
 
 = Introduction =
 
