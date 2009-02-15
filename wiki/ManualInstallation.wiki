@@ -13,7 +13,7 @@ project root
   common
     __init__.py
     appenginepatch     (copy the whole main folder)
-    django_aep_export  (based on sample project, just with files extracted from your django.zip)
+    django_aep_export  (based on sample project; contains Django's media files and templates which can't live in a zip file)
     zip-packages
         django.zip     (our patched Django version)
 }}}
