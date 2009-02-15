@@ -7,6 +7,10 @@
 == [http://freenet-homepage.de/wkornewald/appenginepatch/donate.html Donate in €] ==
 [http://freenet-homepage.de/wkornewald/appenginepatch/donate.html https://www.paypal.com/en_US/i/btn/btn_donateCC_LG_global.gif]
 
+== Recurring donations ==
+
+If your [https://www.paypal.com PayPal] account supports this you can also send a recurring donation to http://freenet-homepage.de/wkornewald/email.png
+
 = Thank you very much for your donations! =
 
  * 2009-02-11: Takashi Matsuo ($20)
