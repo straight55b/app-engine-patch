@@ -6,9 +6,9 @@ Most of these projects require app-engine-patch:
  * [http://code.google.com/p/aexpress/ aexpress]: coordination project for lots of reusable web apps
  * [http://www.rafaljonca.org/projects/ Rafał Jońca's blog]
  * [http://www.bitbucket.org/jeverling/django-registration_appenginepatch/ django-registration]: user registration support
- * [http://github.com/woid/firepython/tree/master FirePython]: log directly to Firebug
+ * [http://github.com/darwin/firepython/tree/master FirePython]: log directly to Firebug
  * [http://code.google.com/p/gae-django-dbtemplates/ gae-django-dbtemplates]: render templates from the datastore
  * [http://code.google.com/p/google-app-engine-django-openid/ OpenID]: support for OpenID
  * [http://gaeutilsuit.appspot.com/ gaeutilsuit]: generate a new Django project by selecting the apps you need
- * [http://bitbucket.org/giftag/gaegene/wiki/Home Gaegene]: Useful snippets
+ * [http://bitbucket.org/gumptioncom/gaegene/ Gaegene]: Useful snippets
  * [http://aralbalkan.com/1784 Gaebar]: Backup and restore utility for datastore
