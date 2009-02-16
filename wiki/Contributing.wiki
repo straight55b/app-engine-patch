@@ -1,6 +1,10 @@
 #summary How you can help and how to send patches.
 #labels Featured
 
+= Donate =
+
+Please consider [Donate donating] to support the development of app-engine-patch.
+
 = Community building =
 
 Spread the word. Write about app-engine-patch on your blog. Feel free to post a link to your article on our [http://groups.google.com/group/app-engine-patch mailing list].
