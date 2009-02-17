@@ -104,7 +104,7 @@ urlpatterns = patterns('',
 
 You can disable this on a per-app basis in your settings:
 {{{
-URLSAUTO_IGNORE_APPS = (
+IGNORE_APPS_URLSAUTO = (
     'registration',
     'myapp',
 )
