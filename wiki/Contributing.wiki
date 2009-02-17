@@ -35,7 +35,7 @@ Take a look at the list of [http://code.google.com/p/app-engine-patch/issues/lis
 
 Basically, app-engine-patch is a collection of monkey-patches and a few extra goodies packaged in ragendja. Normally, we manipulate Django's modules, classes, and functions to be compatible with App Engine in our [http://www.bitbucket.org/wkornewald/django-app-engine/ django-app-engine repository].
 
-A few patches can't be integrated directly into Django and are part of the [https://bitbucket.org/wkornewald/appenginepatch/ app-engine-patch repository]. As a first step to understand the source code you should first take a look at these files (in "common/appenginepatch"):
+A few patches can't be integrated directly into Django and are part of the [https://bitbucket.org/wkornewald/appenginepatch-sample/ app-engine-patch sample repository]. As a first step to understand the source code you should first take a look at these files (in "common/appenginepatch"):
 
  * manage.py
  * aecmd.py
