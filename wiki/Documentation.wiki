@@ -20,4 +20,4 @@
  * [ReleaseNotes Release notes]
  * [Contributing]
    * [GettingTheSource How to get the source]
- * [Donate Donate and support us]
+ * [Donate Donate and support app-engine-patch]
