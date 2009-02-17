@@ -3,11 +3,11 @@
 
 Your donation goes to Waldemar Kornewald. I'm a student living in Germany. Depending on the amount, the donations will be used to buy books (e.g., about interaction design) and help finance my holidays which have been soooo long ago. :) Thanks a lot!
 
-== [http://freenet-homepage.de/wkornewald/appenginepatch/donate-usd.html Donate in $] ==
-[http://freenet-homepage.de/wkornewald/appenginepatch/donate-usd.html https://www.paypal.com/en_US/i/btn/btn_donateCC_LG_global.gif]
+== [https://www.paypal.com/cgi-bin/webscr?hosted_button_id=3141874&cmd=_s-xclick Donate in $] ==
+[https://www.paypal.com/cgi-bin/webscr?hosted_button_id=3141874&cmd=_s-xclick https://www.paypal.com/en_US/i/btn/btn_donateCC_LG_global.gif]
 
-== [http://freenet-homepage.de/wkornewald/appenginepatch/donate.html Donate in €] ==
-[http://freenet-homepage.de/wkornewald/appenginepatch/donate.html https://www.paypal.com/en_US/i/btn/btn_donateCC_LG_global.gif]
+== [https://www.paypal.com/cgi-bin/webscr?hosted_button_id=3141860&cmd=_s-xclick Donate in €] ==
+[https://www.paypal.com/cgi-bin/webscr?hosted_button_id=3141860&cmd=_s-xclick https://www.paypal.com/en_US/i/btn/btn_donateCC_LG_global.gif]
 
 == Recurring donations ==
 
