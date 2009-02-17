@@ -3,8 +3,8 @@
 
 <table>
 <tr>
-<td>[http://twitter.com/wkornewald http://app-engine-patch.googlecode.com/files/wkornewald.png]</td>
-<td>Your donation goes to [http://twitter.com/wkornewald Waldemar Kornewald]. I'm a student living in Germany. Depending on the amount, the donations will be used to buy books (e.g., about interaction design) and help finance my holidays which have been soooo long ago. :) Thanks a lot!</td>
+<td valign="bottom">[http://twitter.com/wkornewald http://app-engine-patch.googlecode.com/files/wkornewald.png]</td>
+<td valign="bottom">Your donation goes to [http://twitter.com/wkornewald Waldemar Kornewald]. I'm a student living in Germany. Depending on the amount, the donations will be used to buy books (e.g., about interaction design) and help finance my holidays which have been soooo long ago. :) Thanks a lot!</td>
 </tr>
 </table>
 
