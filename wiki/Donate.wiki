@@ -1,7 +1,7 @@
 #summary If you like app-engine-patch or make money with it please donate to support its development. Thank you!
 #labels Featured
 
-Your donation goes to Waldemar Kornewald. I'm a student living in Germany. Depending on the amount, the donations will be used to buy books (e.g., about interaction design) and help finance my holidays which have been soooo long ago. :)
+Your donation goes to Waldemar Kornewald. I'm a student living in Germany. Depending on the amount, the donations will be used to buy books (e.g., about interaction design) and help finance my holidays which have been soooo long ago. :) Thanks a lot!
 
 == [http://freenet-homepage.de/wkornewald/appenginepatch/donate-usd.html Donate in $] ==
 [http://freenet-homepage.de/wkornewald/appenginepatch/donate-usd.html https://www.paypal.com/en_US/i/btn/btn_donateCC_LG_global.gif]
