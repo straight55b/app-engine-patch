@@ -39,6 +39,14 @@ MIDDLEWARE_CLASSES += (
 
 As you can see, this reduces the amount of work users need to do in order to install an app. If, for example, some middleware class needs to *always* be installed you can just add it automatically and take the burden from the user.
 
+You can disable this on a per-app basis in your settings:
+{{{
+IGNORE_APP_SETTINGS = (
+    'registration',
+    'myapp',
+)
+}}}
+
 = Media generator =
 
 If you combine this feature with app settings integration you can automatically add all required JS/CSS files to your project. For this we provide the utility function `add_app_media` which inserts your media files *before* the media files defined in the global settings:
@@ -104,7 +112,7 @@ urlpatterns = patterns('',
 
 You can disable this on a per-app basis in your settings:
 {{{
-IGNORE_APPS_URLSAUTO = (
+IGNORE_APP_URLSAUTO = (
     'registration',
     'myapp',
 )
