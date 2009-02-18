@@ -44,7 +44,7 @@ Most of your Django code should just work. Still, you should know about the foll
 
 == settings.py ==
 
-Please take the sample project's settings structure as a base and modify it to suit your needs. That's easier than writing the settings from scratch.
+Please take the sample project's settings structure as a base and modify it to suit your needs. That's easier than writing the settings from scratch. We also define a few useful defaults in [https://bitbucket.org/wkornewald/appenginepatch-sample/src/tip/common/appenginepatch/ragendja/settings_pre.py settings_pre] and [https://bitbucket.org/wkornewald/appenginepatch-sample/src/tip/common/appenginepatch/ragendja/settings_post.py settings_post]. You can override anything from settings_pre in your own settings. It's also possible to override settings_post adding the overrides behind the settings_post import.
 
 Email server settings are only used in the development environment. On the production server you automatically use Google's mail backend. Note that currently Google's SDK doesn't work with gmail accounts and other servers that require TLS. This is a bug in App Engine and we've already filed a bug report.
 
