@@ -9,7 +9,7 @@ Please consider [Donate donating] to support the development of app-engine-patch
 
 Spread the word. Write about app-engine-patch on your blog. Feel free to post a link to your article on our [http://groups.google.com/group/app-engine-patch mailing list].
 
-We could also need an article in the [http://code.google.com/appengine/articles/ App Engine articles section].
+We could also need more articles in the [http://code.google.com/appengine/articles/ App Engine articles section] (e.g., about how to use jQuery with the media generator, how to write self-contained apps, how to optimize your DB code, etc.).
 
 Actively participate on our [http://groups.google.com/group/app-engine-patch mailing list]. Answer questions and make suggestions.
 
