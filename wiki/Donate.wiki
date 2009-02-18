@@ -18,7 +18,7 @@
 
 If your [https://www.paypal.com PayPal] account supports this you can also send a monthly donation to my !PayPal account: http://app-engine-patch.googlecode.com/files/donation-email.png
 
-= Thank you very much for your donations! =
+= Thank you very much for your donations =
 
  * 2009-02-18: Curtis Thompson, Thomas Bohmbach - [http://www.giftag.com/ Giftag]: $100
  * 2009-02-11: Adam Fisk - [http://www.littleshoot.org LittleShoot]: $20
