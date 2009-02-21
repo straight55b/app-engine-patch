@@ -59,7 +59,7 @@ INSTALLED_APPS = (
 )
 }}}
 
-The generated media files are only compressed when you run "manage.py update". While developing on your local computer you probably don't want to use compressed media files. If manage.py detects that one of your media files has changed it automatically updates the "`_generated_media`" folder. You can also manually regenerate that folder by running "manage.py generatemedia" (there's also a "--compressed" flag which enforces compression). You probably won't need that command, though.
+The generated media files are only compressed when you run "manage.py update". While developing on your local computer you probably don't want to use compressed media files. If manage.py detects that one of your media files has changed it automatically updates the "`_generated_media`" folder, so in order to update your media just run "manage.py" without any arguments. You can also manually regenerate the whole folder by running "manage.py generatemedia" (there's also a "--compressed" flag which enforces compression). You probably won't need that command, though.
 
 = Integrating the media files =
 
