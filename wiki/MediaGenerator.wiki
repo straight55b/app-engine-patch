@@ -9,9 +9,7 @@ Note: This feature is pre-configured in the sample project. You can disable it b
 
 In order to optimize your website you should combine all JS (same goes for CSS) files into a single file and compress it (remove all whitespace and comments), so your users can download all media files in as few requests and as quickly as possible. Depending on the complexity of your site this can provide a huge speed boost on first load.
 
-Luckily, app-engine-patch helps you automate this process. In your settings.py you can specify how media files should be combined. Just put your app-specific media files in a folder called "media" within your app's folder and global media files within a "media" folder in your project root which is faked as the "global" app. The generated media files are stored in the folder "`_generated_media`" which is automatically created in your project root. Anything that is neither a JS nor CSS file (e.g., an image) is directly copied into that folder. Note that the JS translations catalog can be automatically integrated into the generated JS files.
-
-Example settings:
+Luckily, app-engine-patch helps you automate this process. In your settings.py you can specify how media files should be combined:
 
 {{{
 # Set default language without country code
@@ -59,7 +57,9 @@ INSTALLED_APPS = (
 )
 }}}
 
-The generated media files are only compressed when you run "manage.py update". While developing on your local computer you probably don't want to use compressed media files. If manage.py detects that one of your media files has changed it automatically updates the "`_generated_media`" folder, so in order to update your media just run "manage.py" without any arguments. You can also manually regenerate the whole folder by running "manage.py generatemedia" (there's also a "--compressed" flag which enforces compression). You probably won't need that command, though.
+Just put your app-specific media files in a folder called "media" within your app's folder and global media files within a "media" folder in your project root which is faked as the "global" app. Note that the JS translations catalog can be automatically integrated into the generated JS files (see below).
+
+Anything that is neither a JS nor CSS file (e.g., an image) is served directly while JS and CSS files must be combined in order to be accessible. On the dev_appserver the media files get generated on-the-fly by a special view, so you can change your code and the combined media files will automatically be updated. For efficiency, when you upload your website to the production server ("manage.py update") the generated media files get  compressed and stored as static files in the "_generated_media" folder and served from there.
 
 = Integrating the media files =
 
