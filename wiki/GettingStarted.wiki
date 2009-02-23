@@ -93,7 +93,17 @@ Groups are emulated with a !ListProperty storing db.Key objects ([RagendjaDB Key
 
 == Permissions ==
 
-Permissions aren't real models, but just objects which can be converted to a string via permission.get_value_for_datastore(). Permission objects get dynamically generated based on the installed models. In the User model they're stored in a !ListProperty of strings, but !ModelForm will display them with a selector interface as if it were a !ManyToManyField.
+Permissions aren't real models, but just objects which can be converted to a string via permission.get_value_for_datastore(). Permission objects get dynamically generated based on the installed models. In the User model they're stored in a !FakeModelListProperty, but !ModelForm will display them with a selector interface as if it were a !ManyToManyField.
+
+{{{
+from ragendja.dbutils import FakeModelListProperty
+from google.appengine.ext import db
+from django.contrib.auth.models import Permission
+
+class MyModel(db.Model):
+    # This property is a list of Permission objects
+    permissions = FakeModelListProperty(Permission)
+}}}
 
 
 == Generic views ==
@@ -111,7 +121,16 @@ The `post_xxx_redirect` parameters provide special access to `%(key)s`, `%(key_n
 
 *Only available in repository!*
 
-Similar to Permission, content types aren't real models. They get generated dynamically based on the installed models.
+Similar to Permission, content types aren't real models. They get generated dynamically based on the installed models. You can use a !FakeModelProperty which is very similar to a !ReferenceProperty
+
+{{{
+from ragendja.dbutils import FakeModelProperty
+from google.appengine.ext import db
+from django.contrib.contenttypes.models import ContentType
+
+class MyModel(db.Model):
+    content_type = FakeModelProperty(ContentType, required=True)
+}}}
 
 Generic relations aren't supported, yet.
 
