@@ -1,11 +1,8 @@
 #summary Utilities for handling forms in ragendja
-#labels OnlyInRepo
 
 = Module: ragendja.forms =
 
 == Using !FormSets with !ModelForm ==
-
-*This feature is only available in the repository.*
 
 `FormSet`s can be used to automatically display data for other models that have a `ReferenceProperty` back to your parent model (or `SelfReferenceProperty`).
 
