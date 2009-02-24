@@ -1,5 +1,5 @@
 #labels Featured
-= Upcoming release (1.0) =
+= Release 1.0 (2009-02-24) =
 *Very important:* If you upgrade an existing project please set `DJANGO_STYLE_MODEL_KIND = False` in your settings.py. From now on, the model `kind()` gets prefixed with the app label, by default, which prevents naming conflicts when multiple apps define models with the same name. Note that Django uses this naming scheme, too, when creating SQL tables. This feature breaks existing models which are stored without the app label, so you need to disable it when upgrading your project (or you can override the kind() method for existing models).
 
 *Important*: In beta3 we introduced a Django compatibility fix which makes your existing data inaccessible if you use `DJANGO_STYLE_MODEL_KIND` (introduced with 1.0beta and enabled by default). You can manually override your models' db_table in class Meta (or the models' kind()) to stay backwards-compatible with 1.0beta1/beta2. Read the [ReleaseNotes release notes] to make sure you don't miss anything before you upgrade and read the [GettingStarted getting started article] for installation/upgrade instructions!
