@@ -1,11 +1,8 @@
 #summary Database utilities in ragendja
-#labels OnlyInRepo
 
 = Module: ragendja.dbutils =
 
 == get_object(model, ...filters... or key or key_name or id) ==
-
-*Only available in repository! (get_object_or_404 below can be used alternatively)*
 
 Gets an entity from the datastore and returns it. You can specify a key, key_name or filter rules and they'll be translated to `get()`, `get_by_key_name()`, or `filter(...).filter().....get()`.
 
@@ -22,8 +19,6 @@ Advantages:
  * instead of doing multiple `filter()` calls you can specify all filters in one single call
 
 == get_object_list(model, ...filters...) ==
-
-*Only available in repository! (get_list_or_404 below can be used alternatively)*
 
 This works like `get_object`, but it returns a list of entities matching the filter rules:
 
@@ -119,8 +114,6 @@ For security reasons only the properties in the property_list will get added. If
 
 === !KeyListProperty ===
 
-*Only available in repository!*
-
 Simulates a many-to-many relation by storing a list of Key instances. When displaying this property in a !ModelForm you get a nice selector interface like for Django's !ManyToManyField.
 
 {{{
@@ -149,8 +142,6 @@ for file in files:
 }}}
 
 == cleanup_relations ==
-
-*Only available in repository*
 
 This is a signal handler which can be used in order to automatically delete an entity and all its related entities.
 
