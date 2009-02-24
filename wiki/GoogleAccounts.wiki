@@ -1,11 +1,8 @@
 #summary How to activate support for Google Accounts.
-#labels OnlyInRepo
 
 = Using Google Accounts =
 
 It's possible to use Google Accounts instead of Django's auth mechanism or alternatively use a hybrid system that supports both authentication methods.
-
-*Only available in repository:*
 
 By default, Google Accounts marked as admins get superuser and staff status when logging in for the first time. You can turn this off in your settings:
 {{{
@@ -52,8 +49,6 @@ AUTH_USER_MODULE = 'ragendja.auth.hybrid_models'
 Here, the `User` model has all properties that are defined in Django in addition to a `user` property (`db.UserProperty`) which can be set to `None`.
 
 = Automatic auth method handling =
-
-*Only available in repository!*
 
 If you don't want to distinguish between authentication methods, manually, you can integrate ragendja's login and logout views which automatically adapt to your authentication method. This also works with all auth decorators and `redirect_to_login`.
 
@@ -111,8 +106,6 @@ This will add two template tags for creating login and logout urls (`google_logi
 }}}
 
 == Distinguishing auth methods in hybrid mode ==
-
-*The following is only available in the repository:*
 
 In order to distinguish whether the user logged in via Google or Django and generate the correct logout link you'll need to add the 'google_user' context_processor to your settings:
 {{{
