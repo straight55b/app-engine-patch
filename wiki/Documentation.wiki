@@ -4,13 +4,13 @@
  * [GettingStarted Getting started and what's different]
    * [ManualInstallation Manual installation] (not recommended)
  * ragendja
-  * [RagendjaDB Database utilities]
-  * [RagendjaTemplate Template utilities]
-  * [RagendjaAuth Authentication utilities]
+   * [RagendjaDB Database utilities]
+   * [RagendjaTemplate Template utilities]
+   * [RagendjaAuth Authentication utilities]
      * [CustomUserModel Defining custom User models]
      * [GoogleAccounts Using Google Accounts]
-  * [RagendjaForms Form utilities]
-  * [RagendjaOther Other ragendja utilities]
+   * [RagendjaForms Form utilities]
+   * [RagendjaOther Other ragendja utilities]
  * Improving your code quality
    * [MediaGenerator Using the media generator]
    * [ZipPackages Integrating zipped packages]
