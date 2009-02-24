@@ -1,5 +1,4 @@
 #summary Template utilities in ragendja
-#labels OnlyInRepo
 
 = Module: ragendja.template =
 
@@ -52,7 +51,5 @@ This is a context_processor that adds an `encodejs` filter that converts Python 
 = Module: ragendja.middleware =
 
 == !NoHistoryCacheMiddleware ==
-
-*Only available in repository*
 
 The `NoHistoryCacheMiddleware` disables the browser's history cache for logged in users. When the user clicks the "back" button on his browser the page will get fully reloaded. Otherwise, when clicking "back", pages that were modified via !JavaScript would be shown in the state before the modifications got applied.
