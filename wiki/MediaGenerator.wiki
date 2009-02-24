@@ -1,7 +1,4 @@
 #summary Combines and compresses your JS and CSS media files.
-#labels OnlyInRepo
-
-*This feature is only available in the repository.*
 
 *Requirements:* You must have Java installed and it must be accessible via PATH.
 
