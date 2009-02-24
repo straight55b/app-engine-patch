@@ -1,7 +1,4 @@
 #summary Conventions and tools for writing self-contained apps.
-#labels OnlyInRepo
-
-*This is only available in the repository.*
 
 The goal of self-contained apps is that you can basically plug a few apps together, write a few lines to connect everything, and get your website finished as quickly as possible.
 
