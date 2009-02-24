@@ -70,3 +70,19 @@ Since the generated media files are language-specific you have to integrate them
 = i18n =
 
 You might know about Django's [http://docs.djangoproject.com/en/dev/topics/i18n/#translations-and-javascript JavaScript translation support] which works with AJAX. Since the primary goal of the media generator is to reduce the number of HTTP requests it gets rid of those AJAX requests. Instead, the generated media files automatically contain all JS translations of all installed apps, so you don't need to extend your urls.py and you also don't need to add a new `<script>` tag to load the catalog. You can directly use `gettext()`, `ngettext()`, and `interpolate()`.
+
+= Custom converters =
+
+Instead of specifying a path to a source file you can use a function which returns a source code snippet:
+
+{{{
+def myconverter(**kwargs):
+    return 'body { margin: 0; }\n'
+
+COMBINE_MEDIA = {
+    'combined-%(LANGUAGE_DIR)s.css': (
+        'myapp/style.css',
+        myconverter,
+    ),
+}
+}}}
