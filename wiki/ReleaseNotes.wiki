@@ -2,16 +2,16 @@
 = Upcoming release (1.0) =
 *Very important:* If you upgrade an existing project please set `DJANGO_STYLE_MODEL_KIND = False` in your settings.py. From now on, the model `kind()` gets prefixed with the app label, by default, which prevents naming conflicts when multiple apps define models with the same name. Note that Django uses this naming scheme, too, when creating SQL tables. This feature breaks existing models which are stored without the app label, so you need to disable it when upgrading your project (or you can override the kind() method for existing models).
 
+*Important*: In beta3 we introduced a Django compatibility fix which makes your existing data inaccessible if you use `DJANGO_STYLE_MODEL_KIND` (introduced with 1.0beta and enabled by default). You can manually override your models' db_table in class Meta (or the models' kind()) to stay backwards-compatible with 1.0beta1/beta2. Read the [ReleaseNotes release notes] to make sure you don't miss anything before you upgrade and read the [GettingStarted getting started article] for installation/upgrade instructions!
+
 *Important:* Please upgrade these files according to the versions in the sample project, so they contain the features required for [SelfContainedApps self-contained apps]:
  * app.yaml (default expiration and static file handler)
  * settings.py (import ragendja.settings_pre, ragendja.settings_post)
  * urls.py (urlsauto and auth_patterns)
  * manage.py (media generator and i18n compiler helper)
 
-*Deprecated:* `ragendja.dbutils.KeyReferenceProperty` will be removed in the final 1.0 release. Use `ReferenceProperty` instead. The key can be retrieved with `<YourModelClass>.reference.get_value_for_datastore(<model_instance>)`.
-
-What's planned:
- * ported admin interface
+What's new:
+ * ported Django's admin interface
  * [MediaGenerator media generator]
  * [SelfContainedApps self-contained apps]
  * ported django.contrib.sites and django.contrib.flatpages (thank you, Rafał Jońca!)
@@ -36,7 +36,7 @@ What's planned:
 
 Thanks to everyone who took the time to report bugs!
 
-= Release 0.9.3 (2009-02-21) =
+= Release 0.9.4 (2009-02-21) =
  * updated to be compatible with SDK 1.1.9
 
 = Release 0.9.3 (2009-01-18) =
