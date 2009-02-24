@@ -51,15 +51,10 @@ Email server settings are only used in the development environment. On the produ
 You can't use the `TransactionMiddleware` due to conceptual differences which make it impossible to implement in App Engine.
 
 The most essential "django.contrib" apps and apps that don't depend on models are supported (auth, sessions, webdesign). The following apps haven't been ported, yet:
- * `django.contrib.admin` (available in repository)
  * `django.contrib.comments`
- * `django.contrib.contenttypes` (partially available in repository; generic relations not supported)
+ * `django.contrib.contenttypes` (partially available; generic relations not supported)
  * `django.contrib.databrowse`
- * `django.contrib.flatpages` (available in repository)
  * `django.contrib.gis`
- * `django.contrib.redirects` (available in repository)
- * `django.contrib.sites` (available in repository)
-
 
 == Models ==
 
@@ -76,8 +71,6 @@ DJANGO_STYLE_MODEL_KIND = False
 
 == Admin interface ==
 
-*Only available in repository!*
-
 If you specify an ordering for a model you have to take care of providing all necessary datastore indexes. The user can't override the ordering because this would require a huge amount of indexes (combine orderings with filters and searches and you're in big trouble).
 
 Searches only work on one single property and they're exact, by default. You can prefix the search property name with "@" in which case it's assumed that the property is a !StringListProperty (like it's used in !SearchableModel). The query string is lowercased and split into words and applied via multiple filter() calls (one for each word).
@@ -86,8 +79,6 @@ Searches only work on one single property and they're exact, by default. You can
 == User model ==
 
 Since there are no unique properties in App Engine the User model doesn't guarantee uniqueness of the `username`.
-
-*Only available in repository:*
 
 Groups are emulated with a !ListProperty storing db.Key objects ([RagendjaDB KeyListProperty]), but if you use a !ModelForm the user will get a nice selector interface as if it were a !ManyToManyField.
 
@@ -119,8 +110,6 @@ The `post_xxx_redirect` parameters provide special access to `%(key)s`, `%(key_n
 
 == Content types ==
 
-*Only available in repository!*
-
 Similar to Permission, content types aren't real models. They get generated dynamically based on the installed models. You can use a !FakeModelProperty which is very similar to a !ReferenceProperty
 
 {{{
@@ -136,8 +125,6 @@ Generic relations aren't supported, yet.
 
 
 == Sites ==
-
-*Only available in repository!*
 
 The `SITE_ID` must be the `str(key)` of the Site entity. You should also have a look at the [RagendjaOther DynamicSiteIDMiddleware].
 
