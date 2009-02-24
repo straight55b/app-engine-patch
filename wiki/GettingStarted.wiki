@@ -1,5 +1,5 @@
 #summary Getting started with app-engine-patch and what's different.
-#labels Featured,OnlyInRepo
+#labels Featured
 
 = Requirements =
 
