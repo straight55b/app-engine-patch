@@ -32,7 +32,7 @@ What's new:
  * fixed slug support and added support for key_name and other redirect keywords in generic views
  * added support for model Meta `verbose_name` and `verbose_name_plural`
  * print app-engine-patch version number when running manage.py
- * refactored and cleaned up code (almost no monkey patches for Django)
+ * refactored and cleaned up code (no more monkey patching for Django)
 
 Thanks to everyone who took the time to report bugs!
 
