@@ -24,8 +24,6 @@ COMBINE_MEDIA = {
     # Create a combined JS file which is called "combined-en.js" for English,
     # "combined-de.js" for German, and so on
     'combined-%(LANGUAGE_CODE)s.js': (
-        # This adds a settings variable which gives you access to the MEDIA_URL
-        '.site_data.js',
         # Integrate bla.js from "myapp/media" folder
         # You don't write "media" because that folder is used automatically
         'myapp/bla.js',
@@ -65,6 +63,25 @@ Since the generated media files are language-specific you have to integrate them
 {{{
 <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}combined-{% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}.css" />
 <script type="text/javascript" src="{{ MEDIA_URL }}combined-{{ LANGUAGE_CODE }}.js"></script>
+}}}
+
+= Getting the MEDIA_URL from !JavaScript =
+
+You can integrate a special file called ".site_data.js" which provides access to the MEDIA_URL:
+
+{{{
+COMBINE_MEDIA = {
+    'combined-%(LANGUAGE_CODE)s.js': (
+        '.site_data.js',
+        ...
+    ),
+}
+}}}
+
+In your JS code you can then retrieve the MEDIA_URL like this:
+
+{{{
+var url = site_data.settings.MEDIA_URL + 'global/image.png';
 }}}
 
 = i18n =
