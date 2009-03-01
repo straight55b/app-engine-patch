@@ -15,7 +15,7 @@ If your [https://www.paypal.com PayPal] account supports this you can also send 
 
 = Thank you very much for your donations =
 
- * 2009-03-01: [http://johnleblanc.com/ John LeBlanc] - StoryManager: $50
+ * 2009-03-01: [http://johnleblanc.com/ John LeBlanc] - !StoryManager: $50
  * 2009-02-28: [http://www.vanosten.net/ Rick Gruber-Riemer]: €50
  * 2009-02-27: [http://dibau.wordpress.com/ Ehud Bauman]: $20
  * 2009-02-18: Curtis Thompson, Thomas Bohmbach - [http://www.giftag.com/ Giftag]: $100
