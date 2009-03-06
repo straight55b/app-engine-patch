@@ -9,7 +9,9 @@ The `django.contrib.auth.models` module now provides base models for customizing
 The password field is not required because with the new authentication methods
 like OpenID and !InfoCards you might not need it.
 
-Instead of using `AUTH_PROFILE_MODULE` you can derive your profile from one of the user classes in `ragendja.auth.models`. Then, specify your profile module via `AUTH_USER_MODULE` in `settings.py`. This should only be the module name (e.g., `'myapp.models'`) and the class MUST be named `User`. The result is that whenever you import `User` from `django.contrib.auth.models` you automatically get your custom user class and thus don't need to use the ugly get_profile() function to switch around between two models. Note that you can't import `django.contrib.auth` from the module that defines your `User` class. If you don't specify a user class then ragendja's `User` is used by default.
+Instead of using `AUTH_PROFILE_MODULE` you can derive your profile from one of the user classes in `ragendja.auth.models`. Then, specify your profile module via `AUTH_USER_MODULE` in `settings.py`. This should only be the module name (e.g., `'myapp.models'`) and the class MUST be named `User`. The result is that whenever you import `User` from `django.contrib.auth.models` you automatically get your custom user class and thus don't need to use the ugly get_profile() function to switch around between two models. Note that you can't import `django.contrib.auth` from the module that defines your `User` class. If you don't specify a user class then Django's `User` is used by default.
+
+*Warning:* If you use this feature you should not import any other models in the `AUTH_USR_MODULE` because that could cause circular imports. If you still have to import other models make sure they don't try to import the `User` model!
 
 *Example:*
 {{{
