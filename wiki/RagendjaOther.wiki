@@ -45,3 +45,8 @@ if on_production_server:
 else:
     # dev_appserver...
 }}}
+
+You can also retrieve the project's appid:
+{{{
+from appenginepatcher import appid
+}}}
