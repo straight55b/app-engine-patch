@@ -4,7 +4,7 @@
 
 What's planned:
  * updated to Django 1.1
- * remoteapi support (access datastore remotely) - Thanks a lot Thomas Bohmbach (from BestBuy/Giftag)
+ * remoteapi support (access datastore remotely) - Thanks a lot Thomas Bohmbach (from Best Buy/Giftag)
  * fixed a security issue in encodejs (data wasn't escaped)
  * minor bug fixes
  * maybe: syncdb support
