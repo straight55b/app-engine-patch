@@ -75,6 +75,8 @@ If you specify an ordering for a model you have to take care of providing all ne
 
 Searches only work on one single property and they're exact, by default. You can prefix the search property name with "@" in which case it's assumed that the property is a !StringListProperty (like it's used in !SearchableModel). The query string is lowercased and split into words and applied via multiple filter() calls (one for each word).
 
+It's impossible to search for key_name, key_id, or key. In the worst case you can enter the str(key) URL directly into your browser. Just look at some existing entity and modify the URL.
+
 
 == User model ==
 
