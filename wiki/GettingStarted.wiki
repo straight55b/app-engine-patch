@@ -1,5 +1,5 @@
 #summary Getting started with app-engine-patch and what's different.
-#labels Featured
+#labels Featured,OnlyInRepo
 
 = Requirements =
 
@@ -15,6 +15,8 @@ If you use internationalization (settings: `USE_I18N = True` you also need gette
 We provide a sample project in the [http://code.google.com/p/app-engine-patch/downloads/list downloads] section that comes with app-engine-patch and a zipped Django package pre-installed. You should change `SECRET_KEY` in your settings.py to some random value and set your appid in app.yaml. Also, remove myapp because it contains a view which allows for resetting the admin user.
 
 Most manage.py commands just work (runserver, test, flush, ...), so you should be in a familiar environment. If you want to upload your website to Google you can run "manage.py update". There's also support for removing unused indexes via "manage.py vacuum_indexes". Note that there is no need to run "manage.py syncdb".
+
+*Only in repository version:* We've added support for syncdb and [RemoteAccess remote access] to the production datastore.
 
 Before continuing please make sure that you've read the:
  * [http://docs.djangoproject.com/en/dev/ Django documentation]
