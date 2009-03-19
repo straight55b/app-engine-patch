@@ -2,6 +2,7 @@
 = Documentation =
 
  * [GettingStarted Getting started and what's different]
+   * [RemoteAccess Remote access]
    * [ManualInstallation Manual installation] (not recommended)
  * ragendja
    * [RagendjaDB Database utilities]
