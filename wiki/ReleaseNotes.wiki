@@ -1,13 +1,13 @@
 #labels Featured
 = Upcoming Release 1.1 (planned for 2009-04-13) =
-*Important:* We've added a remoteapi handler to app.yaml. Please integrate that (you can use a different path to increase security), so features like update, syncdb, and remote shell work correctly.
+*Upgrade notes:* We've added a remoteapi handler to app.yaml (for remote access to the production server). Please integrate that , so features like update, syncdb, and remote shell work correctly.
 
 What's planned:
  * updated to Django 1.1
- * remoteapi support (access datastore remotely) - thanks a lot Thomas Bohmbach (from Best Buy/Giftag)
+ * [RemoteAccess remote access] via remoteapi - thanks a lot Thomas Bohmbach (from Best Buy/Giftag) for your help
+ * manage.py syncdb support (also for production server via remote access)
  * fixed a security issue in encodejs (data wasn't escaped)
  * minor bug fixes
- * maybe: syncdb support
 
 = Release 1.0 (2009-02-24) =
 *Very important:* If you upgrade an existing project please set `DJANGO_STYLE_MODEL_KIND = False` in your settings.py. From now on, the model `kind()` gets prefixed with the app label, by default, which prevents naming conflicts when multiple apps define models with the same name. Note that Django uses this naming scheme, too, when creating SQL tables. This feature breaks existing models which are stored without the app label, so you need to disable it when upgrading your project (or you can override the kind() method for existing models).
