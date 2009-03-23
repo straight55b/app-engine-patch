@@ -142,6 +142,19 @@ For example, you can import something from ragendja like this:
 
 Never import `from projectname.appname`, but import `from appname` directly. This also has the advantage that your code becomes more reusable.
 
+= Adding custom patches to your project =
+
+If you want to add a few custom patches you have to write your own main.py handler. You could copy the original main.py and modify the code, but then you'd have to track changes in app-engine-patch and update your main.py manually. There's an easier alternative. Write your own main.py and import everything from the original main.py:
+
+{{{
+from common.appenginepatch.main import *
+
+# Do your own patching here
+# ...
+
+if __name__ == '__main__':
+    main()
+}}}
 
 = Diving in =
 
