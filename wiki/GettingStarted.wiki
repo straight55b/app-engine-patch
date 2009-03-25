@@ -3,7 +3,7 @@
 
 = Requirements =
 
-Please download and install the [http://code.google.com/p/googleappengine/ App Engine SDK].
+Please download and install [http://python.org/ Python 2.5] and the [http://code.google.com/p/googleappengine/ App Engine SDK].
 
 Windows and MacOS X users can just follow the standard installation procedure. Linux users can put the SDK in "/usr/local/google_appengine". If that is impossible you can also put the SDK into any folder that is in the system's PATH environment variable as long as it's called "google_appengine" (this works with any OS).
 
