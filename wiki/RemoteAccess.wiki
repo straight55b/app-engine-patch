@@ -5,9 +5,13 @@
 
 In app-engine-patch we've integrated a remoteapi handler, so *admins* can run manage.py syncdb, manage.py shell, and other commands on the production server:
 
+{{{
 manage.py shell --remote
+>>> from myapp.models import Person
+>>> Person.all()[0].delete() # deletes a person from the production datastore!
+}}}
 
-All datastore access will be routed to the production server, so you can do migrations or clean up your data, for example.
+All datastore access will be routed to the production server, so you can do migrations or clean up your data, for example. Read the [http://code.google.com/intl/ru/appengine/articles/remote_api.html remote_api article] for more information.
 
 = Settings =
 
