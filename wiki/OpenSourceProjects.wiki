@@ -3,12 +3,12 @@
 
 Most of these projects require app-engine-patch:
 
- * [http://code.google.com/p/aexpress/ aexpress]: coordination project for reusable web apps
+ * [http://github.com/tallstreet/jaikuenginepatch/tree/master Jaiku] ported to app-engine-patch
+ * [http://aralbalkan.com/1784 Gaebar]: Backup and restore utility for datastore
  * [http://www.rafaljonca.org/projects/ Rafał Jońca's blog]
  * [http://code.google.com/p/ihere-blog/ ihere]: Another blog
  * [http://www.bitbucket.org/jeverling/django-registration_appenginepatch/ django-registration]: user registration support
  * [http://github.com/darwin/firepython/tree/master FirePython]: log directly to Firebug
- * [http://code.google.com/p/gae-django-dbtemplates/ gae-django-dbtemplates]: render templates from the datastore
- * [http://code.google.com/p/google-app-engine-django-openid/ OpenID]: support for OpenID
  * [http://bitbucket.org/gumptioncom/gaegene/ Gaegene]: Useful snippets
- * [http://aralbalkan.com/1784 Gaebar]: Backup and restore utility for datastore
+ * [http://code.google.com/p/google-app-engine-django-openid/ OpenID]: support for OpenID
+ * [http://code.google.com/p/gae-django-dbtemplates/ gae-django-dbtemplates]: render templates from the datastore
