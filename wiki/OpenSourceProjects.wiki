@@ -3,7 +3,7 @@
 
 Most of these projects require app-engine-patch:
 
- * [http://github.com/tallstreet/jaikuenginepatch/tree/master Jaiku] ported to app-engine-patch
+ * [http://github.com/tallstreet/jaikuenginepatch/tree/master Jaiku ported to app-engine-patch]
  * [http://aralbalkan.com/1784 Gaebar]: Backup and restore utility for datastore
  * [http://www.rafaljonca.org/projects/ Rafał Jońca's blog]
  * [http://code.google.com/p/ihere-blog/ ihere]: Another blog
