@@ -20,6 +20,19 @@ Never import something in your app's __init__.py (lazy imports are OK).
 
 There is also a [http://www.youtube.com/watch?v=A-S0tqpPga4&feature=channel_page video introduction] by an experienced Django developer. Note that while he says that providing default app templates didn't work well the real problem is Django's lack of conventions. That's exactly what we want to solve.
 
+= Template conventions =
+
+Some conventions for templates:
+
+ * use XHTML (you can expect XHTML 1.0 Transitional)
+ * always place your app templates directly into the app's "templates" folder (e.g., "myapp/templates/somepage.html")
+ * always name the base template "base.html" and extend from that template
+ * the page title goes into the "title" block
+ * the content goes into the "content" block
+ * your css files go into the "css" block
+ * your js files go into the "js" block (which always comes after the css block)
+ * any extra information that must be in the `<head>` goes into the "extra-head" block
+
 = Automatic app settings integration =
 
 *Important:* Only use this feature with apps that don't place any imports in their __init__.py because you otherwise get in trouble with recursive imports! If you have no control over the source you can tell ragendja to not load that app's settings (see below).
@@ -71,19 +84,6 @@ add_app_media(globals(), 'combined-%(LANGUAGE_DIR)s.css',
 As a convention, app-engine-patch expects that you name your main media files "combined-%(LANGUAGE_CODE)s.js" and "combined-%(LANGUAGE_DIR)s.css". Use that if you want your app to be reusable.
 
 See the [MediaGenerator media generator documentation] for more information. 
-
-= Template conventions =
-
-Finally, we need some conventions for templates:
-
- * use XHTML
- * always place your app templates directly into the app's "templates" folder (e.g., "myapp/templates/somepage.html")
- * always name the base template "base.html" and extend from that template
- * the page title goes into the "title" block
- * the content goes into the "content" block
- * your css files go into the "css" block
- * your js files go into the "js" block (which always comes after the css block)
- * any extra information that must be in the `<head>` goes into the "extra-head" block
 
 = Automatic app urls integration =
 
