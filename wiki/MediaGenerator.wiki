@@ -62,7 +62,7 @@ Anything that is neither a JS nor CSS file (e.g., an image) is served directly w
 
 = Integrating the media files =
 
-Since the generated media files are language-specific you have to integrate them with this method:
+Since the generated media files are language-specific you have to integrate them with this code in your base.html template:
 
 {{{
 <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}combined-{% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}.css" />
