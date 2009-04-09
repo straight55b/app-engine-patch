@@ -4,7 +4,7 @@
 
 Note: This feature is pre-configured in the sample project. You can disable it by simply removing "mediautils" from your `INSTALLED_APPS`.
 
-In order to optimize your website you should combine all JS (same goes for CSS) files into a single file and compress it (remove all whitespace and comments), so your users can download all media files in as few requests and as quickly as possible. Depending on the complexity of your site this can provide a huge speed boost on first load.
+In order to optimize your website you normally combine all JS (same goes for CSS) files into a single file and compress everything (remove all whitespace and comments), so your users can download all media files in as few requests and as quickly as possible. Depending on the complexity of your site this can provide a huge speed boost on first load.
 
 Luckily, app-engine-patch helps you automate this process. In your settings.py you can specify how media files should be combined:
 
@@ -52,13 +52,15 @@ INSTALLED_APPS = (
 )
 }}}
 
-Just put your app-specific media files in a folder called "media" within your app's folder and global media files within a "media" folder in your project root which is faked as the "global" app. Note that the JS translations catalog can be automatically integrated into the generated JS files (see below).
+As a convention, app-engine-patch expects that you name your main media files "combined-%(LANGUAGE_CODE)s.js" and "combined-%(LANGUAGE_DIR)s.css". This convention allows for writing [SelfContainedApps reusable apps].
 
-On the dev_appserver the media files get generated on-the-fly by a special view, so you can change your code and the combined media files will automatically be updated. For efficiency, when you upload your website to the production server ("manage.py update") the generated media files get  compressed and stored as static files in the "_generated_media" folder and served from there.
+Just put your app-specific media files in a folder called "media" within your app's folder and global media files within a "media" folder in your project root which is faked as the "global" app (e.g.: "global/jquery.js"). Note that the JS translations catalog can be automatically integrated into the generated JS files (see below).
+
+On the dev_appserver the media files get generated on-the-fly by a special view, so you can change your code and the combined media files will automatically be updated. For efficiency, when you upload your website to the production server ("manage.py update") the generated media files get compressed and stored as static files in the "_generated_media" folder and served from there.
 
 = Serving images and non-JS/CSS data =
 
-Anything that is neither a JS nor CSS file (e.g., an image) is served directly while JS and CSS files must be combined in order to be accessible. The URL to your image, for example, becomes "`<MEDIA_URL><appname>/<filename>`". For example, if your MEDIA_URL is "/media" (the default) and you have a file in "myapp/media/image.png" it gets served as "/media/myapp/image.png" (i.e., no "media/" between app name and file name).
+Anything that is neither a JS nor CSS file (e.g., an image) is served directly while JS and CSS files must be combined in order to be accessible. The URL to your image, for example, becomes "`<MEDIA_URL><appname>/<filename>`". For example, if you have a file in "myapp/media/image.png" it gets served as "<MEDIA_URL>myapp/image.png" (note the missing "media/").
 
 = Integrating the media files =
 
@@ -67,6 +69,26 @@ Since the generated media files are language-specific you have to integrate them
 {{{
 <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}combined-{% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}.css" />
 <script type="text/javascript" src="{{ MEDIA_URL }}combined-{{ LANGUAGE_CODE }}.js"></script>
+}}}
+
+= Adding app-specific media =
+
+With [SelfContainedApps self-contained apps] you can always add certain media files:
+
+{{{
+# myapp/settings.py:
+
+from ragendja.settings_post import *
+
+add_app_media(globals(), 'combined-%(LANGUAGE_CODE)s.js',
+    'myapp/bla.js',
+    'myapp/blub.js',
+    # ...
+)
+add_app_media(globals(), 'combined-%(LANGUAGE_DIR)s.css',
+    'myapp/style.css',
+    # ...
+)
 }}}
 
 = Getting the MEDIA_URL from !JavaScript =
