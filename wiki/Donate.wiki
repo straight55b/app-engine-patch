@@ -15,6 +15,7 @@ If your [https://www.paypal.com PayPal] account supports this you can also send 
 
 = Thank you very much for your donations =
 
+ * 2009-04-17: John Skidgel: $100
  * 2009-03-16: Anthony Zboralski: $100
  * 2009-03-05: Rohit Majhi: $25
  * 2009-03-02: Christopher Spencer: $50
