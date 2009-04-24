@@ -60,7 +60,7 @@ On the dev_appserver the media files get generated on-the-fly by a special view,
 
 = Serving images and non-JS/CSS data =
 
-Anything that is neither a JS nor CSS file (e.g., an image) is served directly while JS and CSS files must be combined in order to be accessible. The URL to your image, for example, becomes "`<MEDIA_URL><appname>/<filename>`". For example, if you have a file in "myapp/media/image.png" it gets served as "<MEDIA_URL>myapp/image.png" (note the missing "media/").
+Anything that is neither a JS nor CSS file (e.g., an image) is served directly while JS and CSS files must be combined in order to be accessible. The URL to your image, for example, becomes "`<MEDIA_URL><appname>/<filename>`". For example, if you have a file in "myapp/media/image.png" it gets served as `"<MEDIA_URL>myapp/image.png"` (note the missing "media/").
 
 = Integrating the media files =
 
