@@ -1,6 +1,6 @@
 #labels Featured
 = Upcoming Release 1.1 (planned for 2009-04-13) =
-*Upgrade notes:* We've added a remoteapi handler to app.yaml (for remote access to the production server). Please integrate that , so features like update, syncdb, and remote shell work correctly.
+*Upgrade notes:* We've added a remoteapi handler to app.yaml (for remote access to the production server). Please integrate that, so features like update, syncdb, and remote shell work correctly.
 
 What's planned:
  * updated to Django 1.1
