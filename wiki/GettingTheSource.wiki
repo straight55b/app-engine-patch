@@ -11,3 +11,5 @@ The project consists of multiple repositories for the various components:
  * port of latest Django development release: http://bitbucket.org/wkornewald/django-app-engine-dev/
 
 If you have an improvement please [Contributing contribute]. Most of the time you should send patches against our modified Django version.
+
+If you simply want to use the latest sample project you only need to checkout the first repository.
