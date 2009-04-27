@@ -1,5 +1,5 @@
 #labels Featured
-= Upcoming Release 1.1 (planned for 2009-04-13) =
+= Upcoming Release 1.1 (will be released together with Django 1.1 final) =
 *Upgrade notes:* We've added a remoteapi handler to app.yaml (for remote access to the production server). Please integrate that, so features like update, syncdb, and remote shell work correctly.
 
 What's planned:
