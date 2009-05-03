@@ -15,7 +15,7 @@ If your [https://www.paypal.com PayPal] account supports this you can also send 
 
 = Thank you very much for your donations =
 
- * 2009-05-03: Qwigo: $10
+ * 2009-05-03: Brian Jinwright: $10
  * 2009-04-25: Thomas Howe: €15
  * 2009-04-17: John Skidgel: $100
  * 2009-03-16: Anthony Zboralski: $100
