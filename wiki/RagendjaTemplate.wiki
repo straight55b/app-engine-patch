@@ -14,16 +14,6 @@ TEMPLATE_LOADERS = (
 )
 }}}
 
-== Global template tags ==
-
-You can add global template tags by specifying the list of modules in a `GLOBALTAGS` variable in `settings.py` like in this example:
-{{{
-GLOBALTAGS = (
-    'ragendja.templatetags.ragendjatags',
-    'myapp.templatetags.sometag',
-)
-}}}
-
 == render_to_response(request, template, data, mimetype) ==
 
 This is an improved `render_to_response()` that uses `RequestContext` in order to support context processors. The `data` and `mimetype` arguments are optional.
