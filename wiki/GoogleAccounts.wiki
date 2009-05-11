@@ -83,15 +83,7 @@ Above, we could override the `LOGIN_REDIRECT_URL` with the `redirect_to` paramet
 
 == Template tags and context processors ==
 
-Add the following to your settings.py:
-{{{
-# Add google_login_url and google_logout_url tags
-GLOBALTAGS = (
-    'ragendja.templatetags.googletags',
-)
-}}}
-
-Alternatively, you can add `'ragendja'` to your `INSTALLED_APPS` and `{% load googletags %}` in your template.
+Add `'ragendja'` to your `INSTALLED_APPS` and `{% load googletags %}` in your template.
 
 This will add two template tags for creating login and logout urls (`google_login_url` and `google_logout_url`). Both tags can take an optional parameter specifying the redirect URL after login/logout:
 {{{
