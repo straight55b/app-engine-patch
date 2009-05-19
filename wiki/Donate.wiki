@@ -9,10 +9,6 @@ Your donation goes to Waldemar Kornewald. The donations will mostly be used to b
 == [https://www.paypal.com/cgi-bin/webscr?hosted_button_id=3141860&cmd=_s-xclick Donate in €] ==
 [https://www.paypal.com/cgi-bin/webscr?hosted_button_id=3141860&cmd=_s-xclick https://www.paypal.com/en_US/i/btn/btn_donateCC_LG_global.gif]
 
-== Recurring donations ==
-
-If your [https://www.paypal.com PayPal] account supports this you can also send a monthly donation to my !PayPal account: http://app-engine-patch.googlecode.com/files/donation-email.png
-
 = Thank you very much for your donations =
 
  * 2009-05-03: Brian Jinwright: $10
