@@ -1,6 +1,6 @@
 = Projects using app-engine-patch =
 
-Here is a list of non-trivial real-world projects using app-engine-patch. Most of them are closed-source.
+Here is a list of real-world projects using app-engine-patch. Most of them are closed-source.
 
  * [http://www.giftag.com/ Giftag]: A wishlist community (created by [http://www.bestbuy.com/ Best Buy])
  * [http://www.storymanager.com/ StoryManager]: Helps startups create and grow their business (make a pitch, make clear what your business is about, ...)
