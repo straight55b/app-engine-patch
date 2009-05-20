@@ -11,3 +11,7 @@ Here is a list of real-world projects using app-engine-patch. Most of them are c
  * [http://www.mobitheweb.com/ MobiTheWeb]: Directory of mobile web apps
  * [http://domai.nr/ Domainr]: Domain name search engine
  * [http://captiontube.appspot.com/ CaptionTube]: Create captions for !YouTube videos (hey, that one was created by a Google employee which is a great compliment!)
+
+Please [http://groups.google.com/group/app-engine-patch contact us] if you have another nice website based on app-engine-patch that should appear in this list. Note, please add a link to your website (e.g., to the website footer or "About" page):
+
+Powered by [http://code.google.com/p/app-engine-patch/ app-engine-patch].
