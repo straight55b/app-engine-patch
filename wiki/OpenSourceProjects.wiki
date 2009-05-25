@@ -10,5 +10,6 @@ Most of these projects require app-engine-patch:
  * [http://www.bitbucket.org/jeverling/django-registration_appenginepatch/ django-registration]: user registration support
  * [http://github.com/darwin/firepython/tree/master FirePython]: log directly to Firebug
  * [http://bitbucket.org/gumptioncom/gaegene/ Gaegene]: Useful snippets
+ * [http://bitbucket.org/james_sa/django-authopenid-appenginepatch/ authopenid]: port of Django's OpenID app
  * [http://code.google.com/p/google-app-engine-django-openid/ OpenID]: support for OpenID
  * [http://code.google.com/p/gae-django-dbtemplates/ gae-django-dbtemplates]: render templates from the datastore
