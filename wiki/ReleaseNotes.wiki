@@ -2,6 +2,8 @@
 = Upcoming Release 1.1 (waiting for Django 1.1 final) =
 *Upgrade notes:* We've added a remoteapi handler to app.yaml (for remote access to the production server). Please integrate that, so features like update, syncdb, and remote shell work correctly.
 
+Also, if you use the [SelfContainedApps#Automatic_app_urls_integration urlsauto feature] feature you have to rename the `urlpatterns` variable to `rootpatterns`. In simple cases where you map directly to "`/<appname>/`" you can just remove the existing urlsauto.py and rename your urls.py to urlsauto.py.
+
 What's planned:
  * updated to Django 1.1
  * included [http://jquery.com/ jQuery] and [http://www.blueprintcss.org/ Blueprint CSS] in the sample project to demonstrate our [MediaGenerator media generator] - thanks to Tom Brander (dartdog) for providing a base package
