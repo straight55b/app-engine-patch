@@ -87,7 +87,7 @@ See the [MediaGenerator media generator documentation] for more information.
 
 = Automatic app urls integration =
 
-The `ragendja.urlsauto` module allows for automatically integrating the installed apps' urls with a default base URL (for apps that support this feature):
+The `ragendja.urlsauto` module allows for automatically integrating the installed apps' urls with a default base URL (for apps that support this feature). To install, just change your main urls.py like this:
 
 {{{
 # urls.py:
@@ -98,7 +98,7 @@ from ragendja.urlsauto import urlpatterns
 urlpatterns = patterns(...) + urlpatterns
 }}}
 
-Simply define an "urlsauto.py" module with an `urlpatterns` variable in your app. For example, we've extended the registration app this way:
+Then, you can simply define an "urlsauto.py" module with an `urlpatterns` and/or `rootpatterns` variable in your app. For example, we've extended the registration app this way:
 
 {{{
 # registration/urlsauto.py:
@@ -106,12 +106,16 @@ Simply define an "urlsauto.py" module with an `urlpatterns` variable in your app
 from django.conf.urls.defaults import *
 
 # Integrate registration app under /account/...
-urlpatterns = patterns('',
+rootpatterns = patterns('',
     (r'^account/', include('registration.urls')),
 )
 }}}
 
-You can disable this on a per-app basis in your settings:
+This will append `rootpatterns` to your global urls.py. Here, we mapped the "registration" app to "/account/". There is a shortcut for the common case of mapping to "/<appname>/" (in this case: "/registration/"). Instead of storing your patterns in `rootpatterns` you just store then in `urlpatterns`. In other words, simply rename your app's urls.py to urlsauto.py and all urls will be prepended with "/<appname>/".
+
+== Disabling urlsauto ==
+
+You can disable this feature on a per-app basis in your settings:
 {{{
 IGNORE_APP_URLSAUTO = (
     'registration',
