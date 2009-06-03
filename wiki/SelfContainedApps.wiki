@@ -111,7 +111,7 @@ rootpatterns = patterns('',
 )
 }}}
 
-This will append `rootpatterns` to your global urls.py. Here, we mapped the "registration" app to "/account/". There is a shortcut for the common case of mapping to "/<appname>/" (in this case: "/registration/"). Instead of storing your patterns in `rootpatterns` you just store then in `urlpatterns`. In other words, simply rename your app's urls.py to urlsauto.py and all urls will be prepended with "/<appname>/".
+This will append `rootpatterns` to your global urls.py. Here, we mapped the "registration" app to "/account/". There is a shortcut for the common case of mapping to "`/<appname>/`" (in this case: "/registration/"). Instead of storing your patterns in `rootpatterns` you just store then in `urlpatterns`. In other words, simply rename your app's urls.py to urlsauto.py and all urls will be prepended with "`/<appname>/`".
 
 == Disabling urlsauto ==
 
