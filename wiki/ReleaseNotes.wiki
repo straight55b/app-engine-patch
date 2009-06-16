@@ -2,9 +2,9 @@
 = Release 1.0.2 (2009-06-16) =
 *Upgrade notes:* We've added a remoteapi handler to app.yaml (for remote access to the production server). Please integrate that, so features like update, syncdb, and remote shell work correctly.
 
-The [SelfContainedApps#Automatic_app_urls_integration app settings feature] has changed. Form now on, you manipulate the settings module directly. Change your import to: "`from ragendja.settings_post import settings`" and work with the settings module. Also, `add_app_media()` now doesn't need the ugly `globals()` parameter.
+The [SelfContainedApps#Automatic_app_settings_integration app settings feature] has changed. Form now on, you manipulate the settings module directly. Change your import to: "`from ragendja.settings_post import settings`" and work with the settings module. Also, `add_app_media()` now doesn't need the ugly `globals()` parameter.
 
-Also, if you use the [SelfContainedApps#Automatic_app_settings_integration urlsauto feature] feature you have to rename the `urlpatterns` variable to `rootpatterns`. In simple cases where you map directly to "`/<appname>/`" you can just remove the existing urlsauto.py and rename your urls.py to urlsauto.py.
+Also, if you use the [SelfContainedApps#Automatic_app_urls_integration urlsauto feature] feature you have to rename the `urlpatterns` variable to `rootpatterns`. In simple cases where you map directly to "`/<appname>/`" you can just remove the existing urlsauto.py and rename your urls.py to urlsauto.py.
 
 What's new:
  * included [http://jquery.com/ jQuery] and [http://www.blueprintcss.org/ Blueprint CSS] in the sample project to demonstrate our [MediaGenerator media generator] - thanks to Tom Brander (dartdog) for providing a base package
