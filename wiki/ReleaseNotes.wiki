@@ -10,7 +10,7 @@ What's new:
  * included [http://jquery.com/ jQuery] and [http://www.blueprintcss.org/ Blueprint CSS] in the sample project to demonstrate our [MediaGenerator media generator] - thanks to Tom Brander (dartdog) for providing a base package
  * [RemoteAccess remote access] via remoteapi - thanks a lot Thomas Bohmbach (from Best Buy/Giftag) for your help
  * manage.py syncdb support (also for production server via remote access; syncdb is automatically executed after manage.py update)
- * fixed a bug that could cause strange behavior (e.g., DuplicatePropertyError) if you got an exception on the first request of a new instance
+ * fixed a bug that could cause strange behavior (e.g., !DuplicatePropertyError) if you got an exception on the first request of a new instance
  * fixed a bug that caused sys.path to be reset to its initial state (could appear when an exception is raised on an instance's first request)
  * improved [SelfContainedApps#Automatic_app_urls_integration urlsauto feature]
  * removed `GLOBALTAGS` feature in order to reduce the number of pre-loaded modules (lazy loading is better to prevent `DeadlineExceededError`)
