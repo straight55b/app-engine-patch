@@ -78,14 +78,14 @@ With [SelfContainedApps self-contained apps] you can always add certain media fi
 {{{
 # myapp/settings.py:
 
-from ragendja.settings_post import *
+from ragendja.settings_post import settings
 
-add_app_media(globals(), 'combined-%(LANGUAGE_CODE)s.js',
+settings.add_app_media('combined-%(LANGUAGE_CODE)s.js',
     'myapp/bla.js',
     'myapp/blub.js',
     # ...
 )
-add_app_media(globals(), 'combined-%(LANGUAGE_DIR)s.css',
+settings.add_app_media('combined-%(LANGUAGE_DIR)s.css',
     'myapp/style.css',
     # ...
 )
