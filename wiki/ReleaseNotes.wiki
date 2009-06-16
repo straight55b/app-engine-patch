@@ -1,11 +1,12 @@
 #labels Featured
-= Upcoming Release 1.1 (waiting for Django 1.1 final) =
+= Release 1.0.2 (2009-06-16) =
 *Upgrade notes:* We've added a remoteapi handler to app.yaml (for remote access to the production server). Please integrate that, so features like update, syncdb, and remote shell work correctly.
 
-Also, if you use the [SelfContainedApps#Automatic_app_urls_integration urlsauto feature] feature you have to rename the `urlpatterns` variable to `rootpatterns`. In simple cases where you map directly to "`/<appname>/`" you can just remove the existing urlsauto.py and rename your urls.py to urlsauto.py.
+The [SelfContainedApps#Automatic_app_urls_integration app settings feature] has changed. Form now on, you manipulate the settings module directly. Change your import to: "`from ragendja.settings_post import settings`" and work with the settings module. Also, `add_app_media()` now doesn't need the ugly `globals()` parameter.
 
-What's planned:
- * updated to Django 1.1
+Also, if you use the [SelfContainedApps#Automatic_app_settings_integration urlsauto feature] feature you have to rename the `urlpatterns` variable to `rootpatterns`. In simple cases where you map directly to "`/<appname>/`" you can just remove the existing urlsauto.py and rename your urls.py to urlsauto.py.
+
+What's new:
  * included [http://jquery.com/ jQuery] and [http://www.blueprintcss.org/ Blueprint CSS] in the sample project to demonstrate our [MediaGenerator media generator] - thanks to Tom Brander (dartdog) for providing a base package
  * [RemoteAccess remote access] via remoteapi - thanks a lot Thomas Bohmbach (from Best Buy/Giftag) for your help
  * manage.py syncdb support (also for production server via remote access; syncdb is automatically executed after manage.py update)
@@ -13,6 +14,7 @@ What's planned:
  * fixed a bug that caused sys.path to be reset to its initial state (could appear when an exception is raised on an instance's first request)
  * improved [SelfContainedApps#Automatic_app_urls_integration urlsauto feature]
  * removed `GLOBALTAGS` feature in order to reduce the number of pre-loaded modules (lazy loading is better to prevent `DeadlineExceededError`)
+ * added a few minor optimizations in order to slightly reduce instance load times
  * fixed a security issue in encodejs (data wasn't escaped)
  * minor changes
 
