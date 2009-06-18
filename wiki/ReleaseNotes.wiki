@@ -9,6 +9,8 @@ The [SelfContainedApps#Automatic_app_settings_integration app settings feature] 
 
 Also, if you use the [SelfContainedApps#Automatic_app_urls_integration urlsauto feature] feature you have to rename the `urlpatterns` variable to `rootpatterns`. In simple cases where you map directly to "`/<appname>/`" you can just remove the existing urlsauto.py and rename your urls.py to urlsauto.py.
 
+Finally, don't forget to update the "registration" app if you use that in your project.
+
 What's new:
  * included [http://jquery.com/ jQuery] and [http://www.blueprintcss.org/ Blueprint CSS] in the sample project to demonstrate our [MediaGenerator media generator] - thanks to Tom Brander (dartdog) for providing a base package
  * [RemoteAccess remote access] via remoteapi - thanks a lot Thomas Bohmbach (from Best Buy/Giftag) for your help
