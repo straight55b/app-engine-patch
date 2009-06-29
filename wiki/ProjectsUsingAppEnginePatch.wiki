@@ -7,6 +7,7 @@ Here is a list of real-world projects using app-engine-patch. Most of them are c
  * [http://www.storymanager.com/ StoryManager]: Helps startups create and grow their business (make a pitch, make clear what your business is about, ...)
  * [http://www.littleshoot.org/ LittleShoot]: P2P file sharing in your browser (including !BitTorrent)
  * [http://radiobox.eingrad.com/ RadioBox]: Directory of radio stations (also comes with an iPhone app)
+ * [http://www.smipple.net/ Smipple]: Social snippet sharing
  * [http://www.aikido.nsk.su/ Siberian Aikido Association]
  * [http://www.mobitheweb.com/ MobiTheWeb]: Directory of mobile web apps
  * [http://domai.nr/ Domainr]: Domain name search engine
