@@ -13,6 +13,6 @@ Here is a list of real-world projects using app-engine-patch. Most of them are c
  * [http://domai.nr/ Domainr]: Domain name search engine
  * [http://captiontube.appspot.com/ CaptionTube]: Create captions for !YouTube videos (hey, that one was created by a Google employee which is a great compliment!)
 
-You can [http://groups.google.com/group/app-engine-patch contact us] if you have another nice website based on app-engine-patch that should appear in this list. If you want to be added, please consider adding a link to your website (e.g., to the website footer or "About" page):
+You can [http://groups.google.com/group/app-engine-patch contact us] if you have another nice website based on app-engine-patch that should appear in this list. If you want to be added, please consider adding a logo to your website (e.g., website footer or "About" page):
 
-Powered by [http://code.google.com/p/app-engine-patch/ app-engine-patch].
+<a href="http://code.google.com/p/app-engine-patch/"><img src="http://app-engine-patch.googlecode.com/files/powered-by-app-engine-patch.png" alt="powered by app-engine-patch" /></a>
