@@ -6,6 +6,7 @@ Here is a list of real-world projects using app-engine-patch. Most of them are c
  * [http://www.giftag.com/ Giftag]: A wishlist community (created by [http://www.bestbuy.com/ Best Buy])
  * [http://www.storymanager.com/ StoryManager]: Helps startups create and grow their business (make a pitch, make clear what your business is about, ...)
  * [http://www.littleshoot.org/ LittleShoot]: P2P file sharing in your browser (including !BitTorrent)
+ * [http://www.sociomap.com/ Sociomap]: A tool for analyzing and visualizing data
  * [http://radiobox.eingrad.com/ RadioBox]: Directory of radio stations (also comes with an iPhone app)
  * [http://www.smipple.net/ Smipple]: Social snippet sharing
  * [http://www.aikido.nsk.su/ Siberian Aikido Association]
