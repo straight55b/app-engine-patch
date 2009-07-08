@@ -27,7 +27,7 @@ class User(EmailUser):
 AUTH_USER_MODULE = 'myuser.models'
 }}}
 
-With the above code `from django.contrib.auth.models import User` becomes the same as `from myuser.models import User`. In order to maximize code reuse you should always import the Django model in your apps (`from django.contrib.auth.models import User`), so your code is independent of the `User` class of your particular project.
+With the above code `from django.contrib.auth.models import User` becomes the same as `from myuser.models import User`. In order to maximize code reuse you should always import the Django model in your apps (`from django.contrib.auth.models import User`), so your code is independent of the `User` class of your particular project. In fact, if you don't follow this standard you'll get exceptions.
 
 = Admin interface =
 
