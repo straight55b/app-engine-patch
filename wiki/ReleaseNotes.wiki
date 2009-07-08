@@ -1,4 +1,14 @@
 #labels Featured
+= Upcoming... Release 1.0.2.2 and 1.1beta1.1 (2009-07-09) =
+What's new:
+ * Signals now also work with batch-puts/deletes (db.put/delete)
+ * A 500 error page can now be debugged by setting DEBUGKEY in settings.py and adding "?debugkey=<DEBUGKEY>" to your URL
+ * Admin interface can now utilize SearchIndexProperty from [http://gae-full-text-search.appspot.com/ gae-search]
+ * Fixed User.get_profile()
+ * Fixed bugs in FormSetField
+ * Work around PYTHONPATH conflicts when you have other "google" packages installed
+ * Other minor bugfixes
+
 = Release 1.0.2.1 (2009-06-18) =
 This release contains a bugfix for !FakeModelProperty which prevented you from assigning groups/permissions to users. If you upgrade from release 1.0 please make sure you've read the 1.0.2 upgrade notes below:
 
