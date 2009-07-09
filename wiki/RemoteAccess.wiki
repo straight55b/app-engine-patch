@@ -1,9 +1,6 @@
 #summary Remote access to the production server.
-#labels OnlyInRepo
 
-*This feature is only available in the repository!*
-
-In app-engine-patch we've integrated a remoteapi handler, so *admins* can run manage.py syncdb, manage.py shell, and other commands on the production server:
+In app-engine-patch we've integrated a remoteapi handler, so *admins* with a Google Account (Google Apps/Domain accounts don't work!) can run manage.py syncdb, manage.py shell, and other commands on the production server:
 
 {{{
 manage.py shell --remote
