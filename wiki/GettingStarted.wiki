@@ -18,7 +18,7 @@ We provide a sample project in the [http://code.google.com/p/app-engine-patch/do
 
 Most manage.py commands just work (runserver, test, flush, ...), so you should be in a familiar environment. If you want to upload your website to Google you can run "manage.py update". There's also support for removing unused indexes via "manage.py vacuum_indexes". Note that there is no need to run "manage.py syncdb".
 
-*Only in repository version:* We've added support for syncdb and [RemoteAccess remote access] to the production datastore.
+We also provide support for syncdb and [RemoteAccess remote access] to the production datastore.
 
 Before continuing please make sure that you've read the:
  * [http://docs.djangoproject.com/en/dev/ Django documentation]
