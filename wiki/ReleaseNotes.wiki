@@ -4,8 +4,9 @@ What's new:
  * Signals now also work with batch-puts/deletes (db.put/delete)
  * A 500 error page can now be debugged by setting DEBUGKEY in settings.py and adding "?debugkey=DEBUGKEY" to your URL
  * Admin interface can now utilize !SearchIndexProperty from [http://gae-full-text-search.appspot.com/ gae-search]
+ * [MediaGenerator Media generator] now converts `url()` paths in CSS files such that they're relative to the CSS source file instead of the destination file (this simplifies integrating 3rd-party modules)
  * Fixed User.get_profile()
- * Fixed bugs in FormSetField
+ * Fixed bugs in !FormSetField
  * Work around PYTHONPATH conflicts when you have other "google" packages installed
  * Other minor bugfixes
 
