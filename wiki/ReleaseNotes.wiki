@@ -12,6 +12,8 @@ What's new:
  * Work around PYTHONPATH conflicts when you have other "google" packages installed
  * Other minor bugfixes
 
+Note: 1.0.2.2 missed a change regarding the `url()` rewrite behavior, so we had to make a quick update.
+
 = Release 1.0.2.1 (2009-06-18) =
 This release contains a bugfix for !FakeModelProperty which prevented you from assigning groups/permissions to users. If you upgrade from release 1.0 please make sure you've read the 1.0.2 upgrade notes below:
 
