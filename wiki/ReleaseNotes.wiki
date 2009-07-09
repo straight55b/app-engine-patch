@@ -1,5 +1,5 @@
 #labels Featured
-= Upcoming... Release 1.0.2.2 and 1.1beta1.1 (2009-07-09) =
+= Release 1.0.2.3 and 1.1beta1.1 (2009-07-09) =
 *Upgrade notes:* Since the [MediaGenerator media generator] now rewrites `url()` paths you have to change your CSS files: `url(<app>/image.png)` now becomes simply `url(image.png)` if that code is in a CSS file in the same folder or `url(../<app>/image.png)` if it's in a CSS file in some other app (i.e., you can use '../' to get the parent folder).
 
 What's new:
