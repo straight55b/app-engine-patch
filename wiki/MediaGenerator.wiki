@@ -62,6 +62,18 @@ On the dev_appserver the media files get generated on-the-fly by a special view,
 
 Anything that is neither a JS nor CSS file (e.g., an image) is served directly while JS and CSS files must be combined in order to be accessible. The URL to your image, for example, becomes "`<MEDIA_URL><appname>/<filename>`". For example, if you have a file in "myapp/media/image.png" it gets served as `"<MEDIA_URL>myapp/image.png"` (note the missing "media/").
 
+= `url()` handling in CSS files =
+
+The media generator rewrites relative `url()` paths such that they're relative to the source file. For example, if you have a file
+{{{
+/* blueprintcss/grid.css */
+.someclass { background-image: url(image.png); }
+}}}
+
+then the image URL will be converted to "blueprintcss/image.png".
+
+If you want to reach a path in some other app you can use '../' to get to the parent directory. For instance, if our 'blueprintcss/grid.css' file wanted to access 'themes/image.png' you can use `url(../themes/image.png)`.
+
 = Integrating the media files =
 
 Since the generated media files are language-specific you have to integrate them with this code in your base.html template:
