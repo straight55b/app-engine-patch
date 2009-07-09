@@ -74,6 +74,8 @@ then the image URL will be converted to "blueprintcss/image.png".
 
 If you want to reach a path in some other app you can use '../' to get to the parent directory. For instance, if our 'blueprintcss/grid.css' file wanted to access 'themes/image.png' you can use `url(../themes/image.png)`.
 
+Finally, you can also get MEDIA_URL directly with `url($MEDIA_URL/themes/image.png)`. Absolute URLs *discouraged*, but sometimes (e.g., for IE htc `behavior` rules) you have to specify an absolute URL because the browser doesn't understand relative URLs.
+
 = Integrating the media files =
 
 Since the generated media files are language-specific you have to integrate them with this code in your base.html template:
