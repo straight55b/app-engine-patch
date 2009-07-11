@@ -2,6 +2,8 @@
 = Release 1.0.2.3 and 1.1beta1.1 (2009-07-09) =
 *Upgrade notes:* Since the [MediaGenerator media generator] now rewrites `url()` paths you have to change your CSS files: `url(<app>/image.png)` now becomes simply `url(image.png)` if that code is in a CSS file in the same folder or `url(../<app>/image.png)` if it's in a CSS file in some other app (i.e., you can use '../' to get the parent folder).
 
+*Upgrade note 2:* Please make sure you also follow the upgrade notes for 1.0.2 if you currently use an older release.
+
 What's new:
  * [MediaGenerator Media generator] rewrites `url()` paths in CSS files such that they're relative to the CSS source file instead of the destination file (this simplifies integrating 3rd-party modules) - thanks mback2k!
  * Signals also work with batch-puts/deletes (db.put/delete)
