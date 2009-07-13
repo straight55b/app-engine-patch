@@ -7,7 +7,7 @@ The most important reason is that a zipped Django package loads twice as fast as
 
 app-engine-patch is much more complete and more active than django-helper. Also, it's much easier to use (just download and unzip - no need to make a Django package yourself). There really is no reason to use django-helper and follow complicated installation steps.
 
-== Now that Django 1.0 is integrated with the latest App Engine release should I still use app-engine-patch? ==
+== Now that Django 1.0 is integrated in App Engine should I still use app-engine-patch? ==
 
 Yes! The Django 1.0 version that is integrated with App Engine does *not* run out-of-the-box! Basically, you only get the template system. You can't use django.forms, django.contrib.auth, django.contrib.admin, and so on. Also, load times aren't faster because only a minor part of Django is pre-loaded into memory. You still have to load the rest which is what [http://code.google.com/p/googleappengine/issues/detail?id=1695 slows it down].
 
