@@ -77,7 +77,13 @@ DJANGO_STYLE_MODEL_KIND = False
 
 If you specify an ordering for a model you have to take care of providing all necessary datastore indexes. The user can't override the ordering because this would require a huge amount of indexes (combine orderings with filters and searches and you're in big trouble).
 
-Searches only work on one single property and they're exact, by default. You can prefix the search property name with "@" in which case it's assumed that the property is a !StringListProperty (like it's used in !SearchableModel). The query string is lowercased and split into words and applied via multiple filter() calls (one for each word).
+Searches only work on one single property and they're exact, by default. With [http://gae-full-text-search.appspot.com/ gae-search] you can also enable full-text search for a !SearchIndexProperty (e.g., named "index") like this:
+
+{{{
+class PersonAdmin(admin.ModelAdmin):
+    search_fields = ['@index']
+admin.site.register(Person, PersonAdmin)
+}}}
 
 It's impossible to search for key_name, key_id, or key. In the worst case you can enter the str(key) URL directly into your browser. Just look at some existing entity and modify the URL.
 
