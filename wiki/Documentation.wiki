@@ -4,6 +4,7 @@
  * [GettingStarted Getting started and what's different]
    * [RemoteAccess Remote access]
    * [ManualInstallation Manual installation] (not recommended)
+ * [FAQ]
  * ragendja
    * [RagendjaDB Database utilities]
    * [RagendjaTemplate Template utilities]
