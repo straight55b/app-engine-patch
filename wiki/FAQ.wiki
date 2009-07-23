@@ -13,7 +13,7 @@ Yes! The Django 1.0 version that is integrated in App Engine does *not* run out-
 
 == Is there a full-text search solution for App Engine? ==
 
-You can use [http://gae-full-text-search.appspot.com/ gae-search] which is free for non-commercial use. It's still affected by datastore limitations, but it also provides a few workarounds for them. In the admin interface you can then enable full-text search on a !SearchIndexProperty (e.g., "index") like this:
+You can use [http://gae-full-text-search.appspot.com/ gae-search] which is free for non-commercial use. It's still affected by datastore limitations, but it also provides a few workarounds for them. In the admin interface you can then enable full-text search on a !SearchIndexProperty (e.g., named "index") like this:
 
 {{{
 class PersonAdmin(admin.ModelAdmin):
