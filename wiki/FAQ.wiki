@@ -20,3 +20,15 @@ class PersonAdmin(admin.ModelAdmin):
     search_fields = ['@index']
 admin.site.register(Person, PersonAdmin)
 }}}
+
+== Why does a response take so long? ==
+
+Unless you've done something ugly in your code, this should only happen when a new Django instance gets started. On average, this can take between 1s and 4s or even more, depending on the complexity of your website. After that, all subsequent requests to that instance should be fast (100-350ms or less if you don't render templates, but only return a JSON response).
+
+When you have no traffic on your site the Django instance gets shut down very quickly (in a few seconds). Now, the problem is that if your site doesn't get enough traffic your Django instances will get shut down too quickly and your visitors will invoke a new Django instance with almost every request. In this case, the site will seem to be very slow and requests will always take a few seconds.
+
+So, if you want to build a heavy site for just a handful users Django might not be the best choice, right now, but Google is working on a solution for the slow instance startup problem. The two main reasons for slow startups are:
+ * Python code isn't yet compiled into bytecode
+ * not all Python modules support being loaded from a zip file (zip files speed up file loading)
+
+For now, this means: if you can [ZipPackages zip your code] do it!
