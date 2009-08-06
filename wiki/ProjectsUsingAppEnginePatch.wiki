@@ -7,9 +7,9 @@ Here is a list of real-world projects using app-engine-patch. Most of them are c
  * [http://www.storymanager.com/ StoryManager]: Helps startups create and grow their business (make a pitch, make clear what your business is about, ...)
  * [http://www.littleshoot.org/ LittleShoot]: P2P file sharing in your browser (including !BitTorrent)
  * [http://www.sociomap.com/ Sociomap]: A tool for analyzing and visualizing data
+ * [http://www.launchset.com/ LaunchSet]: Discover new and upcoming sites and get closed beta accounts
  * [http://www.gurutube.net/ GuruTube]: Learn from the experts
  * [http://radiobox.eingrad.com/ RadioBox]: Directory of radio stations (also comes with an iPhone app)
- * [http://www.launchset.com/ LaunchSet]: Discover new and upcoming sites and get closed beta accounts
  * [http://www.welovewind.com/ We Love Wind]: Site for wind and kite surfing
  * [http://www.smipple.net/ Smipple]: Social snippet sharing
  * [http://www.aikido.nsk.su/ Siberian Aikido Association]
