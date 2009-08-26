@@ -8,7 +8,7 @@ manage.py shell --remote
 >>> Person.all()[0].delete() # deletes a person from the production datastore!
 }}}
 
-All datastore access will be routed to the production server, so you can do migrations or clean up your data, for example. Read the [http://code.google.com/intl/ru/appengine/articles/remote_api.html remote_api article] for more information.
+All datastore access will be routed to the production server, so you can do migrations or clean up your data, for example. Read the [http://code.google.com/appengine/articles/remote_api.html remote_api article] for more information.
 
 = Settings =
 
