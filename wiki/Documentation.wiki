@@ -23,4 +23,3 @@
  * [Contributing]
    * [GettingTheSource How to get the source]
  * [ProjectsUsingAppEnginePatch Projects using app-engine-patch]
- * [Donate Donate and support app-engine-patch]
