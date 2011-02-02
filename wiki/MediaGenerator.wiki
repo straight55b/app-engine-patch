@@ -1,5 +1,10 @@
 #summary Combines and compresses your JS and CSS media files.
 
+=Important=
+
+An improved and more feature-rich version of this project is developed independently as the [http://www.allbuttonspressed.com/projects/django-mediagenerator django-mediagenerator asset manager]
+
+==Old documentation==
 *Requirements:* You must have Java installed and it must be accessible via PATH.
 
 Note: This feature is pre-configured in the sample project. You can disable it by simply removing "mediautils" from your `INSTALLED_APPS`.
