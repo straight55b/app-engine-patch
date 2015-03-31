@@ -1,0 +1,5 @@
+In App Engine you can't upload more than 3000 files. In order to work around this limitation you can compress packages into zip files. Note that each file can't be larger than 10MB (a minor App Engine limitation). Another important advantage of zipped packages is that your instance will start almost twice as fast.
+
+In order to simplify the whole process app-engine-patch automatically integrates files that you place in a "zip-packages" folder within "common" and/or your project root. For example, if you want to add a zip package for boto you just zip the "boto" root folder (when you open the zip file you should have "boto" in there). Let's assume you've named that file "boto.zip". Now, just move "boto.zip" into the "common/zip-packages" folder ("`<root>/common/zip-packages/boto.zip`"). That's it. You can now import boto.
+
+If you want to zip Django you should read the [manual installation guide](ManualInstallation.md) (scroll down to the "Zipping a Django package" section).

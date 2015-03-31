@@ -1,0 +1,1 @@
+Thank you very much for your donation and for showing your support! You'll be added to the [list of donors](Donate#Thank_you_very_much_for_your_donations.md) as soon as possible. Thank you!
